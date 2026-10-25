@@ -61,7 +61,7 @@ jobs:
         if: steps.bagli.outputs.var == 'evet' && (github.event_name == 'schedule' || github.event_name == 'push' || github.event.inputs.islem == 'paylas')
         run: |
           ad="${{ github.event.inputs.senaryo }}"
-          [ "${{ github.event_name }}" = "push" ] && ad="$(head -1 paylas-iste.txt | tr -d '[:space:]')"
+          [ "${{ github.event_name }}" = "push" ] && ad="$(head -1 paylas-iste.txt | awk '{print $1}')"  # satır: dosya adı [not]
           [ -z "$ad" ] && ad="$(python paylasilacak.py)"
           ad="$(basename "$ad")"
           if [ -z "$ad" ]; then echo "::warning title=Instagram::Paylaşılacak hazır video yok."; exit 0; fi

@@ -54,7 +54,7 @@ jobs:
           else
             python siradaki.py 2 > secilenler.txt
           fi
-          if [ ! -s secilenler.txt ]; then
+          if ! grep -q . secilenler.txt; then  # boş satır "iş var" sayılmasın
             echo "::notice title=Video::Üretilecek yeni senaryo yok."
             echo "var=hayir" >> "$GITHUB_OUTPUT"
           else
