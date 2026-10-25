@@ -185,28 +185,85 @@ def _kirp(parca, hiz, pay=0.05):
     return parca[max(0, dolu[0] - int(pay * hiz)): dolu[-1] + int(pay * hiz)]
 
 
+class BolmeHatasi(RuntimeError):
+    """Tek parça ses sahnelere güvenle bölünemedi (yazı ile ses kayardı)."""
+
+
+def _hiz_kontrol(metinler, sureler, alt=0.7, ust=1.45):
+    """Her sahnenin konuşma hızı (harf/sn) diğerlerine yakın mı? Değilse bölme yanlıştır."""
+    hizlar = [len(m) / max(0.3, s) for m, s in zip(metinler, sureler)]
+    orta = float(np.median(hizlar))
+    kotu = [i for i, h in enumerate(hizlar) if not alt <= h / orta <= ust]
+    if kotu:
+        raise BolmeHatasi(f"sahne {', '.join(str(i + 1) for i in kotu)} konuşma hızı tutmuyor "
+                          f"({', '.join(f'{h / orta:.2f}' for h in hizlar)})")
+
+
+def _hizala(adaylar, beklenen, olcek, agirlik):
+    """Duraklama adaylarından (orta, uzunluk) sırayla len(beklenen) tane seç: beklenen zamanlara en yakın,
+    mümkün olduğunca uzun duraklamalar (dinamik programlama). Seçilen ortaları döndürür; olmazsa None."""
+    k, n = len(beklenen), len(adaylar)
+    if n < k:
+        return None
+    sonsuz = float("inf")
+
+    def maliyet(i, j):
+        orta, uzunluk = adaylar[j]
+        return 4 * ((orta - beklenen[i]) / olcek) ** 2 - agirlik[i] * min(uzunluk, 1.2)
+
+    en_iyi = [[sonsuz] * n for _ in range(k)]
+    geri = [[-1] * n for _ in range(k)]
+    for j in range(n):
+        en_iyi[0][j] = maliyet(0, j)
+    for i in range(1, k):
+        eniyi_onceki, eniyi_p = sonsuz, -1
+        for j in range(n):  # önceki satırın j'den küçük en iyisini artımlı tut
+            if j > 0 and en_iyi[i - 1][j - 1] < eniyi_onceki:
+                eniyi_onceki, eniyi_p = en_iyi[i - 1][j - 1], j - 1
+            if eniyi_onceki < sonsuz:
+                en_iyi[i][j] = eniyi_onceki + maliyet(i, j)
+                geri[i][j] = eniyi_p
+    j = min(range(n), key=lambda x: en_iyi[k - 1][x])
+    if en_iyi[k - 1][j] == sonsuz:
+        return None
+    secilen = []
+    for i in range(k - 1, -1, -1):
+        secilen.append(adaylar[j][0])
+        j = geri[i][j]
+    return secilen[::-1]
+
+
 def bol(toplu_wav, metinler, hedefler):
-    """Tek parça sesi sahnelere böler: beklenen sınırlara en yakın uzun duraklamaları seçer."""
+    """Tek parça sesi sahnelere böler. Önce cümle düzeyinde hizalar: her cümle sonunda bir duraklama vardır,
+    hepsi birlikte seçilince (dinamik programlama) sahne sınırları çok daha sağlam oturur. Olmazsa sahne düzeyinde
+    hizalar. Sonuç konuşma hızıyla denetlenir; tutmazsa BolmeHatasi (video kaymış sesle üretilmez)."""
+    import re
     veri, hiz = _oku(toplu_wav)
     veri = _kirp(veri, hiz, pay=0)
     toplam = len(veri) / hiz
-    agirlik = np.cumsum([len(m) for m in metinler]) / sum(len(m) for m in metinler)
-    beklenen = [a * toplam for a in agirlik[:-1]]
-    ortalama = toplam / len(metinler)
-    adaylar = _sessizlikler(veri, hiz)
-    kesimler, onceki = [], 0.0
-    for b in beklenen:
-        uygun = [(bas, bit) for bas, bit in adaylar if (bas + bit) / 2 > onceki + 0.5]
-        if uygun:
-            bas, bit = max(uygun, key=lambda a: (a[1] - a[0]) - 1.5 * abs((a[0] + a[1]) / 2 - b) / ortalama)
-            kesim = (bas + bit) / 2
-        else:
-            kesim = max(b, onceki + 0.5)
-        kesimler.append(kesim)
-        onceki = kesim
+    adaylar = [((bas + bit) / 2, bit - bas) for bas, bit in _sessizlikler(veri, hiz, en_kisa=0.18)]
+    cumleler, sahne_sonu = [], []
+    for m in metinler:
+        parca = [c for c in re.split(r"(?<=[.!?…])\s+", m.strip()) if c]
+        cumleler += parca
+        sahne_sonu += [False] * (len(parca) - 1) + [True]
+    harf = np.cumsum([len(c) for c in cumleler]) / sum(len(c) for c in cumleler)
+    beklenen = [h * toplam for h in harf[:-1]]
+    agirlik = [1.5 if s else 0.6 for s in sahne_sonu[:-1]]  # sahne sonlarında duraklama daha uzundur
+    secilen = _hizala(adaylar, beklenen, toplam / len(cumleler), agirlik)
+    if secilen is not None:
+        kesimler = [z for z, son in zip(secilen, sahne_sonu[:-1]) if son]
+    else:  # Gemini bazı cümle aralarında durmadıysa sahne düzeyinde hizala
+        sahne_harf = np.cumsum([len(m) for m in metinler]) / sum(len(m) for m in metinler)
+        kesimler = _hizala(adaylar, [h * toplam for h in sahne_harf[:-1]], toplam / len(metinler),
+                           [1.5] * (len(metinler) - 1))
+        if kesimler is None:
+            raise BolmeHatasi(f"{len(metinler) - 1} sahne sınırı için yeterli duraklama yok")
     sinirlar = [0.0] + kesimler + [toplam]
-    for i, hedef in enumerate(hedefler):
-        _yaz(hedef, _kirp(veri[int(sinirlar[i] * hiz): int(sinirlar[i + 1] * hiz)], hiz), hiz)
+    parcalar = [_kirp(veri[int(sinirlar[i] * hiz): int(sinirlar[i + 1] * hiz)], hiz) for i in range(len(hedefler))]
+    _hiz_kontrol(metinler, [len(p) / hiz for p in parcalar])
+    for parca, hedef in zip(parcalar, hedefler):
+        _yaz(hedef, parca, hiz)
     return kesimler
 
 
@@ -233,7 +290,12 @@ def seslendir_hepsi(metinler, hedefler):
             if motor in TEK_ISTEKLI and len(metinler) > 1:
                 toplu = hedefler[0] + ".toplu.wav"
                 _tek(motor, "\n\n".join(metinler), toplu)
-                bol(toplu, metinler, hedefler)
+                try:
+                    bol(toplu, metinler, hedefler)
+                except BolmeHatasi as hata:  # kaymış ses yerine sahne sahne oku (daha çok istek, ama doğru)
+                    print(f"  {motor}: tek parça ses bölünemedi ({hata}); sahneler tek tek okunuyor")
+                    for metin, hedef in zip(metinler, hedefler):
+                        _tek(motor, metin, hedef)
                 os.remove(toplu)
             else:
                 for metin, hedef in zip(metinler, hedefler):

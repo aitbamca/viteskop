@@ -130,6 +130,11 @@ jobs:
         run: |
           for ad in $(cat basarili.txt 2>/dev/null); do
             if python -c "import json, sys; sys.exit(0 if json.load(open('senaryolar/$ad', encoding='utf-8')).get('hemen') else 1)"; then
-              gh workflow run instagram.yml -f islem=paylas -f senaryo="$ad" && echo "::notice title=Hemen paylaşım başlatıldı::$ad"
+              # "hemen" de olsa son kontrol atlanmaz: geçemeyen video normal sırasını bekler (sayfa sahibinin kuralı)
+              if sonuc="$(python kalite.py "senaryolar/$ad" "cikti/${ad%.json}.mp4")"; then
+                gh workflow run instagram.yml -f islem=paylas -f senaryo="$ad" && echo "::notice title=Hemen paylaşım başlatıldı::$ad"
+              else
+                echo "::warning title=Hemen paylaşım durduruldu::$ad: $sonuc"
+              fi
             fi
           done

@@ -1,3 +1,1 @@
-20261026-2-motor-lambasi.json
-20261026-3-yaris-cross-t-cross.json
 20261026-1-motor-yagi.json
