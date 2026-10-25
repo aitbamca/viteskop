@@ -18,6 +18,7 @@ Yanlış teknik bilgi ya da tehlikeli bir tavsiye hem izleyiciye zarar verir hem
   resmi kurumlar, saygın oto yayınları.
 - Kafa Kafaya: rakamlar aynı versiyon/donanım için mi? Birimler doğru mu (hp/PS, L, km, kWh/100 km)?
   Fiyatta ay ve yıl var mı? Anlatım tarafsız mı (kazanan yok, karar izleyiciye bırakılmış)?
+  Model yılı, motor, şanzıman ve donanım (`surum`, `donanim`, girişte `alt`) yazılı mı ve rakamlar o versiyona mı ait?
 - Genelleme yapılıyorsa "birçok araçta", "genellikle" gibi doğru çerçeve var mı; kesin aralıklar kitapçığa yönlendiriyor mu?
 
 **Kafa Kafaya'da tarafsızlık (sayfa sahibinin kuralı):** Taraf tutmayız, kazanan seçmeyiz, sonunda karar vermeyiz.

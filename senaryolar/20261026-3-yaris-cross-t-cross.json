@@ -6,8 +6,8 @@
  "araba": {
   "tip": "suv"
  },
- "aciklama": "B-SUV sınıfının iki popüler modeli: Toyota Yaris Cross Hybrid ve Volkswagen T-Cross 1.0 TSI DSG. Fiyatlar Ekim 2026 liste fiyatıdır; kampanyalar fiyatı sık değiştirir, almadan önce bayiden güncel fiyatı sor. Sen hangisini seçerdin? Yorumlara yaz, karşılaştırmayı kaydet!",
- "aciklama_en": "Two popular B-SUVs: Toyota Yaris Cross Hybrid vs Volkswagen T-Cross 1.0 TSI DSG. Prices are Turkish list prices for October 2026; campaigns change them often, so check with a dealer. Which one would you pick? Tell us in the comments and save this comparison!",
+ "aciklama": "B-SUV sınıfının iki popüler modeli: 2026 model Toyota Yaris Cross 1.5 Hybrid 130 PS e-CVT (Flame) ve Volkswagen T-Cross 1.0 TSI 116 PS DSG (Life). Fiyatlar Ekim 2026 liste fiyatıdır; kampanyalar fiyatı sık değiştirir, almadan önce bayiden güncel fiyatı sor. Sen hangisini seçerdin? Yorumlara yaz, karşılaştırmayı kaydet!",
+ "aciklama_en": "Two popular B-SUVs: the 2026 Toyota Yaris Cross 1.5 Hybrid 130 PS e-CVT (Flame) and Volkswagen T-Cross 1.0 TSI 116 PS DSG (Life). Prices are Turkish list prices for October 2026; campaigns change them often, so check with a dealer. Which one would you pick? Tell us in the comments and save this comparison!",
  "etiketler": [
   "#viteskop",
   "#yariscross",
@@ -43,18 +43,23 @@
  "sahneler": [
   {
    "tip": "giris",
-   "metin": "Yaris Cross mu, T-Cross mu? B-SUV sınıfının iki popüler modelini rakamlarla karşılaştırıyoruz.",
-   "metin_en": "Yaris Cross or T-Cross? We compare two popular B-SUVs by the numbers."
+   "metin": "Yaris Cross mu, T-Cross mu? 2026 model Yaris Cross Hybrid Flame ile T-Cross 1.0 TSI DSG Life versiyonlarını rakamlarla karşılaştırıyoruz.",
+   "metin_en": "Yaris Cross or T-Cross? We compare the 2026 Yaris Cross Hybrid Flame and the T-Cross 1.0 TSI DSG Life by the numbers.",
+   "alt": "Toyota Yaris Cross 1.5 Hybrid 130 PS e-CVT Flame  vs  Volkswagen T-Cross 1.0 TSI 116 PS DSG Life · 2026 model"
   },
   {
    "tip": "kiyas",
    "sol": {
     "ad": "Yaris Cross",
-    "tip": "suv"
+    "tip": "suv",
+    "surum": "1.5 Hybrid 130 PS · e-CVT",
+    "donanim": "Flame · 2026 model"
    },
    "sag": {
     "ad": "T-Cross",
-    "tip": "suv"
+    "tip": "suv",
+    "surum": "1.0 TSI 116 PS · DSG",
+    "donanim": "Life · 2026 model"
    },
    "satirlar": [
     {
@@ -77,11 +82,15 @@
    "tip": "kiyas",
    "sol": {
     "ad": "Yaris Cross",
-    "tip": "suv"
+    "tip": "suv",
+    "surum": "1.5 Hybrid 130 PS · e-CVT",
+    "donanim": "Flame · 2026 model"
    },
    "sag": {
     "ad": "T-Cross",
-    "tip": "suv"
+    "tip": "suv",
+    "surum": "1.0 TSI 116 PS · DSG",
+    "donanim": "Life · 2026 model"
    },
    "satirlar": [
     {

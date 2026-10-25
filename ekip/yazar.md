@@ -25,6 +25,9 @@ Seriler ve oranları (haftalık): 🥊 Kafa Kafaya 2, 🔧 Bakım Saati 4, ⚠�
   "Daha iyi", "fark atıyor", "kazanan", "tercih edilmeli" gibi ifadeler kullanılmaz. `kiyas` satırlarına `kazanan` yazılmaz.
 - **Kafa Kafaya:** Türkiye'de satılan iki rakip model (aynı sınıf). Bagaj, güç, tüketim/menzil, garanti, boyut,
   fiyat. **Her rakam üreticinin Türkiye sitesinden ya da resmi teknik föyden** alınır; fiyatta ay/yıl yazılır.
+- **Hangi versiyon:** Kıyasta her araba için model yılı, motor (hacim ve güç), şanzıman ve donanım paketi açıkça yazılır:
+  `kiyas` sahnesinde `surum` ("1.0 TSI 116 PS · DSG") ve `donanim` ("Life · 2026 model"), `giris`te `alt`
+  ("… Flame vs … Life · 2026 model") ve girişin metninde söylenir. Bütün rakamlar bu versiyona ait olmalıdır.
 - **Bakım Saati:** periyodik bakım, mevsimsel hazırlık (kış lastiği, antifriz, akü), lastik basıncı, filtreler…
 - **Arıza Alarmı:** ikaz lambaları, sesler, titreşimler, kokular: ne anlama gelir, ne yapmalı, ne zaman durmalı.
 - **Parça Rehberi:** orijinal/muadil/çıkma farkı, balata, disk, akü, buji, filtre, silecek: ne zaman değişir, nasıl anlaşılır.

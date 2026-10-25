@@ -151,7 +151,7 @@ def sahne_giris(z, t, s):
     vurgu = s.tema["vurgu"]
     seri = c.SERILER.get(s.senaryo.get("seri"), {})
     tanim = _arac_tanimi(s)
-    ar = c.araba_cizgi(820, tanim.get("tip", "sedan"), vurgu=vurgu, teker_aci=t * 30)
+    ar = c.araba_cizgi(660 if s.veri.get("alt") else 820, tanim.get("tip", "sedan"), vurgu=vurgu, teker_aci=t * 30)
     giris = c.kayarak(t, 0.0, 1.2)
     c.yapistir(z, c.saydamlik(ar, 0.85 * giris), 180 - (1 - giris) * 120 + t * 8, 1170 - ar.height)
     _ust_etiket(z, seri.get("ad", "VİTESKOP"), SOL, 470, vurgu, c.kayarak(t, 0.0, 0.4))
@@ -161,6 +161,10 @@ def sahne_giris(z, t, s):
         a = c.kayarak(t, 0.1 + i * 0.12, 0.45)
         _yazi(z, satir, SOL, 570 + i * boyut * 1.12 + (1 - a) * 40, boyut, vurgu if i == len(satirlar) - 1 else CIZGI, a)
     _cubuk(z, SOL, 570 + len(satirlar) * boyut * 1.12 - 10, 220 * c.kayarak(t, 0.6, 0.6), 8, vurgu)
+    alt = s.veri.get("alt")  # başlığın altında küçük açıklama (ör. karşılaştırılan versiyonlar)
+    if alt:
+        for i, satir in enumerate(c.satirlara_sar(alt, 32, 900, kalin=False)):
+            _yazi(z, satir, SOL, 570 + len(satirlar) * boyut * 1.12 + 50 + i * 44, 32, SOLUK, c.kayarak(t, 0.8 + i * 0.1, 0.5), kalin=False)
 
 
 def sahne_bilgi(z, t, s):
@@ -178,7 +182,7 @@ def sahne_bilgi(z, t, s):
 def sahne_kiyas(z, t, s):
     """İki araba ve satır satır karşılaştırma çubukları.
 
-    {"tip": "kiyas", "sol": {"ad": "Togg T10X", "tip": "suv"}, "sag": {...},
+    {"tip": "kiyas", "sol": {"ad": "Togg T10X", "tip": "suv", "surum": "V1 RWD · 218 PS", "donanim": "Uzun Menzil · 2026"}, "sag": {...},
      "satirlar": [{"ad": "Bagaj", "sol": "441 L", "sag": "510 L", "anahtar": "bagaj"}]}
     Tarafsız: kazanan seçilmez, çubuklar yalnızca rakamları gösterir.
     """
@@ -189,17 +193,25 @@ def sahne_kiyas(z, t, s):
     a2 = c.araba_cizgi(440, sag.get("tip", "sedan"), yon=-1, vurgu=SAG_RENK)
     c.yapistir(z, c.saydamlik(a1, a), 40 - (1 - a) * 80, 330)
     c.yapistir(z, c.saydamlik(a2, a), 600 + (1 - a) * 80, 330)
-    _yazi(z, sol.get("ad", "").upper(), SOL, 545, 34, CIZGI, c.kayarak(t, 0.3, 0.4), aralik=2)
-    _yazi(z, sag.get("ad", "").upper(), 1000, 545, 34, CIZGI, c.kayarak(t, 0.4, 0.4), anchor="rm", aralik=2)
+    g1, g2 = c.kayarak(t, 0.3, 0.4), c.kayarak(t, 0.4, 0.4)
+    _yazi(z, sol.get("ad", "").upper(), SOL, 545, 34, CIZGI, g1, aralik=2)
+    _yazi(z, sag.get("ad", "").upper(), 1000, 545, 34, CIZGI, g2, anchor="rm", aralik=2)
     _yazi(z, "VS", 540, 545, 30, vurgu, c.kayarak(t, 0.5, 0.4), anchor="mm", aralik=4)
-    ImageDraw.Draw(z, "RGBA").line([(SOL, 585), (1000, 585)], fill=(255, 255, 255, int(40 * a)), width=2)
+    # hangi versiyon: motor/şanzıman ve donanım · model yılı (sayfa sahibinin kuralı)
+    alt_y = 585
+    for j, alan in enumerate(("surum", "donanim")):
+        if sol.get(alan) or sag.get(alan):
+            _yazi(z, sol.get(alan, ""), SOL, alt_y + j * 34, 26, SOLUK, g1, kalin=False)
+            _yazi(z, sag.get(alan, ""), 1000, alt_y + j * 34, 26, SOLUK, g2, kalin=False, anchor="rm")
+    ust_bosluk = 34 * sum(1 for alan in ("surum", "donanim") if sol.get(alan) or sag.get(alan))
+    ImageDraw.Draw(z, "RGBA").line([(SOL, 585 + ust_bosluk), (1000, 585 + ust_bosluk)], fill=(255, 255, 255, int(40 * a)), width=2)
     satirlar = s.veri.get("satirlar", [])[:5]
     anlar = s.sirali(len(satirlar), [r.get("anahtar") for r in satirlar], bas=0.18, son=0.82)
     for i, (satir, t0) in enumerate(zip(satirlar, anlar)):
         g = c.kayarak(t, t0, 0.5)
         if not g:
             continue
-        y = 650 + i * 104
+        y = 650 + ust_bosluk + i * (104 if ust_bosluk < 60 else 96)
         _yazi(z, satir.get("ad", "").upper(), 540, y, 26, SOLUK, g, anchor="mm", aralik=3)
         n1, n2 = _sayi(satir.get("sol")), _sayi(satir.get("sag"))
         en = max(n1 or 0, n2 or 0)
