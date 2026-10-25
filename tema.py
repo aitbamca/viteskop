@@ -89,7 +89,7 @@ def _filigran(tema, rnd):
     if tur == "garaj":
         return c.saydamlik(c.parca_cizgi(rnd.choice(["lastik", "fren_diski"]), 1100, aci=rnd.uniform(0, 60), renk=soluk), 0.06), (rnd.choice([-380, 360]), 640)
     if tur == "gosterge":
-        return c.saydamlik(c.gosterge(560, 0.0, renk=(60, 64, 76)), 0.18), (-20, 380)
+        return c.saydamlik(c.gosterge(560, 0.0, renk=(60, 64, 76)), 0.07), (-20, 380)
     return None, None
 
 
