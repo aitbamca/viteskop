@@ -65,7 +65,7 @@ def aciklama_yaz(senaryo):
 
 
 def reels_paylas(video_adresi, aciklama, kapak_ms=2500):
-    """video_adresi: Instagram'ın videoyu çekeceği herkese açık adres (clufive-medya GitHub Pages)."""
+    """video_adresi: Instagram'ın videoyu çekeceği herkese açık adres (viteskop-medya GitHub Pages)."""
     token = _token()
     kullanici = hesap()["user_id"]
 

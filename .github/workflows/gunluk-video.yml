@@ -6,18 +6,17 @@ on:
     paths: ["senaryolar/**"]  # ajan yeni senaryo yükleyince hemen üret
   schedule:
     # Gemini'nin ücretsiz kotası 10:00'da (Türkiye) yenilenir; bekleyen videolar kotayla birlikte üretilir
-    - cron: "17 7 * * *"   # 10:17
-    - cron: "17 10 * * *"  # 13:17
-    - cron: "17 13 * * *"  # 16:17
+    - cron: "23 7 * * *"   # 10:23
+    - cron: "23 12 * * *"  # 15:23
   workflow_dispatch:
     inputs:
       senaryo:
-        description: "Senaryo dosyası (boş bırakılırsa bekleyen ilk 3 senaryo)"
+        description: "Senaryo dosyası (boş bırakılırsa bekleyen ilk 2 senaryo)"
         required: false
       ses:
         description: "Ses sağlayıcısını zorla (boş = otomatik: Gemini, sonra ElevenLabs)"
         type: choice
-        options: ["", gemini, elevenlabs]
+        options: ["", gemini]
         default: ""
       deneme:
         description: "Deneme: video sadece indirilebilir olur; hazır videolara ve yayın sırasına girmez"
@@ -52,7 +51,7 @@ jobs:
           if [ -n "${{ github.event.inputs.senaryo }}" ]; then
             echo "${{ github.event.inputs.senaryo }}" > secilenler.txt
           else
-            python siradaki.py 3 > secilenler.txt
+            python siradaki.py 2 > secilenler.txt
           fi
           if [ ! -s secilenler.txt ]; then
             echo "::notice title=Video::Üretilecek yeni senaryo yok."
@@ -66,12 +65,9 @@ jobs:
         env:
           SES_SAGLAYICI: ${{ github.event.inputs.ses || vars.SES_SAGLAYICI }}
           GEMINI_SES: ${{ vars.GEMINI_SES }}
-          ELEVENLABS_SES_ID: ${{ vars.ELEVENLABS_SES_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          # Gün içinde yalnızca Gemini; ElevenLabs sadece günün son üretiminde (16:17), Gemini hâlâ yoksa.
-          # Robotik yedek sesle hiç video üretilmez; kalan iş bir sonraki çalıştırmaya bekler.
-          SES_ZORUNLU: ${{ github.event.inputs.ses || (github.event.schedule == '17 13 * * *' && 'gemini,elevenlabs') || (secrets.GEMINI_API_KEY != '' && 'gemini') || 'gemini,elevenlabs' }}
+          # Sadece Gemini (Iapetus). Robotik yedek sesle hiç video üretilmez; kalan iş bir sonraki çalıştırmaya bekler.
+          SES_ZORUNLU: gemini
         run: |
           set -o pipefail
           mkdir -p cikti
@@ -114,8 +110,8 @@ jobs:
         run: |
           [ -s basarili.txt ] || exit 0
           cat basarili.txt >> yapilanlar.txt
-          git config user.name "clufive-bot"
-          git config user.email "clufive-bot@users.noreply.github.com"
+          git config user.name "viteskop-bot"
+          git config user.email "viteskop-bot@users.noreply.github.com"
           git add yapilanlar.txt
           git commit -m "Üretildi: $(tr '\n' ' ' < basarili.txt)"
           git pull --rebase -q origin main

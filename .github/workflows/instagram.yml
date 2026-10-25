@@ -1,12 +1,11 @@
 name: Instagram paylaşımı
 
 on:
-  # Otomatik paylaşım (sayfa sahibinin onayıyla açıldı, 24 Ekim 2026). Video adresinin hazırlanması
-  # 1-2 dakika sürdüğü için 3 dakika erken başlar: Reels 09:00, 13:00 ve 20:00 civarında yayında olur.
+  # Otomatik paylaşım: INSTAGRAM_TOKEN eklenene kadar zamanlanmış çalışmalar sessizce atlanır.
+  # Video adresinin hazırlanması 1-2 dakika sürdüğü için 3 dakika erken başlar: Reels 12:30 ve 20:30 civarında yayında.
   schedule:
-    - cron: "57 5 * * *"   # 08:57 (Türkiye saati)
-    - cron: "57 9 * * *"   # 12:57
-    - cron: "57 16 * * *"  # 19:57
+    - cron: "27 9 * * *"   # 12:27 (Türkiye saati)
+    - cron: "27 17 * * *"  # 20:27
   workflow_dispatch:
     inputs:
       islem:
@@ -15,7 +14,7 @@ on:
         options: [kontrol, paylas]
         default: kontrol
       senaryo:
-        description: "Paylaşılacak senaryo dosyası, ör. 20261024-1-yapraklar.json (boş = sıradaki)"
+        description: "Paylaşılacak senaryo dosyası, ör. 20261026-1-motor-yagi.json (boş = sıradaki)"
         required: false
 
 permissions:
@@ -39,11 +38,22 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Instagram bağlı mı?
+        id: bagli
+        run: |
+          if [ -z "$INSTAGRAM_TOKEN" ]; then
+            echo "::notice title=Instagram::Henüz bağlanmadı (INSTAGRAM_TOKEN yok); paylaşım atlandı."
+            echo "var=hayir" >> "$GITHUB_OUTPUT"
+          else
+            echo "var=evet" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Bağlantıyı kontrol et
+        if: steps.bagli.outputs.var == 'evet'
         run: echo "::notice title=Instagram::$(python instagram.py kontrol)"
 
       - name: Sıradaki videoyu paylaş
-        if: github.event_name == 'schedule' || github.event.inputs.islem == 'paylas'
+        if: steps.bagli.outputs.var == 'evet' && (github.event_name == 'schedule' || github.event.inputs.islem == 'paylas')
         run: |
           ad="${{ github.event.inputs.senaryo }}"
           [ -z "$ad" ] && ad="$(python paylasilacak.py)"
@@ -53,17 +63,17 @@ jobs:
           if ! gh release download hazir -p "$video" -D cikti 2> indirme.log; then
             echo "::error title=Video indirilemedi::$video: $(tail -c 300 indirme.log | tr '\n' ' ')"; exit 1
           fi
-          adres="$(bash medya_yayinla.sh koy "cikti/$video")" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve clufive-medya Pages ayarını kontrol et"; exit 1; }
+          adres="$(bash medya_yayinla.sh koy "cikti/$video")" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve viteskop-medya Pages ayarını kontrol et"; exit 1; }
           if ! python instagram.py paylas "$adres" "senaryolar/$ad" > paylasim.log 2>&1; then
             bash medya_yayinla.sh temizle || true
             echo "::error title=Instagram paylaşımı başarısız::$(tail -c 900 paylasim.log | tr '\n' ' ')"; exit 1
           fi
-          bash medya_yayinla.sh temizle || echo "::warning title=Temizlik::Video clufive-medya'dan silinemedi"
+          bash medya_yayinla.sh temizle || echo "::warning title=Temizlik::Video viteskop-medya'dan silinemedi"
           sonuc="$(tail -1 paylasim.log)"
           echo "::notice title=Instagram::$sonuc"
           printf '%s\t%s\t%s\n' "$ad" "$(date -u +%Y-%m-%dT%H:%MZ)" "${sonuc##* }" >> yayinlananlar.txt
-          git config user.name "clufive-bot"
-          git config user.email "clufive-bot@users.noreply.github.com"
+          git config user.name "viteskop-bot"
+          git config user.email "viteskop-bot@users.noreply.github.com"
           git add yayinlananlar.txt
           git commit -m "Instagram'da paylaşıldı: $ad"
           git pull --rebase -q origin main

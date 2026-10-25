@@ -323,7 +323,9 @@ def sahne_parca(z, t, s):
     anlar = s.sirali(len(notlar), s.veri.get("anahtarlar"), bas=0.3, son=0.75)
     for i, (n, t0) in enumerate(zip(notlar, anlar)):
         x, y = [(170, 400), (910, 560), (170, 860)][i]
-        c.etiket(z, n, x, y, boyut=36, olcek=c.pop(t, t0), cerceve=s.tema["vurgu"] + (255,))
+        yari = (c.font(38).getlength(n) + 42) / 2  # ekrandan taşmasın
+        x = max(30 + yari, min(c.W - 30 - yari, x))
+        c.etiket(z, n, x, y, boyut=38, olcek=c.pop(t, t0), cerceve=s.tema["vurgu"] + (255,))
 
 
 def sahne_gosterge(z, t, s):

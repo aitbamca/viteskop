@@ -1,0 +1,35 @@
+{
+ "baslik": "Motor lambası yandı, ne yapmalı?",
+ "baslik_en": "Check engine light on: what should you do?",
+ "seri": "ariza",
+ "aciklama": "Motor arıza lambası yandığında ilk bakman gereken şey: sabit mi yanıyor, yanıp mı sönüyor? Bu lamba sende hiç yandı mı? Yorumlara yaz, kaydet, lazım olur! ⚠️",
+ "aciklama_en": "When the check engine light comes on, the first thing to check: is it steady or flashing? Has it ever lit up in your car? Tell us in the comments and save this! ⚠️",
+ "etiketler": ["#viteskop", "#arızalambası", "#motorarızası", "#arababakımı", "#araba", "#otomobil", "#oto", "#arızaalarmı", "#checkenginelight", "#cartips"],
+ "kaynaklar": [
+  "https://www.farmers.com/learn/insurance-questions/check-engine-light-came-on/",
+  "https://www.creditacceptance.com/car-buyers/express-lane/check-engine-light-what-to-do",
+  "Aracın kullanım kitapçığı: gösterge paneli ikaz lambaları bölümü"
+ ],
+ "sahneler": [
+  {"tip": "giris",
+   "metin": "Motor arıza lambası yandı! Panik yok. Önce lambanın nasıl yandığına bak.",
+   "metin_en": "The check engine light is on! Don't panic. First, look at how it's lit."},
+  {"tip": "ikaz", "ikon": "motor", "renk": "sari", "yazi": "Sabit yanıyorsa",
+   "metin": "Lamba sabit yanıyorsa sorun genelde acil değildir. Ama ilk fırsatta kontrol ettir.",
+   "metin_en": "If the light is steady, the problem usually isn't urgent. But get it checked as soon as you can."},
+  {"tip": "ikaz", "ikon": "motor", "renk": "kirmizi", "yazi": "Yanıp sönüyorsa",
+   "metin": "Lamba yanıp sönüyorsa motorda ciddi bir tekleme olabilir. Bu, katalitik konvertöre zarar verebilir.",
+   "metin_en": "If the light is flashing, the engine may be seriously misfiring. That can damage the catalytic converter."},
+  {"tip": "uyari", "yazi": "Yanıp sönüyorsa: yavaşla, güvenle dur",
+   "metin": "Bu durumda hızını düşür, güvenli bir yerde dur ve aracı servise götür.",
+   "metin_en": "In that case slow down, stop somewhere safe and take the car to a service."},
+  {"tip": "liste", "maddeler": ["Yakıt kapağını kontrol et", "Arıza kodunu okut", "Kodu okutmadan silme"], "ikonlar": [null, "motor", null],
+   "anahtarlar": ["yakıt", "kesin", "kodu"],
+   "metin": "Bazı araçlarda gevşek yakıt kapağı bile bu lambayı yakar. Kesin sebebi öğrenmek için arıza kodunu okut. Kodu okutmadan silme.",
+   "metin_en": "In some cars even a loose fuel cap can turn this light on. To learn the exact cause, have the fault code read. Don't clear it before it's read."},
+  {"tip": "kapanis",
+   "metin": "Bu lamba sende hiç yandı mı? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Has this light ever come on in your car? Comment and save it for later!",
+   "soru": "Bu lamba sende hiç yandı mı?"}
+ ]
+}
