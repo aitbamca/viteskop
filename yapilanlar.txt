@@ -1,1 +1,2 @@
 20261026-1-motor-yagi.json
+20261026-2-motor-lambasi.json
