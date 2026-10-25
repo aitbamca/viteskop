@@ -1,0 +1,44 @@
+name: Bağlantı kontrolü
+
+on:
+  push:
+    branches: [main]
+    paths: ["denemeler/kontrol-iste.txt"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instagram ve medya adresini dene (paylaşım yapmaz)
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          MEDYA_TOKEN: ${{ secrets.MEDYA_TOKEN }}
+        run: |
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          {
+            echo "Kontrol: $(date -u +%Y-%m-%dT%H:%MZ)"
+            echo "Instagram: $(python instagram.py kontrol 2>&1 | tail -2 | tr '\n' ' ')"
+            ffmpeg -loglevel error -f lavfi -i color=c=black:s=320x240:d=1 -pix_fmt yuv420p /tmp/deneme.mp4
+            if adres="$(bash medya_yayinla.sh koy /tmp/deneme.mp4 2>/tmp/medya.log)"; then
+              echo "Medya adresi: çalışıyor ($adres)"
+              bash medya_yayinla.sh temizle > /dev/null 2>&1 || true
+            else
+              echo "Medya adresi: HATA $(tail -c 300 /tmp/medya.log | tr '\n' ' ')"
+            fi
+          } > denemeler/baglanti-sonuc.txt
+          cat denemeler/baglanti-sonuc.txt
+      - name: Sonucu kaydet
+        run: |
+          git config user.name "viteskop-bot"
+          git config user.email "viteskop-bot@users.noreply.github.com"
+          git add denemeler/baglanti-sonuc.txt
+          git commit -m "Bağlantı kontrolü" || exit 0
+          git pull --rebase origin main && git push origin main
