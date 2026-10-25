@@ -60,6 +60,11 @@ def cumleler(kz):
 
 # ---------------------------------------------------------------- sahneler
 
+SOL = 80  # sol kenar boşluğu: yazılar sola yaslı (ciddi, dergi düzeni)
+SOLUK = (150, 158, 174)
+CIZGI = (232, 236, 243)
+
+
 class Baglam:
     """Sahne fonksiyonlarına verilen bilgiler: sahne(z, t, s) içinde s olarak gelir."""
 
@@ -78,287 +83,263 @@ class Baglam:
         anlar = []
         for i in range(adet):
             varsayilan = self.sure * (bas + (son - bas) * i / max(1, adet - 1)) if adet > 1 else self.sure * bas
-            kelime = (anahtarlar or [None] * adet)[i] if anahtarlar and i < len(anahtarlar) else None
+            kelime = anahtarlar[i] if anahtarlar and i < len(anahtarlar) else None
             anlar.append(self.zaman(c.sadelestir(kelime), varsayilan) if kelime else varsayilan)
         return anlar
 
 
-ORTAK_ARKA_PLANLAR = {}  # bütün sahneler temanın dünyasında geçer
+ORTAK_ARKA_PLANLAR = {}  # bütün sahneler temanın stüdyosunda geçer
 
 
 def ortak_varliklar():
-    return SimpleNamespace(
-        logo_kucuk=c.logo_karti(230),
-        yorum_balonu=c.konusma_balonu("…", boyut=110),
-        soru_balonu=c.konusma_balonu("?", boyut=120),
-    )
+    l = c.logo(400)
+    return SimpleNamespace(logo_kucuk=c.olcekle(l, 64 / l.height) if l.height > l.width * 0.5 else c.olcekle(l, 190 / l.width))
 
 
-def _satirlar(kelimeler, boyut, genislik=900):
-    f, satirlar, satir = c.font(boyut), [], []
-    for k in kelimeler:
-        if satir and f.getlength(" ".join(satir + [k])) > genislik:
-            satirlar.append(satir)
-            satir = []
-        satir.append(k)
-    return satirlar + [satir]
+def _yazi(z, metin, x, y, boyut, renk=CIZGI, alfa=1.0, kalin=True, anchor="lm", aralik=0):
+    """Saydamlığı olan yazı; aralik > 0 ise harfler aralıklı (küçük büyük harf etiketleri için)."""
+    if alfa <= 0 or not metin:
+        return
+    d = ImageDraw.Draw(z, "RGBA")
+    renk = tuple(renk[:3]) + (int(255 * min(1.0, alfa)),)
+    f = c.font(boyut, kalin)
+    if not aralik:
+        d.text((x, y), metin, font=f, fill=renk, anchor=anchor)
+        return
+    genislik = sum(f.getlength(h) for h in metin) + aralik * (len(metin) - 1)
+    if anchor[0] == "m":
+        x -= genislik / 2
+    elif anchor[0] == "r":
+        x -= genislik
+    for h in metin:
+        d.text((x, y), h, font=f, fill=renk, anchor="l" + anchor[1])
+        x += f.getlength(h) + aralik
 
 
-def _arac(tanim, w, teker_aci=0.0, yon=1):
-    """Senaryodaki araba tanımı: {"ad": "...", "tip": "suv", "renk": [r, g, b]}"""
-    tanim = tanim or {}
-    renk = tuple(tanim.get("renk") or c.MAVI)
-    return c.araba(w, renk, tanim.get("tip", "sedan"), teker_aci=teker_aci, yon=yon)
+def _ust_etiket(z, metin, x, y, renk, alfa=1.0, cizgi=True):
+    """Turuncu ince çizgi + aralıklı büyük harf etiket: — BAKIM SAATİ"""
+    if alfa <= 0:
+        return
+    d = ImageDraw.Draw(z, "RGBA")
+    if cizgi:
+        d.line([(x, y), (x + 46 * alfa, y)], fill=tuple(renk[:3]) + (int(255 * alfa),), width=4)
+        x += 62
+    _yazi(z, metin.upper(), x, y, 30, renk, alfa, aralik=5)
+
+
+def _cubuk(z, x0, y, uzunluk, kalinlik, renk, alfa=1.0, yon=1):
+    if uzunluk <= 0 or alfa <= 0:
+        return
+    d = ImageDraw.Draw(z, "RGBA")
+    x1 = x0 + uzunluk * yon
+    d.rectangle((min(x0, x1), y - kalinlik / 2, max(x0, x1), y + kalinlik / 2), fill=tuple(renk[:3]) + (int(255 * alfa),))
+
+
+def _sayi(metin):
+    m = re.search(r"\d+(?:[.,]\d+)?", str(metin).replace(".", "") if re.search(r"\d\.\d{3}", str(metin)) else str(metin))
+    return float(m.group().replace(",", ".")) if m else None
+
+
+def _arac_tanimi(s):
+    return s.veri.get("araba") or s.senaryo.get("araba") or {}
 
 
 def sahne_giris(z, t, s):
-    """Seri rozeti ve soru: ekranın ortasında büyük ve hareketli. Düzen başlığa göre değişir."""
-    t += BASTA_BOSLUK  # sesten önceki boşlukta da çiz: soru videonun ilk karesinden belirmeye başlar
-    soru = s.baslik.split()
-    duzen = s.tema["tohum"] % 3
+    """Seri etiketi ve sola yaslı büyük başlık; altta arabanın teknik çizimi yavaşça kayar."""
+    t += BASTA_BOSLUK
     vurgu = s.tema["vurgu"]
-    rozet = c.seri_rozeti(s.senaryo.get("seri"))
-    if rozet:
-        olcek = c.pop(t, 0.0, 0.3)
-        if olcek:
-            c.ortala_yapistir(z, c.olcekle(rozet, olcek), 540, 440)
-    boyut = 100 if len(s.baslik) < 24 else 84
-    satirlar = _satirlar(soru, boyut)
-    y0 = 720 - (len(satirlar) - 1) * boyut * 0.62
-    if duzen == 0:  # koyu cam kart
-        olcek = c.pop(t, 0.05)
-        if olcek:
-            yuk = len(satirlar) * boyut * 1.25 + 90
-            c.ortala_yapistir(z, c.olcekle(c.kart(990, int(yuk), cerceve=vurgu + (255,)), olcek), 540, 720)
-    elif duzen == 1:  # arkadan bir araba geçer
-        x = -400 + (t / max(0.1, s.sure + BASTA_BOSLUK)) * 1900
-        ar = _arac(s.senaryo.get("araba") or {"renk": list(vurgu), "tip": "sedan"}, 620, teker_aci=t * 400)
-        c.ortala_yapistir(z, c.saydamlik(ar, 0.9), x, 1000 - ar.height / 2 + 10)
-    sira = 0
-    f = c.font(boyut)
+    seri = c.SERILER.get(s.senaryo.get("seri"), {})
+    tanim = _arac_tanimi(s)
+    ar = c.araba_cizgi(820, tanim.get("tip", "sedan"), vurgu=vurgu, teker_aci=t * 30)
+    giris = c.kayarak(t, 0.0, 1.2)
+    c.yapistir(z, c.saydamlik(ar, 0.85 * giris), 180 - (1 - giris) * 120 + t * 8, 1170 - ar.height)
+    _ust_etiket(z, seri.get("ad", "VİTESKOP"), SOL, 470, vurgu, c.kayarak(t, 0.0, 0.4))
+    boyut = 104 if len(s.baslik) < 24 else 90
+    satirlar = c.satirlara_sar(s.baslik, boyut, 900)
     for i, satir in enumerate(satirlar):
-        x = 540 - f.getlength(" ".join(satir)) / 2
-        y = y0 + i * boyut * 1.25
-        for n, kelime in enumerate(satir):
-            w = f.getlength(kelime)
-            son = i == len(satirlar) - 1 and n == len(satir) - 1
-            t0 = 0.12 + sira * 0.14
-            renk = vurgu if son else c.BEYAZ
-            if duzen == 2:  # kelimeler yandan hızla kayarak gelir
-                ilerleme = c.kayarak(t, t0, 0.35)
-                if ilerleme:
-                    c.metin_ciz(z, kelime, x + w / 2 + (1 - ilerleme) * 700, y, boyut, renk, kontur=c.KOYU, kontur_kalinlik=10)
-            else:
-                olcek = c.pop(t, t0, 0.3)
-                if olcek:
-                    c.metin_ciz(z, kelime, x + w / 2, y, max(8, int(boyut * olcek)), renk, kontur=c.KOYU,
-                                kontur_kalinlik=0 if duzen == 0 else 10)
-            x += w + f.getlength(" ")
-            sira += 1
+        a = c.kayarak(t, 0.1 + i * 0.12, 0.45)
+        _yazi(z, satir, SOL, 570 + i * boyut * 1.12 + (1 - a) * 40, boyut, vurgu if i == len(satirlar) - 1 else CIZGI, a)
+    _cubuk(z, SOL, 570 + len(satirlar) * boyut * 1.12 - 10, 220 * c.kayarak(t, 0.6, 0.6), 8, vurgu)
 
 
 def sahne_bilgi(z, t, s):
-    """Büyük bir yazı kartı: {"tip": "bilgi", "yazi": "...", "metin": "..."}."""
-    satirlar = c.satirlara_sar(s.veri.get("yazi", ""), 92, 860)
-    olcek = c.pop(t, 0.1)
-    if not olcek:
-        return
-    yuk = len(satirlar) * 130 + 100
-    c.ortala_yapistir(z, c.olcekle(c.kart(980, yuk, cerceve=s.tema["vurgu"] + (255,)), olcek), 540, 720)
+    """Büyük yazı: {"tip": "bilgi", "yazi": "...", "metin": "..."}"""
+    vurgu = s.tema["vurgu"]
+    satirlar = c.satirlara_sar(s.veri.get("yazi", ""), 84, 880)
+    y0 = 700 - (len(satirlar) - 1) * 50
+    a0 = c.kayarak(t, 0.0, 0.5)
+    ImageDraw.Draw(z, "RGBA").rectangle((SOL, y0 - 60, SOL + 8, y0 - 60 + (len(satirlar) * 100 + 20) * a0), fill=vurgu + (255,))
     for i, satir in enumerate(satirlar):
-        c.metin_ciz(z, satir, 540, 720 + (i - (len(satirlar) - 1) / 2) * 130, max(8, int(92 * olcek)),
-                    s.tema["vurgu"] if i == 0 else c.BEYAZ)
+        a = c.kayarak(t, 0.1 + i * 0.1, 0.4)
+        _yazi(z, satir, SOL + 40 + (1 - a) * 30, y0 + i * 100, 84, vurgu if i == 0 else CIZGI, a)
 
 
 def sahne_kiyas(z, t, s):
-    """İki araba yan yana ve satır satır karşılaştırma.
+    """İki araba ve satır satır karşılaştırma çubukları.
 
-    {"tip": "kiyas", "sol": {"ad": "Togg T10X", "tip": "suv", "renk": [..]}, "sag": {...},
-     "satirlar": [{"ad": "Fiyat", "sol": "1,9 M TL", "sag": "1,6 M TL", "kazanan": "sag", "anahtar": "fiyat"}]}
+    {"tip": "kiyas", "sol": {"ad": "Togg T10X", "tip": "suv"}, "sag": {...},
+     "satirlar": [{"ad": "Bagaj", "sol": "441 L", "sag": "510 L", "kazanan": "sag", "anahtar": "bagaj"}]}
     """
     vurgu = s.tema["vurgu"]
     sol, sag = s.veri.get("sol", {}), s.veri.get("sag", {})
-    giris = c.kayarak(t, 0.0, 0.7)
-    teker = (1 - giris) * 360
-    a1 = _arac(sol, 380, teker_aci=teker, yon=1)
-    a2 = _arac(sag, 380, teker_aci=teker, yon=-1)
-    c.ortala_yapistir(z, a1, 240 - (1 - giris) * 600, 460)
-    c.ortala_yapistir(z, a2, 840 + (1 - giris) * 600, 460)
-    olcek = c.pop(t, 0.5, 0.3)
-    if olcek:
-        k = c.Kalem(130, 130)
-        k.daire(65, 65, 62, fill=vurgu)
-        k.daire(65, 65, 62, outline=c.BEYAZ, width=5)
-        vs = k.bitir()
-        c.metin_ciz(vs, "VS", 65, 66, 50, c.BEYAZ)
-        c.ortala_yapistir(z, c.olcekle(vs, olcek), 540, 455)
-    c.etiket(z, sol.get("ad", ""), 250, 590, boyut=38, olcek=c.pop(t, 0.6))
-    c.etiket(z, sag.get("ad", ""), 830, 590, boyut=38, olcek=c.pop(t, 0.7))
+    a = c.kayarak(t, 0.0, 0.7)
+    a1 = c.araba_cizgi(440, sol.get("tip", "sedan"), yon=1, vurgu=vurgu)
+    a2 = c.araba_cizgi(440, sag.get("tip", "sedan"), yon=-1, vurgu=(150, 158, 174))
+    c.yapistir(z, c.saydamlik(a1, a), 40 - (1 - a) * 80, 330)
+    c.yapistir(z, c.saydamlik(a2, a), 600 + (1 - a) * 80, 330)
+    _yazi(z, sol.get("ad", "").upper(), SOL, 545, 34, CIZGI, c.kayarak(t, 0.3, 0.4), aralik=2)
+    _yazi(z, sag.get("ad", "").upper(), 1000, 545, 34, CIZGI, c.kayarak(t, 0.4, 0.4), anchor="rm", aralik=2)
+    _yazi(z, "VS", 540, 545, 30, vurgu, c.kayarak(t, 0.5, 0.4), anchor="mm", aralik=4)
+    ImageDraw.Draw(z, "RGBA").line([(SOL, 585), (1000, 585)], fill=(255, 255, 255, int(40 * a)), width=2)
     satirlar = s.veri.get("satirlar", [])[:5]
     anlar = s.sirali(len(satirlar), [r.get("anahtar") for r in satirlar], bas=0.18, son=0.82)
     for i, (satir, t0) in enumerate(zip(satirlar, anlar)):
-        ilerleme = c.kayarak(t, t0, 0.35)
-        if not ilerleme:
+        g = c.kayarak(t, t0, 0.5)
+        if not g:
             continue
-        y = 690 + i * 96 + (1 - ilerleme) * 40
-        kart = c.saydamlik(c.kart(980, 82, r=24), ilerleme)
-        c.ortala_yapistir(z, kart, 540, y)
+        y = 650 + i * 104
+        _yazi(z, satir.get("ad", "").upper(), 540, y, 26, SOLUK, g, anchor="mm", aralik=3)
+        n1, n2 = _sayi(satir.get("sol")), _sayi(satir.get("sag"))
+        en = max(n1 or 0, n2 or 0)
+        oran1 = (n1 / en) if en and n1 is not None and n2 is not None else 1.0
+        oran2 = (n2 / en) if en and n1 is not None and n2 is not None else 1.0
         kazanan = satir.get("kazanan")
-        for taraf, x in (("sol", 210), ("sag", 870)):
-            deger = str(satir.get(taraf, ""))
-            if kazanan == taraf:
-                c.etiket(z, deger, x, y, boyut=38, zemin_rengi=vurgu + (255,), olcek=ilerleme)
-            else:
-                c.metin_ciz(z, deger, x, y, 38, c.ACIK_GRI if kazanan else c.BEYAZ)
-        c.metin_ciz(z, satir.get("ad", ""), 540, y, 32, c.GRI, kalin=False)
+        r1 = vurgu if kazanan == "sol" else (90, 96, 110)
+        r2 = vurgu if kazanan == "sag" else (90, 96, 110)
+        _cubuk(z, 530, y + 38, 330 * oran1 * g, 14, r1, yon=-1)
+        _cubuk(z, 550, y + 38, 330 * oran2 * g, 14, r2, yon=1)
+        _yazi(z, str(satir.get("sol", "")), SOL, y, 40, CIZGI if kazanan != "sag" else SOLUK, g)
+        _yazi(z, str(satir.get("sag", "")), 1000, y, 40, CIZGI if kazanan != "sol" else SOLUK, g, anchor="rm")
 
 
 def sahne_araba(z, t, s):
-    """Araba soldan gelip ortada durur; istenirse parçalarını etiketlerle gösterir.
+    """Arabanın teknik çizimi ve parçalarına çizgiyle bağlı etiketler.
 
-    {"tip": "araba", "araba": {"tip": "sedan", "renk": [..]}, "yazi": "...",
+    {"tip": "araba", "araba": {"tip": "sedan"}, "yazi": "...",
      "etiketler": [{"yazi": "Lastik", "x": 0.22, "y": 0.85, "anahtar": "lastik"}]}
     """
-    tanim = s.veri.get("araba") or s.senaryo.get("araba") or {"renk": list(s.tema["vurgu"])}
-    ilerleme = c.kayarak(t, 0.0, 1.1)
-    yaylanma = 8 * math.sin(max(0.0, t - 1.1) * 12) * math.exp(-max(0.0, t - 1.1) * 4) if t > 1.1 else 0
-    ar = _arac(tanim, 780, teker_aci=ilerleme * 540)
-    x, y = -500 + ilerleme * 1040, 1005 - ar.height / 2 + yaylanma
-    c.ortala_yapistir(z, ar, x, y)
-    sol_ust = (x - ar.width / 2, y - ar.height / 2)
+    vurgu = s.tema["vurgu"]
+    tanim = _arac_tanimi(s)
+    a = c.kayarak(t, 0.0, 1.0)
+    ar = c.araba_cizgi(940, tanim.get("tip", "sedan"), vurgu=vurgu, teker_aci=a * 200)
+    x0, y0 = 70 - (1 - a) * 160, 760
+    c.yapistir(z, c.saydamlik(ar, a), x0, y0)
     if s.veri.get("yazi"):
-        c.etiket(z, s.veri["yazi"], 540, 470, boyut=54, zemin_rengi=s.tema["vurgu"] + (255,), olcek=c.pop(t, 0.6))
+        _ust_etiket(z, s.veri["yazi"], SOL, 400, vurgu, c.kayarak(t, 0.3, 0.4))
     etiketler = s.veri.get("etiketler", [])[:4]
     anlar = s.sirali(len(etiketler), [e.get("anahtar") for e in etiketler], bas=0.3, son=0.8)
+    d = ImageDraw.Draw(z, "RGBA")
     for i, (e, t0) in enumerate(zip(etiketler, anlar)):
-        olcek = c.pop(t, max(t0, 1.2))
-        if not olcek:
+        g = c.kayarak(t, max(t0, 0.9), 0.4)
+        if not g:
             continue
-        px, py = sol_ust[0] + e.get("x", 0.5) * ar.width, sol_ust[1] + e.get("y", 0.5) * ar.height
-        ey = 620 + (i % 2) * 90
-        d = ImageDraw.Draw(z)
-        d.line([(px, py), (px, ey + 30)], fill=s.tema["vurgu"] + (255,), width=4)
-        d.ellipse((px - 10, py - 10, px + 10, py + 10), fill=s.tema["vurgu"] + (255,), outline=c.BEYAZ + (255,), width=3)
-        c.etiket(z, e.get("yazi", ""), max(160, min(920, px)), ey, boyut=40, olcek=olcek, cerceve=s.tema["vurgu"] + (255,))
+        px, py = x0 + e.get("x", 0.5) * ar.width, y0 + e.get("y", 0.5) * ar.height
+        ey = 520 + (i % 2) * 90
+        d.line([(px, py), (px, py - (py - ey - 20) * g)], fill=vurgu + (int(230 * g),), width=3)
+        d.ellipse((px - 9, py - 9, px + 9, py + 9), outline=vurgu + (255,), width=3)
+        tx = max(SOL, min(1000 - c.font(40).getlength(e.get("yazi", "")), px - 20))
+        _yazi(z, e.get("yazi", ""), tx, ey, 40, CIZGI, g)
 
 
 def sahne_ikaz(z, t, s):
-    """Gösterge paneli ve yanıp sönen ikaz lambası: {"tip": "ikaz", "ikon": "motor", "renk": "sari", "yazi": "..."}"""
+    """Gösterge paneli ve ikaz lambası: {"tip": "ikaz", "ikon": "motor", "renk": "sari", "yazi": "..."}"""
     renk = c.IKAZ_RENKLERI.get(s.veri.get("renk", "sari"), c.KEHRIBAR)
-    olcek = c.pop(t, 0.0, 0.4)
-    if not olcek:
+    a = c.kayarak(t, 0.0, 0.5)
+    panel = c.kart(960, 420, renk=(6, 8, 12, 235), cerceve=(60, 66, 80, 255), r=28)
+    c.ortala_yapistir(z, c.saydamlik(panel, a), 540, 700)
+    if a < 0.3:
         return
-    panel = c.kart(1000, 470, renk=(10, 12, 18, 240), cerceve=(60, 70, 90, 255), r=60)
-    c.ortala_yapistir(z, c.olcekle(panel, olcek), 540, 740)
-    if olcek < 1:
-        return
-    sol = c.gosterge(150, 0.25 + 0.05 * math.sin(t * 2), renk=c.MAVI, yazi="km/s")
-    sag = c.gosterge(150, 0.35 + 0.08 * math.sin(t * 1.3 + 1), renk=c.MAVI, yazi="x1000")
-    c.ortala_yapistir(z, sol, 215, 740)
-    c.ortala_yapistir(z, sag, 865, 740)
-    yanip = 0.5 + 0.5 * math.cos(max(0.0, t - 0.4) * 5) if t < s.sure * 0.7 else 1.0
-    lamba = c.ikaz_lambasi(s.veri.get("ikon", "motor"), 260, renk, parlak=yanip)
-    c.ortala_yapistir(z, c.olcekle(lamba, c.pop(t, 0.35) or 0.01), 540, 740)
+    sol = c.gosterge(140, 0.22 + 0.04 * math.sin(t * 1.4), renk=(90, 120, 170), yazi="km/s")
+    sag = c.gosterge(140, 0.3 + 0.05 * math.sin(t * 1.1 + 1), renk=(90, 120, 170), yazi="x1000")
+    c.ortala_yapistir(z, c.saydamlik(sol, a), 225, 700)
+    c.ortala_yapistir(z, c.saydamlik(sag, a), 855, 700)
+    yanip = 0.5 + 0.5 * math.cos(max(0.0, t - 0.4) * 5) if s.veri.get("yanip", s.veri.get("renk") == "kirmizi") else 1.0
+    lamba = c.ikaz_lambasi(s.veri.get("ikon", "motor"), 210, renk, parlak=yanip if t > 0.4 else 0.15)
+    c.ortala_yapistir(z, lamba, 540, 700)
     if s.veri.get("yazi"):
-        c.etiket(z, s.veri["yazi"], 540, 1060, boyut=52, zemin_rengi=renk + (255,), renk=c.KOYU, olcek=c.pop(t, 0.8))
+        _ust_etiket(z, s.veri["yazi"], SOL, 990, renk, c.kayarak(t, 0.6, 0.4))
 
 
 def sahne_liste(z, t, s):
-    """Numaralı ipuçları: {"tip": "liste", "maddeler": ["...", "..."], "ikonlar": ["yag", null], "anahtarlar": [...]}
-    ikonlar: parça adı (lastik, aku, yag_bidonu…) ya da ikaz simgesi (motor, fren…)."""
+    """Numaralı maddeler: {"tip": "liste", "maddeler": ["...", "..."], "anahtarlar": [...], "baslik": "isteğe bağlı"}"""
     vurgu = s.tema["vurgu"]
     maddeler = s.veri.get("maddeler", [])[:5]
-    ikonlar = s.veri.get("ikonlar", [])
     anlar = s.sirali(len(maddeler), s.veri.get("anahtarlar"), bas=0.1, son=0.75)
-    y = 380
+    y = 400
+    if s.veri.get("baslik"):
+        _ust_etiket(z, s.veri["baslik"], SOL, 380, vurgu, c.kayarak(t, 0.0, 0.4))
+        y = 450
+    d = ImageDraw.Draw(z, "RGBA")
     for i, (madde, t0) in enumerate(zip(maddeler, anlar)):
-        satirlar = c.satirlara_sar(madde, 44, 680)
-        yuk = 60 + len(satirlar) * 54
-        ilerleme = c.kayarak(t, t0, 0.35)
-        if ilerleme:
-            x = 540 + (1 - ilerleme) * 900
-            c.ortala_yapistir(z, c.kart(980, yuk, r=30), x, y + yuk / 2)
-            k = c.Kalem(84, 84)
-            k.daire(42, 42, 40, fill=vurgu)
-            numara = k.bitir()
-            c.metin_ciz(numara, str(i + 1), 42, 43, 46, c.BEYAZ)
-            c.ortala_yapistir(z, numara, x - 420, y + yuk / 2)
+        satirlar = c.satirlara_sar(madde, 46, 760)
+        yuk = 40 + len(satirlar) * 56
+        g = c.kayarak(t, t0, 0.45)
+        if g:
+            kx = (1 - g) * -40
+            _yazi(z, f"{i + 1:02d}", SOL + kx, y + yuk / 2, 54, vurgu, g)
             for j, satir in enumerate(satirlar):
-                ImageDraw.Draw(z).text((x - 355, y + yuk / 2 + (j - (len(satirlar) - 1) / 2) * 54), satir,
-                                       font=c.font(44), fill=c.BEYAZ, anchor="lm")
-            ikon = ikonlar[i] if i < len(ikonlar) else None
-            if ikon:
-                resim = c.ikaz_lambasi(ikon, 90, vurgu) if ikon in c_IKAZLAR else c.parca(ikon, 96)
-                c.ortala_yapistir(z, resim, x + 420, y + yuk / 2)
+                _yazi(z, satir, SOL + 120 + kx, y + yuk / 2 + (j - (len(satirlar) - 1) / 2) * 56, 46, CIZGI, g)
+            d.line([(SOL, y + yuk + 10), (SOL + 920 * g, y + yuk + 10)], fill=(255, 255, 255, 34), width=2)
         y += yuk + 22
-
-
-c_IKAZLAR = {"motor", "yag", "aku", "sicaklik", "fren", "lastik_basinci", "abs", "hava_yastigi"}  # liste ikonu: ikaz simgesi
 
 
 _parca_onbellek = {}
 
 
 def sahne_parca(z, t, s):
-    """Büyük parça çizimi ve notlar: {"tip": "parca", "parca": "fren_diski", "yazi": "Fren diski", "notlar": ["...", "..."]}"""
+    """Parçanın teknik çizimi ve notlar: {"tip": "parca", "parca": "fren_diski", "yazi": "Fren diski", "notlar": ["...", "..."]}"""
+    vurgu = s.tema["vurgu"]
     ad = s.veri.get("parca", "lastik")
-    olcek = c.pop(t, 0.05, 0.45)
-    if not olcek:
-        return
-    if ad in ("lastik", "fren_diski"):  # dönenler
-        aci = int(t * 40) % 360 // 4 * 4
-        if (ad, aci) not in _parca_onbellek:
-            if len(_parca_onbellek) > 200:
-                _parca_onbellek.clear()
-            _parca_onbellek[(ad, aci)] = c.parca(ad, 480, aci=aci)
-        resim = _parca_onbellek[(ad, aci)]
-    else:
-        if (ad, None) not in _parca_onbellek:
-            _parca_onbellek[(ad, None)] = c.parca(ad, 480)
-        resim = _parca_onbellek[(ad, None)]
-    c.ortala_yapistir(z, c.olcekle(resim, olcek), 540, 650 + 14 * math.sin(t * 1.6))
+    a = c.kayarak(t, 0.0, 0.6)
+    aci = (int(t * 12) % 360) // 3 * 3 if ad in ("lastik", "fren_diski") else 0
+    if (ad, aci) not in _parca_onbellek:
+        if len(_parca_onbellek) > 160:
+            _parca_onbellek.clear()
+        _parca_onbellek[(ad, aci)] = c.parca_cizgi(ad, 470, aci=aci)
+    resim = _parca_onbellek[(ad, aci)]
+    c.ortala_yapistir(z, c.saydamlik(c.olcekle(resim, 0.92 + 0.08 * a), a), 540, 640)
     if s.veri.get("yazi"):
-        c.etiket(z, s.veri["yazi"], 540, 960, boyut=58, zemin_rengi=s.tema["vurgu"] + (255,), olcek=c.pop(t, 0.4))
+        _ust_etiket(z, "PARÇA", SOL, 940, vurgu, c.kayarak(t, 0.3, 0.4))
+        _yazi(z, s.veri["yazi"], SOL, 1010, 72, CIZGI, c.kayarak(t, 0.4, 0.4))
     notlar = s.veri.get("notlar", [])[:3]
     anlar = s.sirali(len(notlar), s.veri.get("anahtarlar"), bas=0.3, son=0.75)
+    d = ImageDraw.Draw(z, "RGBA")
     for i, (n, t0) in enumerate(zip(notlar, anlar)):
-        x, y = [(170, 400), (910, 560), (170, 860)][i]
-        yari = (c.font(38).getlength(n) + 42) / 2  # ekrandan taşmasın
-        x = max(30 + yari, min(c.W - 30 - yari, x))
-        c.etiket(z, n, x, y, boyut=38, olcek=c.pop(t, t0), cerceve=s.tema["vurgu"] + (255,))
+        g = c.kayarak(t, t0, 0.4)
+        if not g:
+            continue
+        sag = i % 2 == 1
+        y = 430 + i * 150
+        x = 1000 if sag else SOL
+        d.line([(x - 6 if sag else x + 6, y + 30), (x - 120 if sag else x + 120, y + 30)], fill=vurgu + (int(255 * g),), width=3)
+        _yazi(z, n, x, y, 38, CIZGI, g, anchor="rm" if sag else "lm")
 
 
 def sahne_gosterge(z, t, s):
     """Gösterge iğnesi bir değere çıkar: {"tip": "gosterge", "deger": 0.7, "yazi": "10.000 km", "alt": "yağ değişimi"}"""
-    olcek = c.pop(t, 0.0, 0.4)
-    if not olcek:
-        return
+    vurgu = s.tema["vurgu"]
+    a = c.kayarak(t, 0.0, 0.5)
     hedef = float(s.veri.get("deger", 0.7))
-    x = c.kayarak(t, 0.3, 1.4)
-    deger = hedef * x + 0.04 * math.sin(t * 9) * (1 - x)
-    resim = c.gosterge(320, deger, renk=s.tema["vurgu"], yazi=s.veri.get("yazi") if x > 0.6 else None, alt_yazi=s.veri.get("alt"))
-    c.ortala_yapistir(z, c.olcekle(resim, olcek), 540, 700)
+    x = c.kayarak(t, 0.3, 1.6)
+    resim = c.gosterge(320, hedef * x, renk=vurgu, yazi=s.veri.get("yazi") if x > 0.5 else None, alt_yazi=s.veri.get("alt"))
+    c.ortala_yapistir(z, c.saydamlik(resim, a), 540, 700)
 
 
 def sahne_uyari(z, t, s):
-    """Güvenlik uyarısı: {"tip": "uyari", "yazi": "Fren işini ustaya bırak!"}"""
+    """Güvenlik notu: {"tip": "uyari", "yazi": "Fren işini ustaya bırak!"}"""
     vurgu = c.KEHRIBAR
-    olcek = c.pop(t, 0.0, 0.4)
-    if olcek:
-        nabiz = 1 + 0.05 * math.sin(t * 6)
-        k = c.Kalem(360, 320)
-        k.cokgen([(180, 10), (350, 305), (10, 305)], fill=vurgu)
-        k.cokgen([(180, 50), (312, 282), (48, 282)], fill=c.KOYU)
-        k.kutu((164, 110, 196, 220), fill=vurgu, r=12)
-        k.daire(180, 250, 18, fill=vurgu)
-        c.ortala_yapistir(z, c.olcekle(k.bitir(), olcek * nabiz), 540, 560)
-    satirlar = c.satirlara_sar(s.veri.get("yazi", ""), 60, 820)
-    olcek = c.pop(t, 0.4)
-    if olcek:
-        yuk = len(satirlar) * 80 + 70
-        c.ortala_yapistir(z, c.olcekle(c.kart(960, yuk, cerceve=vurgu + (255,)), olcek), 540, 900)
-        for i, satir in enumerate(satirlar):
-            c.metin_ciz(z, satir, 540, 900 + (i - (len(satirlar) - 1) / 2) * 80, max(8, int(60 * olcek)), c.BEYAZ)
+    a = c.kayarak(t, 0.0, 0.5)
+    k = c.Kalem(180, 160)
+    k.cokgen([(90, 8), (172, 150), (8, 150)], outline=vurgu, width=7)
+    k.kutu((83, 52, 97, 108), fill=vurgu, r=5)
+    k.daire(90, 128, 8, fill=vurgu)
+    c.yapistir(z, c.saydamlik(k.bitir(), a), SOL, 420)
+    _ust_etiket(z, "GÜVENLİK NOTU", SOL + 210, 500, vurgu, a, cizgi=False)
+    satirlar = c.satirlara_sar(s.veri.get("yazi", ""), 72, 880)
+    for i, satir in enumerate(satirlar):
+        g = c.kayarak(t, 0.3 + i * 0.12, 0.45)
+        _yazi(z, satir, SOL + (1 - g) * 30, 680 + i * 92, 72, CIZGI, g)
+    ImageDraw.Draw(z, "RGBA").rectangle((SOL, 640, SOL + 920 * c.kayarak(t, 0.2, 0.6), 644), fill=vurgu + (200,))
 
 
 def sahne_kapanis(z, t, s):
@@ -366,15 +347,16 @@ def sahne_kapanis(z, t, s):
     vurgu = s.tema["vurgu"]
     seri = c.SERILER.get(s.senaryo.get("seri"), {})
     soru = s.veri.get("soru") or s.senaryo.get("soru") or seri.get("soru") or "Sen ne düşünüyorsun?"
-    olcek = c.pop(t, 0.1, 0.5)
-    if olcek:
-        c.ortala_yapistir(z, c.olcekle(s.ortak.yorum_balonu, olcek * 1.3), 540, 470 + 10 * math.sin(t * 2))
-    satirlar = c.satirlara_sar(soru, 80, 900)
+    _ust_etiket(z, "SIRA SENDE", SOL, 470, vurgu, c.kayarak(t, 0.0, 0.4))
+    satirlar = c.satirlara_sar(soru, 88, 900)
     for i, satir in enumerate(satirlar):
-        c.metin_ciz(z, satir, 540, 760 + i * 100, max(8, int(80 * c.pop(t, 0.3 + i * 0.15))), c.BEYAZ,
-                    kontur=c.KOYU, kontur_kalinlik=8)
-    c.etiket(z, "Yorumlara yaz!", 540, 980, boyut=54, zemin_rengi=vurgu + (255,), olcek=c.pop(t, s.zaman("yorum", s.sure * 0.5)))
-    c.etiket(z, "Kaydet, lazım olur", 540, 1090, boyut=44, olcek=c.pop(t, s.zaman("kaydet", s.sure * 0.7)), cerceve=vurgu + (255,))
+        g = c.kayarak(t, 0.15 + i * 0.12, 0.45)
+        _yazi(z, satir, SOL, 570 + i * 100 + (1 - g) * 30, 88, CIZGI, g)
+    y = 600 + len(satirlar) * 100
+    for j, (yazi_, kelime, oran) in enumerate([("Yorumlara yaz", "yorum", 0.45), ("Kaydet, lazım olur", "kaydet", 0.65)]):
+        g = c.kayarak(t, s.zaman(kelime, s.sure * oran), 0.4)
+        _yazi(z, "→", SOL, y + j * 74, 46, vurgu, g)
+        _yazi(z, yazi_, SOL + 70, y + j * 74, 46, CIZGI, g)
 
 
 ORTAK_SAHNELER = {"giris": sahne_giris, "bilgi": sahne_bilgi, "kiyas": sahne_kiyas, "araba": sahne_araba,
@@ -402,10 +384,19 @@ def arka_plan_yap(tanim, tema_, ek):
 
 # ---------------------------------------------------------------- yazılar
 
-def baslik(z, metin, ortak, soru_goster=True):
-    c.ortala_yapistir(z, ortak.logo_kucuk, 540, 100)
+def baslik(z, metin, ortak, soru_goster=True, seri=None, vurgu=c.TURUNCU_MARKA, ilerleme=None):
+    """Üst bant: ilerleme çizgisi, solda logo, sağda seri; konu sahnelerinde başlık sola yaslı."""
+    d = ImageDraw.Draw(z, "RGBA")
+    if ilerleme is not None:
+        d.rectangle((0, 0, c.W, 6), fill=(255, 255, 255, 40))
+        d.rectangle((0, 0, c.W * ilerleme, 6), fill=vurgu + (255,))
+    c.yapistir(z, ortak.logo_kucuk, SOL, 100 - ortak.logo_kucuk.height / 2)
+    bilgi = c.SERILER.get(seri)
+    if bilgi:
+        _yazi(z, bilgi["ad"], 1000, 100, 26, vurgu, anchor="rm", aralik=4)
     if soru_goster:
-        c.etiket(z, metin, 540, 240, boyut=60 if len(metin) < 22 else 48)
+        _yazi(z, metin, SOL, 215, 46 if len(metin) < 30 else 40, CIZGI, 0.85)
+        d.rectangle((SOL, 255, SOL + 70, 259), fill=vurgu + (255,))
 
 
 def satirlara_bol(kelimeler):
@@ -453,7 +444,7 @@ def altyazi(z, satirlar, t, en_satirlar=(), vurgu=c.MARKA_TURUNCU):
     yukseklik = len(satirlar) * SATIR + 50 + en_yukseklik
     katman = Image.new("RGBA", z.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(katman)
-    d.rounded_rectangle((x0, ALTYAZI_UST, x0 + ALTYAZI_GENISLIK, ALTYAZI_UST + yukseklik), radius=36, fill=c.KOYU + (225,))
+    d.rounded_rectangle((x0, ALTYAZI_UST, x0 + ALTYAZI_GENISLIK, ALTYAZI_UST + yukseklik), radius=10, fill=(0, 0, 0, 175))
     for i, satir in enumerate(satirlar):
         toplam = sum(w for _, w in satir) + bosluk * (len(satir) - 1)
         x, y = 540 - toplam / 2, ALTYAZI_UST + 25 + i * SATIR + SATIR / 2
@@ -573,7 +564,8 @@ def uret(senaryo_yolu, cikti_yolu):
             katman = tm.gecis(gecis_kaynak, katman, (tg - gecis_bas) / GECIS_SURESI, gecisler[bolum])
         z = katman.copy() if katman is onceki_katman else katman
         if sahne is not None:
-            baslik(z, senaryo["baslik"], ortak, soru_goster=sahne["tip"] != "giris")
+            baslik(z, senaryo["baslik"], ortak, soru_goster=sahne["tip"] not in ("giris", "kapanis"), seri=senaryo.get("seri"),
+                   vurgu=tema_["vurgu"], ilerleme=tg / toplam)
             aktif = [cm for cm in sahne["cumleler"] if cm[0] <= st + 0.05]
             if aktif and st < sahne["konusma"] + SAHNE_ARASI * 0.8:
                 altyazi(z, aktif[-1][2], st, aktif[-1][3], vurgu=tema_["vurgu"])

@@ -23,12 +23,12 @@ Her sahnede `tip`, `metin` (Türkçe seslendirme) ve `metin_en` (İngilizce alty
 
 | Tip | Alanlar | Ne gösterir |
 |---|---|---|
-| `giris` | – | Seri rozeti ve başlık büyük |
+| `giris` | – | Seri etiketi, sola yaslı büyük başlık, arabanın teknik çizimi |
 | `bilgi` | `yazi` | Büyük yazı kartı |
-| `kiyas` | `sol`, `sag` (`ad`, `tip`: sedan/suv/hatchback/pickup, `renk`: [r,g,b]), `satirlar` (en fazla 5: `ad`, `sol`, `sag`, `kazanan`: sol/sag/boş, `anahtar`) | İki araba ve satır satır karşılaştırma |
+| `kiyas` | `sol`, `sag` (`ad`, `tip`: sedan/suv/hatchback/pickup), `satirlar` (en fazla 5: `ad`, `sol`, `sag`, `kazanan`: sol/sag/boş, `anahtar`) | İki arabanın teknik çizimi ve rakamlara göre uzayan karşılaştırma çubukları (değerlerde sayı olsun: "441 L") |
 | `araba` | `araba` (tip, renk), `yazi`, `etiketler` (`yazi`, `x`, `y` 0–1 arabanın üstündeki yer, `anahtar`) | Araba gelir, parçaları etiketlenir |
-| `ikaz` | `ikon` (motor, yag, aku, sicaklik, fren, lastik_basinci, abs, hava_yastigi), `renk` (sari/kirmizi/yesil/mavi), `yazi` | Gösterge paneli ve yanıp sönen ikaz lambası |
-| `liste` | `maddeler` (en fazla 5, kısa), `ikonlar` (parça ya da ikaz adı ya da null), `anahtarlar` | Numaralı ipuçları |
+| `ikaz` | `ikon` (motor, yag, aku, sicaklik, fren, lastik_basinci, abs, hava_yastigi), `renk` (sari/kirmizi/yesil/mavi), `yazi`, `yanip` (true/false; kırmızıda varsayılan true) | Gösterge paneli ve ikaz lambası |
+| `liste` | `maddeler` (en fazla 5, kısa), `anahtarlar`, isteğe bağlı `baslik` | Numaralı maddeler (01, 02…) |
 | `parca` | `parca` (lastik, fren_diski, aku, yag_bidonu, buji, anahtar, filtre, silecek), `yazi`, `notlar` (en fazla 3), `anahtarlar` | Büyük parça çizimi ve notlar |
 | `gosterge` | `deger` (0–1), `yazi`, `alt` | İğnesi yükselen gösterge |
 | `uyari` | `yazi` | Güvenlik uyarısı (üçgen) |
@@ -38,6 +38,10 @@ Her sahnede `tip`, `metin` (Türkçe seslendirme) ve `metin_en` (İngilizce alty
 
 Hazır sahneler yetmezse senaryonun yanına aynı adla `.py` yazılabilir (`SAHNELER = {"tip": fonksiyon}`,
 `ARKA_PLANLAR`, `hazirla()`); fonksiyon `sahne(z, t, s)` biçimindedir (bkz. `video.py`).
+
+## Görsel dil
+Ciddi, teknik bir oto kanalı: koyu stüdyo zemin, sola yaslı tipografi, çizgisel teknik çizimler, veri çubukları.
+Çizgi film havası verecek şeylerden kaçın (abartılı ünlemler, "hadi bakalım" gibi sevimli ifadeler, emoji yağmuru).
 
 ## Kurallar
 - **Güvenlik:** Fren, direksiyon, hava yastığı, yakıt ve yüksek voltaj işlerinde "kendin yap" deme, ustaya yönlendir.

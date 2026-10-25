@@ -4,33 +4,99 @@
  "seri": "bakim",
  "aciklama": "Motor yağı ne zaman değişir, seviyesi nasıl kontrol edilir? Kendi aracının kesin aralığı bakım kitapçığında yazar. Sen yağını kaç kilometrede değiştiriyorsun? Yorumlara yaz, videoyu kaydet! 🔧",
  "aciklama_en": "When should you change your engine oil and how do you check the level? Your car's exact interval is in the owner's manual. How often do you change yours? Tell us in the comments and save this video! 🔧",
- "etiketler": ["#viteskop", "#motoryağı", "#arababakımı", "#otobakım", "#araba", "#otomobil", "#oto", "#bakımsaati", "#carmaintenance", "#oilchange"],
+ "etiketler": [
+  "#viteskop",
+  "#motoryağı",
+  "#arababakımı",
+  "#otobakım",
+  "#araba",
+  "#otomobil",
+  "#oto",
+  "#bakımsaati",
+  "#carmaintenance",
+  "#oilchange"
+ ],
  "kaynaklar": [
   "https://www.aaa.com/autorepair/articles/how-often-should-you-change-engine-oil",
   "Aracın kullanım ve bakım kitapçığı (üreticinin önerdiği aralık ve ağır kullanım şartları)"
  ],
  "sahneler": [
-  {"tip": "giris",
+  {
+   "tip": "giris",
    "metin": "Motor yağını en son ne zaman değiştirdin? Hatırlamıyorsan bu video tam sana göre.",
-   "metin_en": "When did you last change your engine oil? If you can't remember, this video is for you."},
-  {"tip": "parca", "parca": "yag_bidonu", "yazi": "Motor yağı", "notlar": ["Sürtünmeyi azaltır", "Isıyı taşır", "Kiri tutar"],
-   "anahtarlar": ["sürtünme", "ısı", "kir"],
+   "metin_en": "When did you last change your engine oil? If you can't remember, this video is for you."
+  },
+  {
+   "tip": "parca",
+   "parca": "yag_bidonu",
+   "yazi": "Motor yağı",
+   "notlar": [
+    "Sürtünmeyi azaltır",
+    "Isıyı taşır",
+    "Kiri tutar"
+   ],
+   "anahtarlar": [
+    "sürtünme",
+    "ısı",
+    "kir"
+   ],
    "metin": "Motor yağı, parçaların sürtünmesini azaltır. Isıyı taşır ve kiri tutar.",
-   "metin_en": "Engine oil reduces friction between parts. It carries heat away and traps dirt."},
-  {"tip": "gosterge", "deger": 0.55, "yazi": "10-15 bin km", "alt": "ya da yılda bir",
+   "metin_en": "Engine oil reduces friction between parts. It carries heat away and traps dirt."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.55,
+   "yazi": "10-15 bin km",
+   "alt": "ya da yılda bir",
    "metin": "Birçok araçta değişim aralığı on ile on beş bin kilometre ya da yılda birdir. Kesin değer aracının bakım kitapçığında yazar.",
-   "metin_en": "In many cars the interval is ten to fifteen thousand kilometres or once a year. The exact value is in your car's maintenance booklet."},
-  {"tip": "liste", "maddeler": ["Kısa mesafeler", "Dur-kalk trafik", "Aşırı sıcak ya da soğuk", "Ağır yük, römork"],
-   "anahtarlar": ["kısa", "dur", "aşırı", "ağır"],
+   "metin_en": "In many cars the interval is ten to fifteen thousand kilometres or once a year. The exact value is in your car's maintenance booklet."
+  },
+  {
+   "tip": "liste",
+   "maddeler": [
+    "Kısa mesafeler",
+    "Dur-kalk trafik",
+    "Aşırı sıcak ya da soğuk",
+    "Ağır yük, römork"
+   ],
+   "anahtarlar": [
+    "kısa",
+    "dur",
+    "aşırı",
+    "ağır"
+   ],
    "metin": "Kısa yollar, dur kalk trafik, aşırı sıcak ve ağır yük yağı daha çabuk yorar. Böyle kullanıyorsan kitapçıktaki ağır kullanım aralığına uy.",
-   "metin_en": "Short trips, stop-and-go traffic, extreme heat and heavy loads wear oil out faster. If that's how you drive, follow the severe-service interval in the booklet."},
-  {"tip": "liste", "maddeler": ["Düz zemin, motor kapalı", "Birkaç dakika bekle", "Çubuğu sil, tak, tekrar çek", "Yağ MIN ile MAX arasında olmalı"], "ikonlar": [null, null, null, "yag_bidonu"],
-   "anahtarlar": ["düz", "birkaç", "çubuğu", "yağ"],
+   "metin_en": "Short trips, stop-and-go traffic, extreme heat and heavy loads wear oil out faster. If that's how you drive, follow the severe-service interval in the booklet."
+  },
+  {
+   "tip": "liste",
+   "maddeler": [
+    "Düz zemin, motor kapalı",
+    "Birkaç dakika bekle",
+    "Çubuğu sil, tak, tekrar çek",
+    "Yağ MIN ile MAX arasında olmalı"
+   ],
+   "ikonlar": [
+    null,
+    null,
+    null,
+    "yag_bidonu"
+   ],
+   "anahtarlar": [
+    "düz",
+    "birkaç",
+    "çubuğu",
+    "yağ"
+   ],
    "metin": "Seviyeyi ayda bir kontrol et. Düz zeminde, motor kapalıyken birkaç dakika bekle. Çubuğu silip tak ve tekrar çek. Yağ, min ile max arasında olmalı.",
-   "metin_en": "Check the level once a month. On flat ground, with the engine off, wait a few minutes. Wipe the dipstick, put it back and pull it out again. The oil should be between min and max."},
-  {"tip": "kapanis",
+   "metin_en": "Check the level once a month. On flat ground, with the engine off, wait a few minutes. Wipe the dipstick, put it back and pull it out again. The oil should be between min and max."
+  },
+  {
+   "tip": "kapanis",
    "metin": "Sen yağını kaç kilometrede değiştiriyorsun? Yorumlara yaz, videoyu kaydet!",
    "metin_en": "How often do you change your oil? Write it in the comments and save this video!",
-   "soru": "Sen yağını kaç km'de değiştiriyorsun?"}
- ]
+   "soru": "Sen yağını kaç km'de değiştiriyorsun?"
+  }
+ ],
+ "stil": "ciddi"
 }

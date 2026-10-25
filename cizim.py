@@ -290,8 +290,8 @@ def ikaz_lambasi(ikon="motor", boyut=300, renk=KEHRIBAR, parlak=1.0):
     k = Kalem(boyut, boyut)
     s = boyut / 100  # simgeler 100x100 düzlemde tanımlı
     renk = renk + (int(255 * (0.35 + 0.65 * parlak)),)
-    if parlak > 0.5:
-        k.daire(50 * s, 50 * s, 49 * s, fill=renk[:3] + (int(60 * parlak),))
+    if parlak > 0.5:  # hafif ışık halesi
+        k.daire(50 * s, 50 * s, 49 * s, fill=renk[:3] + (int(22 * parlak),))
 
     def p(*noktalar):
         return [(x * s, y * s) for x, y in noktalar]
@@ -345,7 +345,7 @@ def ikaz_lambasi(ikon="motor", boyut=300, renk=KEHRIBAR, parlak=1.0):
 
 # ---------------------------------------------------------------- parçalar
 
-def parca(ad="lastik", boyut=420, aci=0.0):
+def parca(ad="lastik", boyut=420, aci=0.0, yazili=True):
     """Parça çizimleri: lastik, fren_diski, aku, yag_bidonu, buji, anahtar, filtre, silecek."""
     k = Kalem(boyut, boyut)
     s = boyut / 100
@@ -377,7 +377,8 @@ def parca(ad="lastik", boyut=420, aci=0.0):
             k.daire(c + math.cos(a) * 13 * s, c + math.sin(a) * 13 * s, 3 * s, fill=(70, 74, 84))
         k.daire(c, c, 6 * s, fill=(70, 74, 84))
         k.kutu((70 * s, 22 * s, 92 * s, 60 * s), fill=KIRMIZI, r=6 * s)  # kaliper
-        k.yazi(81 * s, 41 * s, "V", 10 * s, BEYAZ)
+        if yazili:
+            k.yazi(81 * s, 41 * s, "V", 10 * s, BEYAZ)
     elif ad == "aku":
         k.cokgen(p((14, 34), (70, 34), (86, 24), (30, 24)), fill=(70, 76, 90))
         k.cokgen(p((70, 34), (86, 24), (86, 70), (70, 82)), fill=(30, 34, 44))
@@ -385,14 +386,16 @@ def parca(ad="lastik", boyut=420, aci=0.0):
         k.kutu((26 * s, 16 * s, 34 * s, 28 * s), fill=KIRMIZI, r=2 * s)
         k.kutu((58 * s, 16 * s, 66 * s, 28 * s), fill=(40, 40, 46), r=2 * s)
         k.kutu((20 * s, 48 * s, 64 * s, 64 * s), fill=KEHRIBAR, r=3 * s)
-        k.yazi(42 * s, 56.5 * s, "12V", 10 * s, GRAFIT)
+        if yazili:
+            k.yazi(42 * s, 56.5 * s, "12V", 10 * s, GRAFIT)
     elif ad == "yag_bidonu":
         k.kutu((24 * s, 26 * s, 76 * s, 88 * s), fill=KEHRIBAR, r=8 * s)
         k.kutu((54 * s, 14 * s, 68 * s, 28 * s), fill=GRAFIT, r=3 * s)
         k.kutu((30 * s, 18 * s, 50 * s, 26 * s), outline=koyu(KEHRIBAR, 0.75), width=4 * s, r=4 * s)
         k.kutu((30 * s, 44 * s, 70 * s, 74 * s), fill=GRAFIT, r=4 * s)
-        k.yazi(50 * s, 54 * s, "5W-30", 9 * s, BEYAZ)
-        k.elips((44 * s, 60 * s, 56 * s, 72 * s), fill=KEHRIBAR)
+        if yazili:
+            k.yazi(50 * s, 54 * s, "5W-30", 9 * s, BEYAZ)
+            k.elips((44 * s, 60 * s, 56 * s, 72 * s), fill=KEHRIBAR)
     elif ad == "buji":
         k.kutu((44 * s, 8 * s, 56 * s, 20 * s), fill=(170, 176, 186), r=2 * s)
         k.kutu((40 * s, 18 * s, 60 * s, 48 * s), fill=(244, 244, 240), r=6 * s)
@@ -498,3 +501,105 @@ def satirlara_sar(metin, boyut, genislik, kalin=True):
         else:
             satir = aday
     return satirlar + [satir] if satir else satirlar
+
+
+# ---------------------------------------------------------------- çizgisel (teknik) çizimler
+
+def cizgisel(resim, renk=(232, 236, 243), kalinlik=3, vurgu=None, vurgu_esik=None):
+    """Dolu bir çizimi teknik çizim gibi kontur çizgilerine çevirir (kenar algılama)."""
+    from PIL import ImageChops, ImageFilter
+    a = resim.getchannel("A")
+    l = resim.convert("L")
+    dis = a.filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 60 else 0)
+    ic = l.filter(ImageFilter.FIND_EDGES).point(lambda v: 255 if v > 40 else 0)
+    ic = ImageChops.multiply(ic, a.point(lambda v: 255 if v > 200 else 0))
+    kenar = ImageChops.lighter(dis, ic)
+    if kalinlik > 1:
+        kenar = kenar.filter(ImageFilter.MaxFilter(kalinlik if kalinlik % 2 else kalinlik + 1))
+    cizgi = Image.new("RGBA", resim.size, renk + (0,))
+    cizgi.putalpha(kenar)
+    return cizgi
+
+
+def _egri(noktalar, adim=8):
+    """Catmull-Rom: köşeli nokta dizisini yumuşak eğriye çevirir."""
+    sonuc = []
+    p = [noktalar[0]] + list(noktalar) + [noktalar[-1]]
+    for i in range(1, len(p) - 2):
+        p0, p1, p2, p3 = p[i - 1], p[i], p[i + 1], p[i + 2]
+        for j in range(adim):
+            t = j / adim
+            t2, t3 = t * t, t * t * t
+            sonuc.append(tuple(0.5 * ((2 * p1[k]) + (-p0[k] + p2[k]) * t + (2 * p0[k] - 5 * p1[k] + 4 * p2[k] - p3[k]) * t2
+                                      + (-p0[k] + 3 * p1[k] - 3 * p2[k] + p3[k]) * t3) for k in range(2)))
+    sonuc.append(noktalar[-1])
+    return sonuc
+
+
+PROFILLER = {
+    # üst kontur (arkadan öne), cam çizgisi, teker merkezleri/yarıçap, alt çizgi y
+    "sedan": {"ust": [(38, 262), (34, 222), (58, 186), (150, 172), (215, 164), (305, 104), (420, 90), (520, 98), (612, 160),
+                      (705, 176), (768, 198), (782, 238), (772, 264)],
+              "cam": [(222, 163), (308, 112), (418, 100), (512, 106), (590, 160)], "orta": 420, "teker": (178, 628), "r": 62, "alt": 264},
+    "suv": {"ust": [(36, 256), (30, 196), (42, 130), (76, 82), (150, 68), (480, 64), (556, 78), (628, 138), (716, 156),
+                    (772, 180), (786, 230), (776, 256)],
+            "cam": [(66, 132), (94, 92), (152, 80), (470, 76), (546, 88), (604, 140)], "orta": 340, "teker": (178, 628), "r": 70, "alt": 252},
+    "hatchback": {"ust": [(44, 262), (40, 214), (52, 158), (88, 110), (150, 94), (300, 88), (450, 94), (568, 156),
+                          (690, 172), (762, 196), (778, 238), (768, 264)],
+                  "cam": [(76, 158), (104, 116), (152, 102), (300, 98), (444, 104), (548, 156)], "orta": 300, "teker": (175, 615), "r": 62, "alt": 264},
+    "pickup": {"ust": [(36, 256), (32, 180), (300, 178), (338, 176), (352, 140), (366, 98), (520, 90), (602, 148), (712, 162),
+                       (772, 186), (784, 234), (774, 258)],
+               "cam": [(374, 148), (388, 106), (514, 100), (582, 148)], "orta": 470, "teker": (190, 628), "r": 70, "alt": 252},
+}
+
+
+def araba_cizgi(w=800, tip="sedan", yon=1, teker_aci=0.0, renk=(232, 236, 243), vurgu=None):
+    """Modern bir arabanın yandan teknik çizimi (yalnızca çizgiler). vurgu: jant ve far rengi."""
+    pr = PROFILLER.get(tip, PROFILLER["sedan"])
+    vurgu = vurgu or renk
+    k = Kalem(800, 340)
+    kal = 3.2
+    r, alt = pr["r"], pr["alt"]
+    tx = pr["teker"]
+    cy = 312 - r
+    # gövde üst konturu
+    k.cizgi(_egri(pr["ust"]), fill=renk, width=kal)
+    # alt çizgi: teker kemerleriyle
+    bas, son = pr["ust"][0], pr["ust"][-1]
+    k.cizgi([(son[0], son[1]), (tx[1] + r + 14, alt)], fill=renk, width=kal)
+    k.yay((tx[1] - r - 14, cy - r - 14, tx[1] + r + 14, cy + r + 14), 180, 360, fill=renk, width=kal)
+    k.cizgi([(tx[1] - r - 14, alt), (tx[0] + r + 14, alt)], fill=renk, width=kal)
+    k.yay((tx[0] - r - 14, cy - r - 14, tx[0] + r + 14, cy + r + 14), 180, 360, fill=renk, width=kal)
+    k.cizgi([(tx[0] - r - 14, alt), (bas[0], bas[1])], fill=renk, width=kal)
+    # camlar ve direk
+    cam = _egri(pr["cam"])
+    k.cizgi(cam + [pr["cam"][0]], fill=renk + (200,), width=kal * 0.7)
+    orta = pr["orta"]
+    k.cizgi([(orta, min(y for x, y in pr["cam"]) + 4), (orta + 4, pr["cam"][0][1] + 2)], fill=renk + (200,), width=kal * 0.7)
+    # kapı çizgisi, karakter çizgisi, kollar
+    k.cizgi([(orta + 2, pr["cam"][0][1] + 4), (orta - 2, alt - 6)], fill=renk + (150,), width=kal * 0.6)
+    k.cizgi([(bas[0] + 20, 206), (son[0] - 30, 214)], fill=renk + (110,), width=kal * 0.5)
+    for x in (orta - 70, orta + 120):
+        if 100 < x < 700:
+            k.cizgi([(x, 194), (x + 30, 194)], fill=renk + (170,), width=kal * 0.8)
+    # farlar
+    k.cizgi([(son[0] - 60, 192), (son[0] - 8, 206)], fill=vurgu, width=kal * 1.6)
+    k.cizgi([(bas[0] + 2, 196), (bas[0] + 34, 190)], fill=(229, 57, 53), width=kal * 1.6)
+    # tekerler
+    for x in tx:
+        k.daire(x, cy, r, outline=renk, width=kal)
+        k.daire(x, cy, r * 0.66, outline=vurgu, width=kal * 0.8)
+        for i in range(5):
+            a = math.radians(teker_aci + i * 72)
+            k.cizgi([(x + math.cos(a) * r * 0.16, cy + math.sin(a) * r * 0.16), (x + math.cos(a) * r * 0.6, cy + math.sin(a) * r * 0.6)],
+                    fill=renk + (190,), width=kal * 0.7)
+        k.daire(x, cy, r * 0.12, outline=renk, width=kal * 0.7)
+    k.cizgi([(20, 314), (780, 314)], fill=renk + (70,), width=2)  # zemin
+    resim = k.bitir()
+    if yon < 0:
+        resim = resim.transpose(Image.FLIP_LEFT_RIGHT)
+    return olcekle(resim, w / 800) if w != 800 else resim
+
+
+def parca_cizgi(ad, boyut=420, aci=0.0, renk=(232, 236, 243)):
+    return olcekle(cizgisel(parca(ad, boyut * 2, aci=aci, yazili=False), renk, kalinlik=5), 0.5)
