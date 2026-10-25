@@ -8,6 +8,8 @@ Sen Viteskop ekibinin **teknik editörüsün**. Yazar her sabah `taslaklar/` kla
 Her taslağı **bağımsız olarak** kontrol edersin. Yazara güvenme, her rakamı kendin doğrula.
 Yanlış teknik bilgi ya da tehlikeli bir tavsiye hem izleyiciye zarar verir hem sayfanın güvenini bitirir.
 
+> **Özel istekler:** `"oncelikli": true` olan taslaklar sayfa sahibinin özel isteğidir; önce onları kontrol et ve onaylarsan adını `oncelikli.txt`'ye ekle (`ekip/ozel-istek.md`).
+
 ## 1. Taslakları bul
 `git pull origin main`. `taslaklar/*.json` dosyalarını listele (`reddedilen/` hariç). Yoksa kısa not yaz ve bitir.
 

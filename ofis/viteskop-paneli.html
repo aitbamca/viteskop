@@ -241,6 +241,17 @@ section[id] { scroll-margin-top: 64px; }
 .plan-gorsel input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 @media (max-width: 560px) { .plan-kart { grid-template-columns: 1fr 96px; } .plan-gorsel img, .plan-bos { width: 96px; } }
 
+/* özel istek */
+.istek-form { display: grid; gap: 8px; }
+.istek-form input, .istek-form textarea { width: 100%; font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; }
+.istek-liste { display: grid; gap: 6px; }
+.istek-kart { background: var(--surface-2); border-radius: 10px; padding: 8px 12px; display: grid; gap: 2px; }
+.istek-ust { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 13.5px; }
+.istek-kart small { color: var(--ink-3); font-size: 12px; }
+.istek-durum { font-size: 11.5px; font-weight: 600; border-radius: 999px; padding: 2px 9px; white-space: nowrap; background: var(--warn-soft); color: var(--warn); }
+.istek-durum[data-d="onay"] { background: var(--ok-soft); color: var(--ok); }
+.istek-durum[data-d="red"] { background: var(--bad-soft); color: var(--bad); }
+
 /* posta ve toplantı odası */
 .rozet { display: inline-grid; place-items: center; min-width: 19px; height: 19px; padding: 0 5px; margin-left: 4px; border-radius: 999px; background: var(--brand); color: #fff; font-size: 11.5px; font-weight: 700; }
 .rozet[hidden] { display: none; }
@@ -336,8 +347,20 @@ section[id] { scroll-margin-top: 64px; }
   <div class="notice" id="notice" hidden></div>
 
   <nav class="sekmeler" aria-label="Panel bölümleri">
-    <a href="#posta">📬 Posta <span class="rozet" data-posta-rozet hidden></span></a><a href="#toplanti">🗣️ Toplantı Odası</a><a href="#plan">📅 Haftalık Plan</a><a href="#ekip">Ekip</a><a href="#uretim">Üretim</a><a href="#takvim-bolum">Takvim</a><a href="#instagram">Instagram</a><a href="#notlar-bolum">Notlar</a><a href="#baglantilar">Bağlantılar</a>
+    <a href="#istek">⚡ Özel istek</a><a href="#posta">📬 Posta <span class="rozet" data-posta-rozet hidden></span></a><a href="#toplanti">🗣️ Toplantı Odası</a><a href="#plan">📅 Haftalık Plan</a><a href="#ekip">Ekip</a><a href="#uretim">Üretim</a><a href="#takvim-bolum">Takvim</a><a href="#instagram">Instagram</a><a href="#notlar-bolum">Notlar</a><a href="#baglantilar">Bağlantılar</a>
   </nav>
+
+  <section class="panel" id="istek" aria-labelledby="istek-baslik">
+    <div class="panel-head"><h2 id="istek-baslik">⚡ Özel istek</h2><span class="stand">Program dışı konu · sıranın en önüne geçer, ilk boş paylaşım saatinde yayınlanır</span></div>
+    <div class="grid2 ilt" style="gap:14px">
+      <form class="istek-form">
+        <input name="konu" required maxlength="120" aria-label="Konu" placeholder="Konu (ör. Kışın akü neden biter?)">
+        <textarea name="not" rows="2" aria-label="Not" placeholder="İstersen not ekle (ör. yarın akşam yayınlansın, şu noktaya değinsin)"></textarea>
+        <div class="ilt-satir"><button class="ilt-btn" type="submit">⚡ İsteği gönder</button><span class="ilt-durum" data-istek-durum></span></div>
+      </form>
+      <div class="istek-liste" data-istek-liste aria-live="polite"></div>
+    </div>
+  </section>
 
   <div class="grid2 ilt">
     <section class="panel" id="posta" aria-labelledby="posta-baslik">
@@ -834,4 +857,6 @@ section[id] { scroll-margin-top: 64px; }
     });
   })();
 </script>
+<script>window.ISTEK_AYAR = {yazarTetik: "trig_01LH6hNGonE9UtoTqK1XFzFY", ornek: "Konu (ör. Kışın akü neden biter?)"};</script>
+<script src="istek.js"></script>
 <script src="iletisim.js"></script>

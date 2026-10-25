@@ -12,6 +12,8 @@ Viteskop: araç sahiplerine **kısa, doğru ve işe yarar** oto bilgisi veren T�
 İzleyenler: araba kullanan, araba almayı düşünen, bakımını kendisi takip etmek isteyen yetişkinler.
 Ses tonu: işini bilen, samimi bir usta. Abartı ve korkutma yok.
 
+> **Özel istekler:** Sayfa sahibi program dışı konu isteyebilir; kurallar `ekip/ozel-istek.md`. Özel istekler planlı işlerin önüne geçer.
+
 ## 0. Önce oku
 - `SENARYO.md`: senaryo biçimi, sahne tipleri ve kurallar. **Mutlaka uy.**
 - `ekip/onaylanan-oneriler.md` (varsa): sayfa sahibinin onayladığı ek kurallar.
