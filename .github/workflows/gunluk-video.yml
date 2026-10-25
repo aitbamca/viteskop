@@ -78,6 +78,8 @@ jobs:
             if python video.py "$yol" < /dev/null 2>&1 | tee uretim.log; then  # ffmpeg listeyi yutmasın
               echo "::notice title=Video hazır::$(grep '^bitti' uretim.log)"
               basename "$yol" >> basarili.txt
+              ad="$(basename "$yol")"
+              python kapak.py "$yol" "cikti/${ad%.json}.jpg" || echo "::warning title=Kapak::$ad kapağı üretilemedi"
             elif grep -q "SesYok" uretim.log; then
               bekleyen=1
               echo "::warning title=Ses bekleniyor::$(basename "$yol"): kaliteli ses (Gemini/ElevenLabs) şu an kullanılamıyor, sonraki çalıştırmada tekrar denenecek."
@@ -93,7 +95,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: videolar-${{ github.run_number }}
-          path: cikti/*.mp4
+          path: cikti/*
           retention-days: 30
 
       - name: Hazır videolar sayfasına koy
@@ -103,7 +105,10 @@ jobs:
         run: |
           gh release view hazir > /dev/null 2>&1 || gh release create hazir --title "Hazır videolar" \
             --notes "Paylaşılmayı bekleyen videolar. Paylaşılan video buradan otomatik silinir."
-          for ad in $(cat basarili.txt); do gh release upload hazir "cikti/${ad%.json}.mp4" --clobber; done
+          for ad in $(cat basarili.txt); do
+            gh release upload hazir "cikti/${ad%.json}.mp4" --clobber
+            [ -f "cikti/${ad%.json}.jpg" ] && gh release upload hazir "cikti/${ad%.json}.jpg" --clobber
+          done
 
       - name: Üretildi olarak işaretle
         if: steps.sec.outputs.var == 'evet' && github.event.inputs.deneme != 'true'

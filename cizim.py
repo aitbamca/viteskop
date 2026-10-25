@@ -145,6 +145,7 @@ def logo(genislik=900, acik_zemin=False):
 def _yedek_logo(genislik=900, acik_zemin=False):
     """VITESKOP yazısı ve solunda hız göstergesi. Koyu zemin için beyaz, açık zemin için grafit yazı."""
     h = int(genislik * 0.28)
+    genislik = max(genislik, int(h * 0.84 + 40 + font(int(h * 0.5), logo=True).getlength("VITESKOP") + 20))
     k = Kalem(genislik, h)
     r = h * 0.42
     cx, cy = r + 6, h * 0.56

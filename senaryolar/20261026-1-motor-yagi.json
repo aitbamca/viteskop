@@ -98,5 +98,15 @@
    "soru": "Sen yağını kaç km'de değiştiriyorsun?"
   }
  ],
- "stil": "ciddi"
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "MOTOR YAĞI",
+   "NE ZAMAN",
+   "DEĞİŞİR?"
+  ],
+  "vurgu": [
+   2
+  ]
+ }
 }

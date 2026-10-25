@@ -38,6 +38,8 @@ jobs:
         with:
           python-version: "3.12"
 
+      - run: pip install -q pillow
+
       - name: Instagram bağlı mı?
         id: bagli
         run: |
@@ -63,8 +65,12 @@ jobs:
           if ! gh release download hazir -p "$video" -D cikti 2> indirme.log; then
             echo "::error title=Video indirilemedi::$video: $(tail -c 300 indirme.log | tr '\n' ' ')"; exit 1
           fi
-          adres="$(bash medya_yayinla.sh koy "cikti/$video")" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve viteskop-medya Pages ayarını kontrol et"; exit 1; }
-          if ! python instagram.py paylas "$adres" "senaryolar/$ad" > paylasim.log 2>&1; then
+          kapak="cikti/${ad%.json}.jpg"
+          python kapak.py "senaryolar/$ad" "$kapak" || kapak=""  # kapak olmazsa videodan kare kullanılır
+          adresler="$(bash medya_yayinla.sh koy "cikti/$video" $kapak)" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve viteskop-medya Pages ayarını kontrol et"; exit 1; }
+          adres="$(echo "$adresler" | sed -n 1p)"
+          kapak_adres="$(echo "$adresler" | sed -n 2p)"
+          if ! python instagram.py paylas "$adres" "senaryolar/$ad" $kapak_adres > paylasim.log 2>&1; then
             bash medya_yayinla.sh temizle || true
             echo "::error title=Instagram paylaşımı başarısız::$(tail -c 900 paylasim.log | tr '\n' ' ')"; exit 1
           fi

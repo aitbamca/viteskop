@@ -2,7 +2,7 @@
 # Instagram videoyu herkese açık bir adresten çeker. Video, paylaşım süresince sayfa sahibinin
 # kendi public deposu aitbamca/viteskop-medya'nın GitHub Pages sitesine konur, sonra silinir.
 # Depo geçmişi tutulmaz (her seferinde tek commit'le üzerine yazılır).
-#   bash medya_yayinla.sh koy VIDEO.mp4   → herkese açık adresi yazar
+#   bash medya_yayinla.sh koy VIDEO.mp4 [KAPAK.jpg]  → herkese açık adresleri yazar (1. satır video, 2. satır kapak)
 #   bash medya_yayinla.sh temizle         → videoyu siler
 set -euo pipefail
 DEPO="aitbamca/viteskop-medya"
@@ -22,17 +22,22 @@ touch "$klasor/.nojekyll"
 
 case "${1:-}" in
   koy)
-    ad="$(head -c 12 /dev/urandom | od -An -tx1 | tr -d ' \n').mp4"  # tahmin edilemeyen dosya adı
-    mkdir -p "$klasor/v" && cp "$2" "$klasor/v/$ad"
+    kok="$(head -c 12 /dev/urandom | od -An -tx1 | tr -d ' \n')"  # tahmin edilemeyen dosya adı
+    mkdir -p "$klasor/v" && cp "$2" "$klasor/v/$kok.mp4"
+    [ -n "${3:-}" ] && cp "$3" "$klasor/v/$kok.jpg"
     gonder "$klasor" "Geçici video" >&2
-    adres="$SITE/v/$ad"
+    adres="$SITE/v/$kok.mp4"
     for _ in $(seq 1 40); do  # Pages yayına alana kadar bekle (genelde 30-90 sn)
-      if [ "$(curl -s -o /dev/null -w '%{http_code}' -I "$adres")" = "200" ]; then echo "$adres"; exit 0; fi
+      if [ "$(curl -s -o /dev/null -w '%{http_code}' -I "$adres")" = "200" ]; then
+        echo "$adres"
+        [ -n "${3:-}" ] && echo "$SITE/v/$kok.jpg"
+        exit 0
+      fi
       sleep 10
     done
     echo "Pages adresi 400 saniyede açılmadı: $adres" >&2; exit 1 ;;
   temizle)
     gonder "$klasor" "Temizlendi" ;;
   *)
-    echo "kullanım: $0 koy VIDEO.mp4 | temizle" >&2; exit 2 ;;
+    echo "kullanım: $0 koy VIDEO.mp4 [KAPAK.jpg] | temizle" >&2; exit 2 ;;
 esac

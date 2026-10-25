@@ -2,7 +2,7 @@
 
 Kullanım:
   python instagram.py kontrol                         # token çalışıyor mu, hesap bilgisi
-  python instagram.py paylas VIDEO_ADRESI SENARYO.json  # herkese açık adresteki videoyu Reels olarak paylaş
+  python instagram.py paylas VIDEO_ADRESI SENARYO.json [KAPAK_ADRESI]  # herkese açık adresteki videoyu Reels olarak paylaş
   python instagram.py istatistik                      # paylaşılan videoların ve hesabın verilerini veriler/'e ekler
 
 Token INSTAGRAM_TOKEN ortam değişkeninden okunur.
@@ -64,15 +64,20 @@ def aciklama_yaz(senaryo):
     return "\n\n".join(parcalar)[:2200]
 
 
-def reels_paylas(video_adresi, aciklama, kapak_ms=2500):
-    """video_adresi: Instagram'ın videoyu çekeceği herkese açık adres (viteskop-medya GitHub Pages)."""
+def reels_paylas(video_adresi, aciklama, kapak_ms=2500, kapak_adresi=None):
+    """video_adresi: Instagram'ın videoyu çekeceği herkese açık adres (viteskop-medya GitHub Pages).
+    kapak_adresi: kapak.py'nin ürettiği kapak görselinin adresi; yoksa videodan kapak_ms anındaki kare kullanılır."""
     token = _token()
     kullanici = hesap()["user_id"]
 
     # 1) Kapsayıcı oluştur: Instagram videoyu adresten kendisi indirir
-    kap = _istek("POST", f"{TABAN}/{kullanici}/media", {
-        "media_type": "REELS", "video_url": video_adresi, "caption": aciklama,
-        "share_to_feed": "true", "thumb_offset": str(int(kapak_ms)), "access_token": token})
+    alanlar = {"media_type": "REELS", "video_url": video_adresi, "caption": aciklama,
+               "share_to_feed": "true", "access_token": token}
+    if kapak_adresi:
+        alanlar["cover_url"] = kapak_adresi
+    else:
+        alanlar["thumb_offset"] = str(int(kapak_ms))
+    kap = _istek("POST", f"{TABAN}/{kullanici}/media", alanlar)
     kap_id = kap["id"]
 
     # 2) Instagram videoyu indirip işlerken bekle
@@ -159,7 +164,8 @@ if __name__ == "__main__":
     elif komut == "paylas":
         video_adresi, senaryo_yolu = sys.argv[2], sys.argv[3]
         senaryo = json.load(open(senaryo_yolu, encoding="utf-8"))
-        medya = reels_paylas(video_adresi, aciklama_yaz(senaryo), senaryo.get("kapak_ms", 2500))  # kapak: sorunun büyük göründüğü an
+        kapak_adresi = sys.argv[4] if len(sys.argv) > 4 else None
+        medya = reels_paylas(video_adresi, aciklama_yaz(senaryo), senaryo.get("kapak_ms", 2500), kapak_adresi)  # kapak: sorunun büyük göründüğü an
         print(f"paylaşıldı: {os.path.basename(senaryo_yolu)} → medya {medya}")
     elif komut == "istatistik":
         print(istatistik_topla())

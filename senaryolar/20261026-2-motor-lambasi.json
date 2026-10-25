@@ -76,5 +76,15 @@
    "soru": "Bu lamba sende hiç yandı mı?"
   }
  ],
- "stil": "ciddi"
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "BU LAMBA",
+   "YANDIYSA",
+   "NE YAPMALI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ }
 }
