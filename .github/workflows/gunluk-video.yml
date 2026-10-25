@@ -25,6 +25,7 @@ on:
 
 permissions:
   contents: write
+  actions: write  # "hemen" işaretli özel istekte paylaşımı hemen başlatmak için
 
 concurrency:
   group: video-uretimi
@@ -121,3 +122,14 @@ jobs:
           git commit -m "Üretildi: $(tr '\n' ' ' < basarili.txt)"
           git pull --rebase -q origin main
           git push
+
+      - name: Hemen paylaş (sayfa sahibinin "hemen yayınla" dediği özel istek)
+        if: steps.sec.outputs.var == 'evet' && github.event.inputs.deneme != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for ad in $(cat basarili.txt 2>/dev/null); do
+            if python -c "import json, sys; sys.exit(0 if json.load(open('senaryolar/$ad', encoding='utf-8')).get('hemen') else 1)"; then
+              gh workflow run instagram.yml -f islem=paylas -f senaryo="$ad" && echo "::notice title=Hemen paylaşım başlatıldı::$ad"
+            fi
+          done

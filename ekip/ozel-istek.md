@@ -10,6 +10,8 @@ ilk boş paylaşım saatinde (planlı videonun yerine) yayınlanır.
 1. `git pull origin main`. `istek` koleksiyonunda `durum: "bekliyor"` olanları bul (`query`).
 2. Her biri için `ekip/yazar.md` kurallarıyla **bir** senaryo yaz (araştır, doğrula, test et):
    `taslaklar/YYYYAAGG-O-kisa-ad.json` (O = özel; aynı gün birden fazlaysa O1, O2) ve JSON'a `"oncelikli": true` ekle.
+   Sayfa sahibi notta "hemen yayınla / hemen paylaş" dediyse JSON'a `"hemen": true` da ekle: video üretilir üretilmez
+   paylaşım saatini beklemeden Instagram'a gider.
    Konu Viteskop'a uygun değilse (oto dışı, tehlikeli tavsiye gerektiriyor, doğrulanamıyor) yazma; belgeyi `durum: "reddedildi"`,
    `mesaj`: kısa neden yap.
 3. `git add taslaklar/ && git commit -m "Özel istek taslağı: <başlık>" && git push origin main`.
@@ -21,7 +23,7 @@ ilk boş paylaşım saatinde (planlı videonun yerine) yayınlanır.
 ## Editör (⚡ Özel istek kontrolü)
 1. `git pull origin main`. `taslaklar/` içinde `"oncelikli": true` olan taslakları bul. Yoksa hiçbir şey yapma, bitir.
 2. Her birini `ekip/editor.md`'deki gibi **bağımsız** kontrol et (bilgiyi kendin doğrula, kareye bak).
-3. Onay: `editor` alanını ekle, `git mv` ile `senaryolar/`a taşı, dosya adını **`oncelikli.txt`'nin sonuna ekle**, sonra
+3. Onay: (`"hemen": true` varsa koru) `editor` alanını ekle, `git mv` ile `senaryolar/`a taşı, dosya adını **`oncelikli.txt`'nin sonuna ekle**, sonra
    `git add -A taslaklar/ senaryolar/ oncelikli.txt && git commit -m "Özel istek onaylandı: <başlık>" && git push origin main`.
    (Push videoyu hemen üretime sokar.) İstek belgesini `update`: `{"durum": "onaylandi", "senaryo": "<dosya adı>"}`.
    Red: `taslaklar/reddedilen/`e taşı, push et, istek belgesini `{"durum": "reddedildi", "mesaj": "<neden>"}` yap.
