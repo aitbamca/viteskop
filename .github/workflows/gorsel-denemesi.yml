@@ -1,0 +1,27 @@
+name: Görsel denemesi
+
+on:
+  push:
+    branches: [main]
+    paths: ["gorsel_denemesi.py"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dene:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Görselleri üret
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python gorsel_denemesi.py
+      - name: Depoya kaydet
+        run: |
+          git config user.name "viteskop-bot"
+          git config user.email "viteskop-bot@users.noreply.github.com"
+          git add denemeler/
+          git commit -m "Görsel denemesi" || exit 0
+          git pull --rebase origin main && git push origin main
