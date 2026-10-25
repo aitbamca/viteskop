@@ -13,6 +13,7 @@ videoya çevrilir (GitHub Actions, Gemini sesi Iapetus). Deneme: `python video.p
 | `tema` | İsteğe bağlı: `garaj`, `showroom`, `otoyol`, `gece_sehir`, `gosterge` (yoksa serinin teması) |
 | `soru` | İsteğe bağlı kapanış sorusu (yoksa serinin sorusu) |
 | `kapak` | Reels kapağı: `{"satirlar": ["MOTOR YAĞI", "NE ZAMAN", "DEĞİŞİR?"], "vurgu": [2]}`: 2–3 kısa, vurucu satır (her satır en fazla ~12 harf); vurgu turuncu satır. Kafa Kafaya'da otomatik: üstte 1. model, ortada VS, altta 2. model. Kontrol: `python kapak.py senaryolar/X.json /tmp/kapak.jpg` |
+| `kapak_sigdir` | `true`: sayfa sahibinin hazır kapağı profil ızgarasında kesilmesin diye küçültülüp ortalanır (kenarlar bulanık dolgu) |
 | `aciklama` / `aciklama_en` | Instagram açıklaması: yorum ve kaydetmeye davet |
 | `etiketler` | 8–12 hashtag, ilki `#viteskop` |
 | `kaynaklar` | Doğrulanan kaynaklar (üretici, resmi kurum, kullanım kitapçığı). Editör kontrol eder |

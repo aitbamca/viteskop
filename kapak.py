@@ -228,6 +228,21 @@ def _doldur(yol):
     return resim.crop((x, y, x + W, y + H))
 
 
+def _izgaraya_sigdir(yol, oran=0.8):
+    """Kapağı küçültüp ortalar: profil ızgarasının 3:4 kesiminde yazılar kesilmesin.
+    Boşluklar aynı görselin büyütülmüş, bulanık ve karartılmış hâliyle dolar."""
+    tam = _doldur(yol)
+    zemin = tam.resize((W // 8, H // 8)).filter(ImageFilter.GaussianBlur(6)).resize((W, H), Image.BICUBIC)
+    zemin = Image.blend(zemin, Image.new("RGB", (W, H), (0, 0, 0)), 0.45)
+    kucuk = tam.resize((int(W * oran), int(H * oran)), Image.LANCZOS)
+    golge = Image.new("L", (W, H), 0)
+    ImageDraw.Draw(golge).rectangle(((W - kucuk.width) // 2 - 10, (H - kucuk.height) // 2 - 10,
+                                     (W + kucuk.width) // 2 + 10, (H + kucuk.height) // 2 + 10), fill=170)
+    zemin.paste((0, 0, 0), (0, 0), golge.filter(ImageFilter.GaussianBlur(24)))
+    zemin.paste(kucuk, ((W - kucuk.width) // 2, (H - kucuk.height) // 2))
+    return zemin
+
+
 def _arka_planli(zemin_fn):
     """Sayfa sahibi yalnızca arka plan verdiyse çizim zemin yerine o kullanılır (yazılar okunsun diye karartılır)."""
     def sar(vurgu, merkez_y):
@@ -250,8 +265,8 @@ _zemin = _arka_planli(_zemin)
 def kapak_yap(senaryo, senaryo_yolu=""):
     global _ARKA
     hazir = _hazir_gorsel(senaryo_yolu) if senaryo_yolu else None
-    if hazir:  # sayfa sahibinin hazırladığı yazılı kapak olduğu gibi kullanılır
-        return _doldur(hazir)
+    if hazir:  # sayfa sahibinin hazırladığı yazılı kapak
+        return _izgaraya_sigdir(hazir) if senaryo.get("kapak_sigdir") else _doldur(hazir)
     _ARKA = _hazir_gorsel(senaryo_yolu, "-arka") if senaryo_yolu else None
     if senaryo.get("seri") == "kafa":
         return kapak_kafa(senaryo)
