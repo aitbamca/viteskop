@@ -3,6 +3,9 @@
 Kullanım: python kapak.py senaryolar/X.json cikti/X.jpg
 
 Instagram profil ızgarasında kapağın ortadaki 3:4'lük kısmı (y≈240–1680) görünür; her şey o alanda kalır.
+Sayfa sahibinin görseli varsa (Viteskop Paneli → Haftalık Plan → Görsel yükle; oda müdürü kapaklar/'a koyar):
+  kapaklar/YYYYAAGG-N.jpg       hazır, yazılı kapak: olduğu gibi kullanılır
+  kapaklar/YYYYAAGG-N-arka.jpg  yalnızca arka plan: üstüne büyük yazılar ve logo eklenir
 Senaryoda isteğe bağlı "kapak": {"satirlar": ["MOTOR YAĞI", "NE ZAMAN", "DEĞİŞİR?"], "vurgu": [2]}
 (vurgu: turuncu yazılacak satırların sırası). Yoksa başlıktan üretilir.
 """
@@ -201,7 +204,55 @@ def _vinyet(z):
     return z.convert("RGB")
 
 
-def kapak_yap(senaryo):
+KAPAK_KLASORU = os.path.join(os.path.dirname(os.path.abspath(__file__)), "kapaklar")
+
+
+def _hazir_gorsel(senaryo_yolu, ek=""):
+    """kapaklar/ içinde sayfa sahibinin görseli: plan kimliğiyle (YYYYAAGG-N) ya da senaryo adıyla."""
+    ad = os.path.splitext(os.path.basename(senaryo_yolu))[0]
+    plan_id = "-".join(ad.split("-")[:2])
+    for kok in (plan_id, ad):
+        for uzanti in (".jpg", ".jpeg", ".png", ".webp"):
+            yol = os.path.join(KAPAK_KLASORU, kok + ek + uzanti)
+            if os.path.exists(yol):
+                return yol
+    return None
+
+
+def _doldur(yol):
+    """Görseli 1080x1920'ye taşırmadan sığdırıp ortadan kırpar."""
+    resim = Image.open(yol).convert("RGB")
+    oran = max(W / resim.width, H / resim.height)
+    resim = resim.resize((max(W, round(resim.width * oran)), max(H, round(resim.height * oran))), Image.LANCZOS)
+    x, y = (resim.width - W) // 2, (resim.height - H) // 2
+    return resim.crop((x, y, x + W, y + H))
+
+
+def _arka_planli(zemin_fn):
+    """Sayfa sahibi yalnızca arka plan verdiyse çizim zemin yerine o kullanılır (yazılar okunsun diye karartılır)."""
+    def sar(vurgu, merkez_y):
+        if not _ARKA:
+            return zemin_fn(vurgu, merkez_y)
+        z = _doldur(_ARKA).convert("RGBA")
+        perde = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        d = ImageDraw.Draw(perde)
+        for y in range(H):
+            d.line([(0, y), (W, y)], fill=(0, 0, 0, int(150 * max(0.25, 1 - y / 1100))))
+        z.alpha_composite(perde)
+        return z
+    return sar
+
+
+_ARKA = None
+_zemin = _arka_planli(_zemin)
+
+
+def kapak_yap(senaryo, senaryo_yolu=""):
+    global _ARKA
+    hazir = _hazir_gorsel(senaryo_yolu) if senaryo_yolu else None
+    if hazir:  # sayfa sahibinin hazırladığı yazılı kapak olduğu gibi kullanılır
+        return _doldur(hazir)
+    _ARKA = _hazir_gorsel(senaryo_yolu, "-arka") if senaryo_yolu else None
     if senaryo.get("seri") == "kafa":
         return kapak_kafa(senaryo)
     seri = c.SERILER.get(senaryo.get("seri"), {})
@@ -261,5 +312,5 @@ if __name__ == "__main__":
     senaryo = json.load(open(sys.argv[1], encoding="utf-8"))
     cikti = sys.argv[2] if len(sys.argv) > 2 else os.path.join("cikti", os.path.splitext(os.path.basename(sys.argv[1]))[0] + ".jpg")
     os.makedirs(os.path.dirname(cikti) or ".", exist_ok=True)
-    kapak_yap(senaryo).save(cikti, quality=92)
+    kapak_yap(senaryo, sys.argv[1]).save(cikti, quality=92)
     print(f"kapak: {cikti}")

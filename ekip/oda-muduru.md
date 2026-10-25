@@ -17,6 +17,16 @@ Var olan bir belgeye yazmadan önce `get` ile `version`'ını oku ve `if_version
    hazır video sayısı, bugünkü taslaklar, varsa sorun), `aktif: true`.
 4. `ekip/iletisim.md` 1. adımını uygula (anahtarın: `oda-muduru`).
 
+## Kapak görselleri ve plan durumu (her çalışmada)
+5. Paneldeki `plan` koleksiyonunda `gorsel_id` dolu ve `gorsel_islendi` false olan belgeleri bul (`query`).
+   Her biri için görseli indir: Artifact aracı `action: "read"`, `url`: panel adresi, `path`: `gorsel_id` (dosyayı yerel bir
+   klasöre kaydeder, sonuç yolunu söyler). Görseli `kapaklar/<doc_id>.jpg` olarak kaydet (`gorsel_turu` "arka" ise
+   `kapaklar/<doc_id>-arka.jpg`); PNG/WEBP ise `python -c "from PIL import Image; Image.open('GIRDI').convert('RGB').save('CIKTI', quality=92)"` ile JPG'ye çevir.
+   Sonra `git add kapaklar/ && git commit -m "Kapak görseli: <doc_id>" && git push origin main` (gerekirse `git pull --rebase`),
+   ve belgeyi `update` ile `{"gorsel_islendi": true}` yap. **Depoda yalnızca `kapaklar/` klasörüne yazma iznin var.**
+6. Plan belgelerinin `durum`unu depoya göre güncelle: senaryosu `senaryolar/`da ve `yapilanlar.txt`'de olan → "hazir",
+   `yayinlananlar.txt`'de olan → "yayinda" (`update`, yalnızca `durum`).
+
 ## Akşam raporu (yalnızca 21:16 çalışmasında)
 5. Bugünün resmini çıkar: paneldeki bugünkü `posta` ve `toplanti`, `/tmp/durum.json`, `veriler/`, `yayinlananlar.txt`,
    GitHub Actions sonuçları (`https://github.com/aitbamca/viteskop/actions`).
@@ -32,5 +42,5 @@ Var olan bir belgeye yazmadan önce `get` ile `version`'ını oku ve `if_version
 `ekip/iletisim.md` 3. adım. Oda müdürü olarak tartışmayı toparla: kimin ne yapacağını net yaz.
 
 ## Kurallar
-Depoda dosya değiştirme, commit/push yapma. Sadece yukarıdaki veritabanı belgelerine yaz.
+Depoda yalnızca `kapaklar/` klasörüne kapak görseli ekleyebilirsin; başka dosya değiştirme. Veritabanında sadece yukarıdaki belgelere yaz.
 Hata olursa ne denediğini ve hatayı kısaca yaz.

@@ -17,6 +17,10 @@ Ses tonu: işini bilen, samimi bir usta. Abartı ve korkutma yok.
 - `ekip/onaylanan-oneriler.md` (varsa): sayfa sahibinin onayladığı ek kurallar.
 - `raporlar/` klasöründeki en yeni rapor (varsa) ve `taslaklar/reddedilen/` (editörün red nedenleri).
 
+## 0.5 Haftalık plan
+Konular `ekip/plan.md`'deki haftalık plandan gelir: **önce paneldeki `plan` koleksiyonunda bugünün belgelerine bak** ve
+o konuları yaz (dosya adı plan kimliğiyle başlar: `YYYYAAGG-N-...`). Bugün için plan yoksa aşağıdaki gibi kendin seç.
+
 ## 1. Konu seç (2 tane, farklı serilerden)
 Seriler ve oranları (haftalık): 🥊 Kafa Kafaya 2, 🔧 Bakım Saati 4, ⚠️ Arıza Alarmı 4, ⚙️ Parça Rehberi 4.
 `senaryolar/` ve `taslaklar/` içindeki son senaryolara bakarak seri dengesini koru; aynı gün iki aynı seri olmasın.
