@@ -1,0 +1,131 @@
+{
+ "baslik": "Yaris Cross mu, T-Cross mu?",
+ "baslik_en": "Yaris Cross or T-Cross?",
+ "seri": "kafa",
+ "stil": "ciddi",
+ "araba": {
+  "tip": "suv"
+ },
+ "aciklama": "B-SUV sınıfının iki popüler modeli: Toyota Yaris Cross Hybrid ve Volkswagen T-Cross 1.0 TSI DSG. Fiyatlar Ekim 2026 liste fiyatıdır; kampanyalar fiyatı sık değiştirir, almadan önce bayiden güncel fiyatı sor. Sen hangisini seçerdin? Yorumlara yaz, karşılaştırmayı kaydet!",
+ "aciklama_en": "Two popular B-SUVs: Toyota Yaris Cross Hybrid vs Volkswagen T-Cross 1.0 TSI DSG. Prices are Turkish list prices for October 2026; campaigns change them often, so check with a dealer. Which one would you pick? Tell us in the comments and save this comparison!",
+ "etiketler": [
+  "#viteskop",
+  "#yariscross",
+  "#tcross",
+  "#toyota",
+  "#volkswagen",
+  "#bsuv",
+  "#kafakafaya",
+  "#arabakarşılaştırma",
+  "#otomobil",
+  "#carcomparison"
+ ],
+ "kaynaklar": [
+  "Yaris Cross Ekim 2026 fiyatları: https://www.gzt.com/teknoloji/yeni-yaris-cross-hybrid-fiyati-ve-ozellikleri-yaris-cross-hybrid-ekim-2026-fiyat-listesi-belli-oldu-4267785",
+  "Yaris Cross teknik (130 PS, 397 L, WLTP 4,5-5,2 L/100 km): https://www.otomobil.com.tr/yeni-toyota-yaris-cross-2026-satisa-sunuldu/",
+  "Yaris Cross 0-100 10,7 sn (önden çekiş): https://media.toyota.co.uk/wp-content/uploads/sites/5/pdf/260827-Yaris-Cross-Technical-Specifications.pdf",
+  "T-Cross Ekim 2026 fiyatları: https://www.webtekno.com/ekim-2026-volkswagen-fiyat-listesi-h226552.html",
+  "T-Cross teknik (116 PS, 200 Nm, 385/455 L, 0-100 10,0 sn, WLTP 5,7-5,9 L/100 km): https://www.dogusoto.com.tr/volkswagen-t-cross-10-tsi-116-ps-life-dsg-95002",
+  "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri/yeni-t-cross.html"
+ ],
+ "editor": {
+  "tarih": "2026-10-25",
+  "durum": "onaylandi",
+  "notlar": "Kampüs Merkezi hazırladı; fiyatlar otomatik giriş versiyonlarının (Yaris Cross Flame, T-Cross Life DSG) Ekim 2026 liste fiyatı, kampanyasız. Tüketim WLTP alt değer. T-Cross 0-100 tek bayi kaynağı. Tarafsız anlatım: kazanan seçilmez, karar izleyiciye bırakılır.",
+  "dogrulanan_kaynaklar": [
+   "gzt.com",
+   "otomobil.com.tr",
+   "media.toyota.co.uk",
+   "webtekno.com",
+   "dogusoto.com.tr"
+  ]
+ },
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Yaris Cross mu, T-Cross mu? B-SUV sınıfının iki popüler modelini rakamlarla karşılaştırıyoruz.",
+   "metin_en": "Yaris Cross or T-Cross? We compare two popular B-SUVs by the numbers."
+  },
+  {
+   "tip": "kiyas",
+   "sol": {
+    "ad": "Yaris Cross",
+    "tip": "suv"
+   },
+   "sag": {
+    "ad": "T-Cross",
+    "tip": "suv"
+   },
+   "satirlar": [
+    {
+     "ad": "Liste fiyatı · Ekim 2026",
+     "sol": "2,87 M TL",
+     "sag": "2,84 M TL",
+     "anahtar": "liste"
+    },
+    {
+     "ad": "Güç",
+     "sol": "130 PS",
+     "sag": "116 PS",
+     "anahtar": "güç"
+    }
+   ],
+   "metin": "Ekim ayı liste fiyatlarında otomatik giriş versiyonları birbirine çok yakın. Güçte hibrit Yaris Cross 130, T-Cross 116 beygir.",
+   "metin_en": "At October list prices, the automatic entry versions are very close. In power, the hybrid Yaris Cross makes 130 PS and the T-Cross 116."
+  },
+  {
+   "tip": "kiyas",
+   "sol": {
+    "ad": "Yaris Cross",
+    "tip": "suv"
+   },
+   "sag": {
+    "ad": "T-Cross",
+    "tip": "suv"
+   },
+   "satirlar": [
+    {
+     "ad": "Bagaj",
+     "sol": "397 L",
+     "sag": "385 L",
+     "anahtar": "bagaj"
+    },
+    {
+     "ad": "Tüketim · WLTP",
+     "sol": "4,5 L",
+     "sag": "5,7 L",
+     "anahtar": "wltp"
+    },
+    {
+     "ad": "0-100 km/s",
+     "sol": "10,7 sn",
+     "sag": "10,0 sn",
+     "anahtar": "sıfırdan"
+    }
+   ],
+   "metin": "Bagajda Yaris Cross 397, T-Cross 385 litre. T-Cross'un kayar arka koltuğu öne alınınca bu 455 litreye çıkıyor. WLTP tüketimi Yaris Cross'ta 4,5, T-Cross'ta 5,7 litreden başlıyor. Sıfırdan yüze Yaris Cross 10,7, T-Cross 10 saniye.",
+   "metin_en": "In boot space, the Yaris Cross offers 397 litres and the T-Cross 385. Slide the T-Cross rear seat forward and it grows to 455 litres. WLTP fuel use starts at 4.5 litres for the Yaris Cross and 5.7 for the T-Cross. From zero to a hundred, the Yaris Cross takes 10.7 seconds and the T-Cross 10."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Öne çıkan özellikler",
+   "maddeler": [
+    "Yaris Cross: hibrit sistem, e-CVT",
+    "T-Cross: kayar arka koltuk, turbo motor",
+    "Kampanyalar fiyatı sık değiştirir"
+   ],
+   "anahtarlar": [
+    "yaris",
+    "t-cross'unki",
+    "kampanyalar"
+   ],
+   "metin": "Yaris Cross'un öne çıkan özelliği hibrit sistemi. T-Cross'unki kayar arka koltuğu ve turbo motoru. Hangisinin sana uyduğu ihtiyacına bağlı. Kampanyalar fiyatı sık değiştiriyor, almadan önce bayiden güncel fiyatı sor.",
+   "metin_en": "The Yaris Cross's standout feature is its hybrid system. The T-Cross's is its sliding rear seat and turbo engine. Which one suits you depends on your needs. Campaigns change prices often, so check the latest price with a dealer before you buy."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen hangisini seçerdin? Yorumlara yaz, karşılaştırmayı kaydet.",
+   "metin_en": "Which one would you pick? Write in the comments and save this comparison."
+  }
+ ]
+}

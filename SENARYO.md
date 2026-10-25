@@ -25,7 +25,7 @@ Her sahnede `tip`, `metin` (Türkçe seslendirme) ve `metin_en` (İngilizce alty
 |---|---|---|
 | `giris` | – | Seri etiketi, sola yaslı büyük başlık, arabanın teknik çizimi |
 | `bilgi` | `yazi` | Büyük yazı kartı |
-| `kiyas` | `sol`, `sag` (`ad`, `tip`: sedan/suv/hatchback/pickup), `satirlar` (en fazla 5: `ad`, `sol`, `sag`, `kazanan`: sol/sag/boş, `anahtar`) | İki arabanın teknik çizimi ve rakamlara göre uzayan karşılaştırma çubukları (değerlerde sayı olsun: "441 L") |
+| `kiyas` | `sol`, `sag` (`ad`, `tip`: sedan/suv/hatchback/pickup), `satirlar` (en fazla 5: `ad`, `sol`, `sag`, `anahtar`) | İki arabanın teknik çizimi ve rakamlara göre uzayan karşılaştırma çubukları (kazanan işaretlenmez) (değerlerde sayı olsun: "441 L") |
 | `araba` | `araba` (tip, renk), `yazi`, `etiketler` (`yazi`, `x`, `y` 0–1 arabanın üstündeki yer, `anahtar`) | Araba gelir, parçaları etiketlenir |
 | `ikaz` | `ikon` (motor, yag, aku, sicaklik, fren, lastik_basinci, abs, hava_yastigi), `renk` (sari/kirmizi/yesil/mavi), `yazi`, `yanip` (true/false; kırmızıda varsayılan true) | Gösterge paneli ve ikaz lambası |
 | `liste` | `maddeler` (en fazla 5, kısa), `anahtarlar`, isteğe bağlı `baslik` | Numaralı maddeler (01, 02…) |
@@ -46,5 +46,8 @@ Ciddi, teknik bir oto kanalı: koyu stüdyo zemin, sola yaslı tipografi, çizgi
 ## Kurallar
 - **Güvenlik:** Fren, direksiyon, hava yastığı, yakıt ve yüksek voltaj işlerinde "kendin yap" deme, ustaya yönlendir.
 - **Doğruluk:** Her rakamı kaynağıyla yaz. Kesin aralıklar için "aracının kitapçığına bak" de.
+- **Kafa Kafaya'da tarafsızlık (sayfa sahibinin kuralı):** Taraf tutmayız, kazanan seçmeyiz, sonunda karar vermeyiz.
+  Sadece doğrulanmış rakamları ve her arabanın öne çıkan özelliğini aynı tonda söyleriz; kararı izleyiciye sorarız.
+  "Daha iyi", "fark atıyor", "kazanan", "tercih edilmeli" gibi ifadeler kullanılmaz. `kiyas` satırlarına `kazanan` yazılmaz.
 - **Fiyatlar:** Kıyasta fiyat varsa ay ve yılı yaz ("Ekim 2026 liste fiyatı").
 - **Marka:** Arabalar marka taklidi değil, sade silüettir. Marka adı yalnız kıyasta, bilgi amaçlı geçer.

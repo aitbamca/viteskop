@@ -62,6 +62,7 @@ def cumleler(kz):
 
 SOL = 80  # sol kenar boşluğu: yazılar sola yaslı (ciddi, dergi düzeni)
 SOLUK = (150, 158, 174)
+SAG_RENK = (150, 178, 214)  # kıyasta sağdaki arabanın rengi (soldaki serinin rengi)
 CIZGI = (232, 236, 243)
 
 
@@ -178,13 +179,14 @@ def sahne_kiyas(z, t, s):
     """İki araba ve satır satır karşılaştırma çubukları.
 
     {"tip": "kiyas", "sol": {"ad": "Togg T10X", "tip": "suv"}, "sag": {...},
-     "satirlar": [{"ad": "Bagaj", "sol": "441 L", "sag": "510 L", "kazanan": "sag", "anahtar": "bagaj"}]}
+     "satirlar": [{"ad": "Bagaj", "sol": "441 L", "sag": "510 L", "anahtar": "bagaj"}]}
+    Tarafsız: kazanan seçilmez, çubuklar yalnızca rakamları gösterir.
     """
     vurgu = s.tema["vurgu"]
     sol, sag = s.veri.get("sol", {}), s.veri.get("sag", {})
     a = c.kayarak(t, 0.0, 0.7)
     a1 = c.araba_cizgi(440, sol.get("tip", "sedan"), yon=1, vurgu=vurgu)
-    a2 = c.araba_cizgi(440, sag.get("tip", "sedan"), yon=-1, vurgu=(150, 158, 174))
+    a2 = c.araba_cizgi(440, sag.get("tip", "sedan"), yon=-1, vurgu=SAG_RENK)
     c.yapistir(z, c.saydamlik(a1, a), 40 - (1 - a) * 80, 330)
     c.yapistir(z, c.saydamlik(a2, a), 600 + (1 - a) * 80, 330)
     _yazi(z, sol.get("ad", "").upper(), SOL, 545, 34, CIZGI, c.kayarak(t, 0.3, 0.4), aralik=2)
@@ -203,13 +205,11 @@ def sahne_kiyas(z, t, s):
         en = max(n1 or 0, n2 or 0)
         oran1 = (n1 / en) if en and n1 is not None and n2 is not None else 1.0
         oran2 = (n2 / en) if en and n1 is not None and n2 is not None else 1.0
-        kazanan = satir.get("kazanan")
-        r1 = vurgu if kazanan == "sol" else (90, 96, 110)
-        r2 = vurgu if kazanan == "sag" else (90, 96, 110)
-        _cubuk(z, 530, y + 38, 330 * oran1 * g, 14, r1, yon=-1)
-        _cubuk(z, 550, y + 38, 330 * oran2 * g, 14, r2, yon=1)
-        _yazi(z, str(satir.get("sol", "")), SOL, y, 40, CIZGI if kazanan != "sag" else SOLUK, g)
-        _yazi(z, str(satir.get("sag", "")), 1000, y, 40, CIZGI if kazanan != "sol" else SOLUK, g, anchor="rm")
+        # Tarafsızız: kazanan işaretlenmez, her arabanın çubuğu hep kendi renginde
+        _cubuk(z, 530, y + 38, 330 * oran1 * g, 14, vurgu, yon=-1)
+        _cubuk(z, 550, y + 38, 330 * oran2 * g, 14, SAG_RENK, yon=1)
+        _yazi(z, str(satir.get("sol", "")), SOL, y, 40, CIZGI, g)
+        _yazi(z, str(satir.get("sag", "")), 1000, y, 40, CIZGI, g, anchor="rm")
 
 
 def sahne_araba(z, t, s):

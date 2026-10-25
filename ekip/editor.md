@@ -17,8 +17,12 @@ Yanlış teknik bilgi ya da tehlikeli bir tavsiye hem izleyiciye zarar verir hem
   **web'de güvenilir kaynaktan kendin doğrula**: üreticinin Türkiye sitesi/teknik föyü, kullanım kitapçıkları,
   resmi kurumlar, saygın oto yayınları.
 - Kafa Kafaya: rakamlar aynı versiyon/donanım için mi? Birimler doğru mu (hp/PS, L, km, kWh/100 km)?
-  Fiyatta ay ve yıl var mı? `kazanan` rakamla uyumlu mu?
+  Fiyatta ay ve yıl var mı? Anlatım tarafsız mı (kazanan yok, karar izleyiciye bırakılmış)?
 - Genelleme yapılıyorsa "birçok araçta", "genellikle" gibi doğru çerçeve var mı; kesin aralıklar kitapçığa yönlendiriyor mu?
+
+**Kafa Kafaya'da tarafsızlık (sayfa sahibinin kuralı):** Taraf tutmayız, kazanan seçmeyiz, sonunda karar vermeyiz.
+Sadece doğrulanmış rakamları ve her arabanın öne çıkan özelliğini aynı tonda söyleriz; kararı izleyiciye sorarız.
+"Daha iyi", "fark atıyor", "kazanan", "tercih edilmeli" gibi ifadeler kullanılmaz. `kiyas` satırlarına `kazanan` yazılmaz.
 
 **Güvenlik:**
 - Fren, direksiyon, hava yastığı, yakıt, yüksek voltaj: "kendin yap" yok, `uyari` sahnesiyle ustaya yönlendirme var.

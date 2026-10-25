@@ -20,9 +20,11 @@ Ses tonu: işini bilen, samimi bir usta. Abartı ve korkutma yok.
 ## 1. Konu seç (2 tane, farklı serilerden)
 Seriler ve oranları (haftalık): 🥊 Kafa Kafaya 2, 🔧 Bakım Saati 4, ⚠️ Arıza Alarmı 4, ⚙️ Parça Rehberi 4.
 `senaryolar/` ve `taslaklar/` içindeki son senaryolara bakarak seri dengesini koru; aynı gün iki aynı seri olmasın.
+- **Kafa Kafaya'da tarafsızlık (sayfa sahibinin kuralı):** Taraf tutmayız, kazanan seçmeyiz, sonunda karar vermeyiz.
+  Sadece doğrulanmış rakamları ve her arabanın öne çıkan özelliğini aynı tonda söyleriz; kararı izleyiciye sorarız.
+  "Daha iyi", "fark atıyor", "kazanan", "tercih edilmeli" gibi ifadeler kullanılmaz. `kiyas` satırlarına `kazanan` yazılmaz.
 - **Kafa Kafaya:** Türkiye'de satılan iki rakip model (aynı sınıf). Bagaj, güç, tüketim/menzil, garanti, boyut,
   fiyat. **Her rakam üreticinin Türkiye sitesinden ya da resmi teknik föyden** alınır; fiyatta ay/yıl yazılır.
-  Kazananı rakam belirler; "en iyisi şu" diye hüküm verme, "senin önceliğine göre" de.
 - **Bakım Saati:** periyodik bakım, mevsimsel hazırlık (kış lastiği, antifriz, akü), lastik basıncı, filtreler…
 - **Arıza Alarmı:** ikaz lambaları, sesler, titreşimler, kokular: ne anlama gelir, ne yapmalı, ne zaman durmalı.
 - **Parça Rehberi:** orijinal/muadil/çıkma farkı, balata, disk, akü, buji, filtre, silecek: ne zaman değişir, nasıl anlaşılır.
