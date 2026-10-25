@@ -1,3 +1,3 @@
-Kontrol: 2026-10-25T10:56Z
+Kontrol: 2026-10-25T11:02Z
 Instagram: Bağlantı tamam: @viteskop (MEDIA_CREATOR, 0 gönderi), istatistik izni var 
-Medya adresi: HATA medya_yayinla.sh: line 10: MEDYA_TOKEN: MEDYA_TOKEN tanımlı değil 
+Medya adresi: çalışıyor (https://aitbamca.github.io/viteskop-medya/v/6768e5701a3cab72dad575c0.mp4)
