@@ -1,0 +1,122 @@
+name: Günlük video
+
+on:
+  push:
+    branches: [main]
+    paths: ["senaryolar/**"]  # ajan yeni senaryo yükleyince hemen üret
+  schedule:
+    # Gemini'nin ücretsiz kotası 10:00'da (Türkiye) yenilenir; bekleyen videolar kotayla birlikte üretilir
+    - cron: "17 7 * * *"   # 10:17
+    - cron: "17 10 * * *"  # 13:17
+    - cron: "17 13 * * *"  # 16:17
+  workflow_dispatch:
+    inputs:
+      senaryo:
+        description: "Senaryo dosyası (boş bırakılırsa bekleyen ilk 3 senaryo)"
+        required: false
+      ses:
+        description: "Ses sağlayıcısını zorla (boş = otomatik: Gemini, sonra ElevenLabs)"
+        type: choice
+        options: ["", gemini, elevenlabs]
+        default: ""
+      deneme:
+        description: "Deneme: video sadece indirilebilir olur; hazır videolara ve yayın sırasına girmez"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: video-uretimi
+  cancel-in-progress: false
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerekenleri kur
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+          pip install -q -r requirements.txt
+
+      - name: Senaryoları seç
+        id: sec
+        run: |
+          if [ -n "${{ github.event.inputs.senaryo }}" ]; then
+            echo "${{ github.event.inputs.senaryo }}" > secilenler.txt
+          else
+            python siradaki.py 3 > secilenler.txt
+          fi
+          if [ ! -s secilenler.txt ]; then
+            echo "::notice title=Video::Üretilecek yeni senaryo yok."
+            echo "var=hayir" >> "$GITHUB_OUTPUT"
+          else
+            echo "var=evet" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Videoları üret
+        if: steps.sec.outputs.var == 'evet'
+        env:
+          SES_SAGLAYICI: ${{ github.event.inputs.ses || vars.SES_SAGLAYICI }}
+          GEMINI_SES: ${{ vars.GEMINI_SES }}
+          ELEVENLABS_SES_ID: ${{ vars.ELEVENLABS_SES_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          # Gün içinde yalnızca Gemini; ElevenLabs sadece günün son üretiminde (16:17), Gemini hâlâ yoksa.
+          # Robotik yedek sesle hiç video üretilmez; kalan iş bir sonraki çalıştırmaya bekler.
+          SES_ZORUNLU: ${{ github.event.inputs.ses || (github.event.schedule == '17 13 * * *' && 'gemini,elevenlabs') || (secrets.GEMINI_API_KEY != '' && 'gemini') || 'gemini,elevenlabs' }}
+        run: |
+          set -o pipefail
+          mkdir -p cikti
+          : > basarili.txt
+          bekleyen=0
+          while read -r yol; do
+            [ -z "$yol" ] && continue
+            if python video.py "$yol" < /dev/null 2>&1 | tee uretim.log; then  # ffmpeg listeyi yutmasın
+              echo "::notice title=Video hazır::$(grep '^bitti' uretim.log)"
+              basename "$yol" >> basarili.txt
+            elif grep -q "SesYok" uretim.log; then
+              bekleyen=1
+              echo "::warning title=Ses bekleniyor::$(basename "$yol"): kaliteli ses (Gemini/ElevenLabs) şu an kullanılamıyor, sonraki çalıştırmada tekrar denenecek."
+            else
+              echo "::error title=Video üretilemedi::$yol"
+            fi
+            { grep 'kullanılamadı' uretim.log || true; } | sort -u | head -3 | while read -r satir; do echo "::warning title=Ses::$satir"; done
+          done < secilenler.txt
+          [ -s basarili.txt ] || [ "$bekleyen" = 1 ] || exit 1
+
+      - name: Videoları indirilebilir yap
+        if: steps.sec.outputs.var == 'evet' && hashFiles('cikti/*.mp4') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: videolar-${{ github.run_number }}
+          path: cikti/*.mp4
+          retention-days: 30
+
+      - name: Hazır videolar sayfasına koy
+        if: steps.sec.outputs.var == 'evet' && hashFiles('cikti/*.mp4') != '' && github.event.inputs.deneme != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view hazir > /dev/null 2>&1 || gh release create hazir --title "Hazır videolar" \
+            --notes "Paylaşılmayı bekleyen videolar. Paylaşılan video buradan otomatik silinir."
+          for ad in $(cat basarili.txt); do gh release upload hazir "cikti/${ad%.json}.mp4" --clobber; done
+
+      - name: Üretildi olarak işaretle
+        if: steps.sec.outputs.var == 'evet' && github.event.inputs.deneme != 'true'
+        run: |
+          [ -s basarili.txt ] || exit 0
+          cat basarili.txt >> yapilanlar.txt
+          git config user.name "clufive-bot"
+          git config user.email "clufive-bot@users.noreply.github.com"
+          git add yapilanlar.txt
+          git commit -m "Üretildi: $(tr '\n' ' ' < basarili.txt)"
+          git pull --rebase -q origin main
+          git push

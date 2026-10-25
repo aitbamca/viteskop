@@ -1,0 +1,71 @@
+name: Instagram paylaşımı
+
+on:
+  # Otomatik paylaşım (sayfa sahibinin onayıyla açıldı, 24 Ekim 2026). Video adresinin hazırlanması
+  # 1-2 dakika sürdüğü için 3 dakika erken başlar: Reels 09:00, 13:00 ve 20:00 civarında yayında olur.
+  schedule:
+    - cron: "57 5 * * *"   # 08:57 (Türkiye saati)
+    - cron: "57 9 * * *"   # 12:57
+    - cron: "57 16 * * *"  # 19:57
+  workflow_dispatch:
+    inputs:
+      islem:
+        description: "kontrol = sadece bağlantıyı test et, paylas = sıradaki videoyu paylaş"
+        type: choice
+        options: [kontrol, paylas]
+        default: kontrol
+      senaryo:
+        description: "Paylaşılacak senaryo dosyası, ör. 20261024-1-yapraklar.json (boş = sıradaki)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: instagram-paylasim
+  cancel-in-progress: false
+
+jobs:
+  instagram:
+    runs-on: ubuntu-latest
+    env:
+      INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+      MEDYA_TOKEN: ${{ secrets.MEDYA_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bağlantıyı kontrol et
+        run: echo "::notice title=Instagram::$(python instagram.py kontrol)"
+
+      - name: Sıradaki videoyu paylaş
+        if: github.event_name == 'schedule' || github.event.inputs.islem == 'paylas'
+        run: |
+          ad="${{ github.event.inputs.senaryo }}"
+          [ -z "$ad" ] && ad="$(python paylasilacak.py)"
+          ad="$(basename "$ad")"
+          if [ -z "$ad" ]; then echo "::warning title=Instagram::Paylaşılacak hazır video yok."; exit 0; fi
+          video="${ad%.json}.mp4"
+          if ! gh release download hazir -p "$video" -D cikti 2> indirme.log; then
+            echo "::error title=Video indirilemedi::$video: $(tail -c 300 indirme.log | tr '\n' ' ')"; exit 1
+          fi
+          adres="$(bash medya_yayinla.sh koy "cikti/$video")" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve clufive-medya Pages ayarını kontrol et"; exit 1; }
+          if ! python instagram.py paylas "$adres" "senaryolar/$ad" > paylasim.log 2>&1; then
+            bash medya_yayinla.sh temizle || true
+            echo "::error title=Instagram paylaşımı başarısız::$(tail -c 900 paylasim.log | tr '\n' ' ')"; exit 1
+          fi
+          bash medya_yayinla.sh temizle || echo "::warning title=Temizlik::Video clufive-medya'dan silinemedi"
+          sonuc="$(tail -1 paylasim.log)"
+          echo "::notice title=Instagram::$sonuc"
+          printf '%s\t%s\t%s\n' "$ad" "$(date -u +%Y-%m-%dT%H:%MZ)" "${sonuc##* }" >> yayinlananlar.txt
+          git config user.name "clufive-bot"
+          git config user.email "clufive-bot@users.noreply.github.com"
+          git add yayinlananlar.txt
+          git commit -m "Instagram'da paylaşıldı: $ad"
+          git pull --rebase -q origin main
+          git push
+          gh release delete-asset hazir "$video" -y

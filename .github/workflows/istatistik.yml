@@ -1,0 +1,34 @@
+name: Instagram istatistikleri
+
+on:
+  schedule:
+    - cron: "41 20 * * *"  # her gece 23:41 (Türkiye saati)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  topla:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verileri topla
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+        run: echo "::notice title=İstatistik::$(python instagram.py istatistik | tail -1)"
+
+      - name: Kaydet
+        run: |
+          git config user.name "clufive-bot"
+          git config user.email "clufive-bot@users.noreply.github.com"
+          git add veriler/
+          git diff --cached --quiet && exit 0
+          git commit -m "İstatistikler: $(date -u +%Y-%m-%d)"
+          git pull --rebase -q origin main
+          git push
