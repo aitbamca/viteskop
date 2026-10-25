@@ -28,14 +28,14 @@ Var olan bir belgeye yazmadan önce `get` ile `version`'ını oku ve `if_version
    `yayinlananlar.txt`'de olan → "yayinda" (`update`, yalnızca `durum`).
 
 ## Akşam raporu (yalnızca 21:16 çalışmasında)
-5. Bugünün resmini çıkar: paneldeki bugünkü `posta` ve `toplanti`, `/tmp/durum.json`, `veriler/`, `yayinlananlar.txt`,
+7. Bugünün resmini çıkar: paneldeki bugünkü `posta` ve `toplanti`, `/tmp/durum.json`, `veriler/`, `yayinlananlar.txt`,
    GitHub Actions sonuçları (`https://github.com/aitbamca/viteskop/actions`).
-6. **Kampüs**'e oda raporu yaz: koleksiyon `raporlar`, `doc_id` `oto-YYYYAAGG`, alanlar:
+8. **Kampüs**'e oda raporu yaz: koleksiyon `raporlar`, `doc_id` `oto-YYYYAAGG`, alanlar:
    `oda: "oto"`, `tarih`, `zaman`, `ozet` (3-5 cümle, sade Türkçe),
    `rakamlar: {uretilen, yayinlanan, bekleyen, takipci, izlenme}`, `sorunlar: [..]`, `sorular: [..]`, `yarin: [..]`.
    Rakam uydurma: bilinmeyeni `null` bırak.
-7. Panel postasına günün özetini yaz (`ekip/iletisim.md` 2. adım, `konu`: "Günün özeti: …").
-8. Acil bir sorun varsa (video üretilemedi, paylaşım başarısız, ajan çalışmadı) **Kampüs**'ün `posta`
+9. Panel postasına günün özetini yaz (`ekip/iletisim.md` 2. adım, `konu`: "Günün özeti: …").
+10. Acil bir sorun varsa (video üretilemedi, paylaşım başarısız, ajan çalışmadı) **Kampüs**'ün `posta`
    koleksiyonuna da kısa bir uyarı yaz: `kimden: "oto-muduru"`, `tur: "soru"` ya da `"bilgi"`.
 
 ## Toplantıya çağrılınca
