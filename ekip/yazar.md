@@ -44,6 +44,9 @@ Dosya: `taslaklar/YYYYAAGG-N-kisa-ad.json` (N = 1, 2). Biçim ve sahne tipleri `
   "Aynı fiyata hangisi daha çok araba?"
 - **Hazır sahneleri kullan:** `kiyas`, `ikaz`, `liste`, `parca`, `gosterge`, `uyari`, `araba`, `bilgi`.
   Bir videoda en az 3 farklı sahne tipi olsun; aynı tipi art arda en fazla iki kez kullan.
+- **Kapak (zorunlu):** `kapak` alanına 2–3 kısa, merak uyandıran büyük harf satır yaz (ör. "MOTOR YAĞI / NE ZAMAN / DEĞİŞİR?",
+  "BU LAMBA / YANDIYSA / NE YAPMALI?"). Abartı ve yalan vaat yok ("ŞOK", "KİMSE BİLMİYOR" gibi tık tuzağı kullanma).
+  Kafa Kafaya kapağı otomatik oluşur. `python kapak.py taslaklar/X.json /tmp/kapak.jpg` ile bak.
 - **Kapanış:** soru + yorum + kaydet çağrısı. Serinin sorusu kendiliğinden çıkar; daha iyi bir soru varsa `soru` yaz.
 - **İngilizce:** her sahnede `metin_en`, **cümle sayısı Türkçeyle birebir aynı.**
 - **Güvenlik:** Fren, direksiyon, hava yastığı, yakıt sistemi, yüksek voltajlı (elektrikli/hibrit) sistemlerde
