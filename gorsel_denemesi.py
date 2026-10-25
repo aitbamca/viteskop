@@ -7,6 +7,11 @@ ISTEMLER = {
     "motor-yagi": "Dramatic cinematic photo of golden engine oil being poured into a car engine in a dark garage, glowing backlight, high contrast, vertical 9:16, no text, no logos.",
 }
 os.makedirs("denemeler", exist_ok=True)
+kayit = open("denemeler/gorsel-sonuc.txt", "w")
+_print = print
+def print(*a):
+    _print(*a); kayit.write(" ".join(str(x) for x in a) + "\n"); kayit.flush()
+
 anahtar = os.environ["GEMINI_API_KEY"]
 for ad, istem in ISTEMLER.items():
     for model in MODELLER:
@@ -17,7 +22,7 @@ for ad, istem in ISTEMLER.items():
             with urllib.request.urlopen(istek, timeout=180) as y:
                 yanit = json.loads(y.read())
         except urllib.error.HTTPError as h:
-            print(f"{ad} {model}: HTTP {h.code} {h.read()[:300]!r}")
+            print(f"{ad} {model}: HTTP {h.code} {h.read()[:400].decode(errors='replace')}")
             continue
         parcalar = yanit.get("candidates", [{}])[0].get("content", {}).get("parts", [])
         resim = next((p["inlineData"]["data"] for p in parcalar if "inlineData" in p), None)
