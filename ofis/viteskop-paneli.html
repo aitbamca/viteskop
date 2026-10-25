@@ -221,6 +221,26 @@ section[id] { scroll-margin-top: 64px; }
 .baglar a:hover { outline: 1px solid var(--line); }
 .baglar small { color: var(--ink-3); font-size: 12.5px; }
 
+/* haftalık plan */
+.plan-listesi { display: grid; gap: 12px; }
+.plan-gun { font-size: 12.5px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: .06em; margin: 6px 0 -4px; }
+.plan-kart { display: grid; grid-template-columns: 1fr 132px; gap: 14px; background: var(--surface-2); border-radius: 14px; padding: 12px 14px; }
+.plan-ust { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12.5px; color: var(--ink-3); }
+.plan-seri { font-size: 11.5px; font-weight: 700; color: #fff; border-radius: 999px; padding: 2px 9px; }
+.plan-durum { font-size: 11.5px; font-weight: 600; border-radius: 999px; padding: 2px 9px; background: var(--idle-soft); color: var(--ink-2); }
+.plan-durum[data-d="hazir"], .plan-durum[data-d="yayinda"] { background: var(--ok-soft); color: var(--ok); }
+.plan-durum[data-d="senaryo"] { background: var(--warn-soft); color: var(--warn); }
+.plan-baslik { margin: 4px 0 2px; font-size: 15.5px; }
+.plan-kapak { font-size: 12.5px; color: var(--ink-2); margin: 0 0 6px; }
+.plan-kapak b { color: var(--brand); }
+.plan-istem { font-size: 12.5px; line-height: 1.45; background: var(--surface); border: 1px dashed var(--line); border-radius: 10px; padding: 8px 10px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.plan-gorsel { display: grid; gap: 6px; align-content: start; }
+.plan-gorsel img { width: 132px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 10px; background: var(--surface); }
+.plan-bos { width: 132px; aspect-ratio: 9 / 16; border-radius: 10px; border: 2px dashed var(--line); display: grid; place-items: center; text-align: center; font-size: 12px; color: var(--ink-3); padding: 8px; }
+.plan-gorsel label { cursor: pointer; }
+.plan-gorsel input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+@media (max-width: 560px) { .plan-kart { grid-template-columns: 1fr 96px; } .plan-gorsel img, .plan-bos { width: 96px; } }
+
 /* posta ve toplantı odası */
 .rozet { display: inline-grid; place-items: center; min-width: 19px; height: 19px; padding: 0 5px; margin-left: 4px; border-radius: 999px; background: var(--brand); color: #fff; font-size: 11.5px; font-weight: 700; }
 .rozet[hidden] { display: none; }
@@ -316,7 +336,7 @@ section[id] { scroll-margin-top: 64px; }
   <div class="notice" id="notice" hidden></div>
 
   <nav class="sekmeler" aria-label="Panel bölümleri">
-    <a href="#posta">📬 Posta <span class="rozet" data-posta-rozet hidden></span></a><a href="#toplanti">🗣️ Toplantı Odası</a><a href="#ekip">Ekip</a><a href="#uretim">Üretim</a><a href="#takvim-bolum">Takvim</a><a href="#instagram">Instagram</a><a href="#notlar-bolum">Notlar</a><a href="#baglantilar">Bağlantılar</a>
+    <a href="#posta">📬 Posta <span class="rozet" data-posta-rozet hidden></span></a><a href="#toplanti">🗣️ Toplantı Odası</a><a href="#plan">📅 Haftalık Plan</a><a href="#ekip">Ekip</a><a href="#uretim">Üretim</a><a href="#takvim-bolum">Takvim</a><a href="#instagram">Instagram</a><a href="#notlar-bolum">Notlar</a><a href="#baglantilar">Bağlantılar</a>
   </nav>
 
   <div class="grid2 ilt">
@@ -341,6 +361,12 @@ section[id] { scroll-margin-top: 64px; }
       </form>
     </section>
   </div>
+
+  <section class="panel" id="plan" aria-labelledby="plan-baslik">
+    <div class="panel-head"><h2 id="plan-baslik">📅 Haftalık Plan</h2><span class="stand">Yazar her pazar gelecek haftayı planlar · görseli ChatGPT'de üret, buraya yükle</span></div>
+    <p class="stand" style="margin:0">Her videonun altındaki istemi kopyala, ChatGPT'de <b>dikey (9:16), yazısız</b> görsel üret ve "Görsel yükle"ye bas. Görsel kapağın arka planı olur; büyük yazıları sistem ekler.</p>
+    <div class="plan-listesi" id="plan-listesi"><p class="ilt-bos">Plan bekleniyor. Yazar ilk haftalık planı hazırlayınca burada görünecek.</p></div>
+  </section>
 
   <section class="floor" id="ekip" aria-labelledby="kat">
     <div class="zone-title">
@@ -718,5 +744,94 @@ section[id] { scroll-margin-top: 64px; }
       "beyin": {ad: "Beyin", rol: "yapay zekâ", renk: "#2a8fc4"}
     }
   };
+</script>
+<script>
+  // Haftalık plan: yazar "plan" koleksiyonuna yazar; sayfa sahibi görsel yükler, oda müdürü görseli depoya taşır.
+  (function () {
+    var SERI = {kafa: ["Kafa Kafaya", "#e53935"], bakim: ["Bakım Saati", "#27ae60"], ariza: ["Arıza Alarmı", "#e0a000"], parca: ["Parça Rehberi", "#2f80ed"]};
+    var DURUM = {planlandi: "Planlandı", senaryo: "Senaryo yazıldı", hazir: "Video hazır", yayinda: "Yayında"};
+    var liste = document.getElementById("plan-listesi");
+    var db = null, assets = null, mcp = null, kayitlar = [];
+    var AKTAR = "trig_01AAaiMk9r4K7gTStmPCBU96";  // oda müdürünün "kapak görseli aktar" rutini
+    function el(t, s, m) { var e = document.createElement(t); if (s) e.className = s; if (m != null) e.textContent = m; return e; }
+    function gunAdi(tarih) {
+      var d = new Date(tarih + "T12:00:00");
+      return isNaN(d) ? tarih : d.toLocaleDateString("tr-TR", {weekday: "long", day: "numeric", month: "long"});
+    }
+    function ciz() {
+      liste.textContent = "";
+      var bugun = new Date(Date.now() - 864e5).toISOString().slice(0, 10);
+      var gorunen = kayitlar.filter(function (k) { return (k.v.tarih || "") >= bugun; });
+      if (!gorunen.length) { liste.appendChild(el("p", "ilt-bos", "Plan bekleniyor. Yazar ilk haftalık planı hazırlayınca burada görünecek.")); return; }
+      var onceki = null;
+      gorunen.forEach(function (k) {
+        var v = k.v;
+        if (v.tarih !== onceki) { liste.appendChild(el("p", "plan-gun", gunAdi(v.tarih))); onceki = v.tarih; }
+        var kart = el("article", "plan-kart");
+        var sol = el("div");
+        var ust = el("div", "plan-ust");
+        var seri = SERI[v.seri] || [v.seri || "", "#888"];
+        var rozet = el("span", "plan-seri", seri[0]); rozet.style.background = seri[1]; ust.appendChild(rozet);
+        ust.appendChild(el("span", null, v.saat || ""));
+        var durum = el("span", "plan-durum", DURUM[v.durum] || v.durum || "Planlandı"); durum.dataset.d = v.durum || "planlandi"; ust.appendChild(durum);
+        sol.appendChild(ust);
+        sol.appendChild(el("h3", "plan-baslik", v.baslik || v.konu || ""));
+        if (v.kapak && v.kapak.length) {
+          var kp = el("p", "plan-kapak"); kp.appendChild(el("b", null, "Kapak: ")); kp.appendChild(document.createTextNode(v.kapak.join(" / "))); sol.appendChild(kp);
+        }
+        if (v.gorsel_istemi) {
+          sol.appendChild(el("div", "plan-istem", v.gorsel_istemi));
+          var kopya = el("button", "ilt-btn ikincil", "İstemi kopyala"); kopya.type = "button"; kopya.style.marginTop = "6px";
+          kopya.addEventListener("click", function () {
+            (navigator.clipboard ? navigator.clipboard.writeText(v.gorsel_istemi) : Promise.reject()).then(function () { kopya.textContent = "Kopyalandı ✓"; }, function () { kopya.textContent = "Kopyalanamadı, elle seç"; });
+            setTimeout(function () { kopya.textContent = "İstemi kopyala"; }, 2500);
+          });
+          sol.appendChild(kopya);
+        }
+        kart.appendChild(sol);
+        var sag = el("div", "plan-gorsel");
+        if (v.gorsel_url) {
+          var img = el("img"); img.src = v.gorsel_url; img.alt = "Kapak görseli: " + (v.baslik || ""); sag.appendChild(img);
+          sag.appendChild(el("span", "stand", v.gorsel_islendi ? "Kapağa eklendi ✓" : "Yüklendi, sırada"));
+        } else {
+          sag.appendChild(el("div", "plan-bos", assets ? "Görsel bekleniyor" : "Görsel yüklemek için sayfayı Claude'da aç"));
+        }
+        if (assets && db) {
+          var tur = el("select"); tur.setAttribute("aria-label", "Görselin türü");
+          tur.style.cssText = "font:inherit;font-size:12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);padding:3px;max-width:132px";
+          [["tam", "Hazır kapak (yazılı)"], ["arka", "Sadece arka plan"]].forEach(function (o) {
+            var s = el("option", null, o[1]); s.value = o[0]; if ((v.gorsel_turu || "tam") === o[0]) s.selected = true; tur.appendChild(s);
+          });
+          sag.appendChild(tur);
+          var etiket = el("label", "ilt-btn" + (v.gorsel_url ? " ikincil" : ""), v.gorsel_url ? "Değiştir" : "Görsel yükle");
+          var giris = el("input"); giris.type = "file"; giris.accept = "image/png,image/jpeg,image/webp";
+          etiket.appendChild(giris);
+          giris.addEventListener("change", function () {
+            var dosya = giris.files && giris.files[0]; if (!dosya) return;
+            etiket.firstChild.textContent = "Yükleniyor…";
+            assets.upload(dosya).then(function (a) {
+              return db.collection("plan").doc(k.id).update({gorsel_id: a.id, gorsel_url: a.url, gorsel_turu: tur.value, gorsel_zaman: new Date().toISOString(), gorsel_islendi: false});
+            }).then(function () {
+              if (mcp) mcp.callTool("Claude Code Remote", "fire_trigger", {trigger_id: AKTAR}).then(null, function () {});  // hemen kapağa aktarılsın
+            }, function (e) { etiket.firstChild.textContent = "Yüklenemedi: " + ((e && (e.code || e.message)) || "hata"); });
+          });
+          sag.appendChild(etiket);
+        }
+        kart.appendChild(sag);
+        liste.appendChild(kart);
+      });
+    }
+    var cl = window.claude; if (!cl || !cl.use) return;
+    cl.use("assets").then(function (a) { assets = a; ciz(); }, function () {});
+    cl.use("mcp").then(function (m) { mcp = m; }, function () {});
+    cl.use("db").then(function (d) {
+      if (!d) return; db = d;
+      d.collection("plan").orderBy("tarih", "desc").limit(40).onSnapshot(function (qs) {
+        kayitlar = qs.docs.filter(function (x) { return x.exists; }).map(function (x) { return {id: x.id, v: x.data()}; })
+          .sort(function (a, b) { return ((a.v.tarih || "") + (a.v.saat || "")).localeCompare((b.v.tarih || "") + (b.v.saat || "")); });
+        ciz();
+      }, function () {});
+    });
+  })();
 </script>
 <script src="iletisim.js"></script>
