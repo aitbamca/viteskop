@@ -59,8 +59,13 @@ def aciklama_yaz(senaryo):
     ingilizce = senaryo.get("aciklama_en") or senaryo.get("baslik_en")
     if ingilizce:
         parcalar.append("🇬🇧 " + ingilizce)
-    if senaryo.get("etiketler"):
-        parcalar.append(" ".join(senaryo["etiketler"][:30]))
+    etiketler = list(senaryo.get("etiketler") or [])
+    if len(etiketler) < 5:  # hashtag'ler hiç unutulmasın: eksikse varsayılanlarla tamamla
+        seri = {"kafa": "#kafakafaya", "bakim": "#bakımsaati", "ariza": "#arızaalarmı", "parca": "#parçarehberi"}.get(senaryo.get("seri"))
+        for e in ["#viteskop", seri, "#araba", "#otomobil", "#oto", "#arababakımı", "#cartips"]:
+            if e and e not in etiketler:
+                etiketler.append(e)
+    parcalar.append(" ".join(etiketler[:30]))
     return "\n\n".join(parcalar)[:2200]
 
 
