@@ -3,7 +3,7 @@ name: Günlük video
 on:
   push:
     branches: [main]
-    paths: ["senaryolar/**"]  # ajan yeni senaryo yükleyince hemen üret
+    paths: ["senaryolar/**", "uret-iste.txt"]  # uret-iste.txt: zamanlayıcı rutin üretimi tam saatinde başlatır  # ajan yeni senaryo yükleyince hemen üret
   schedule:
     # Gemini'nin ücretsiz kotası 10:00'da (Türkiye) yenilenir; bekleyen videolar kotayla birlikte üretilir
     - cron: "23 7 * * *"   # 10:23
