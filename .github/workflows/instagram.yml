@@ -74,6 +74,13 @@ jobs:
           if ! gh release download hazir -p "$video" -D cikti 2> indirme.log; then
             echo "::error title=Video indirilemedi::$video: $(tail -c 300 indirme.log | tr '\n' ' ')"; exit 1
           fi
+          git pull -q origin main  # paylaşım başlarken yüklenen son kapak görselleri de gelsin
+          plan="$(echo "$ad" | cut -d- -f1-2)"
+          if ls kapaklar/"$plan".jpg kapaklar/"$plan"-arka.jpg >/dev/null 2>&1; then
+            echo "::notice title=Kapak::Sayfa sahibinin kapak görseli kullanılıyor ($plan)"
+          else
+            echo "::warning title=Kapak::$plan için yüklenmiş kapak görseli yok, yazılı kapak kullanılıyor"
+          fi
           kapak="cikti/${ad%.json}.jpg"
           python kapak.py "senaryolar/$ad" "$kapak" || kapak=""  # kapak olmazsa videodan kare kullanılır
           adresler="$(bash medya_yayinla.sh koy "cikti/$video" $kapak)" || { echo "::error title=Video yayın adresine konamadı::MEDYA_TOKEN ve viteskop-medya Pages ayarını kontrol et"; exit 1; }

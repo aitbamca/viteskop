@@ -266,7 +266,8 @@ def kapak_yap(senaryo, senaryo_yolu=""):
     global _ARKA
     hazir = _hazir_gorsel(senaryo_yolu) if senaryo_yolu else None
     if hazir:  # sayfa sahibinin hazırladığı yazılı kapak
-        return _izgaraya_sigdir(hazir) if senaryo.get("kapak_sigdir") else _doldur(hazir)
+        # hazır kapakta yazı kenarlara yakın: varsayılan olarak profil ızgarasına sığdır
+        return _izgaraya_sigdir(hazir) if senaryo.get("kapak_sigdir", True) else _doldur(hazir)
     _ARKA = _hazir_gorsel(senaryo_yolu, "-arka") if senaryo_yolu else None
     if senaryo.get("seri") == "kafa":
         return kapak_kafa(senaryo)
