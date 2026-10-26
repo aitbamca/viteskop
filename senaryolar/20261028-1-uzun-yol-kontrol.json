@@ -119,5 +119,15 @@
    "metin_en": "Where are you heading for the holiday? Tell us in the comments and save this list!",
    "soru": "Bayramda nereye gidiyorsun?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-26",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. 1,6 mm yasal diş derinliği (muayene sınırı), soğukken basınç ölçümü ve sıcak motorda radyatör kapağı uyarısı doğrulandı; fren ustaya yönlendiriliyor. 29 Ekim bayramına denk geliyor; kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.allianz.com.tr/tr_TR/seninle-guzel/uzun-yola-cikmadan-once-10-hayati-kontrol.html",
+   "https://www.continental-tires.com/tr/tr/tire-knowledge/what-is-tire-defect-in-vehicle-inspection/",
+   "https://www.nhtsa.gov/equipment/tires"
+  ]
+ }
 }

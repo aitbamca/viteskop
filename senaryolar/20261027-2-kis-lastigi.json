@@ -93,5 +93,16 @@
    "metin_en": "Which tyres do you use in winter? Write it in the comments and save this video!",
    "soru": "Kışın hangi lastik sende?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-26",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. 7 °C eşiği, 3PMSF (UNECE R117 kar testi) ve M+S'nin üretici beyanı olması doğrulandı; kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.continental-tires.com/au/en/tyre-knowledge/summer-or-winter-tires/",
+   "https://www.continental.com/en/press/media-library/the-continental-tires-garage/the-continental-tires-garage-episode-2/",
+   "https://www.blackcircles.com/news/3pmsf-explained-best-tyres-for-winter",
+   "https://kfz-dietrich.com/blog/alpine-symbol-ms-unterschied/"
+  ]
+ }
 }
