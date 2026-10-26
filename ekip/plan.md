@@ -8,13 +8,13 @@ Planı **Viteskop Paneli**'nin veritabanındaki `plan` koleksiyonuna yazarsın (
 `git pull origin main`. `ekip/yazar.md`, `SENARYO.md`, son `senaryolar/` ve varsa son raporları oku.
 Paneldeki `plan` koleksiyonunu oku (`list`): önceki haftalarda planlanan konuları tekrar etme.
 
-## 2. Gelecek pazartesiden pazara 14 video planla (günde 2: 12:30 ve 20:30)
+## 2. Gelecek pazartesiden pazara 14 video planla (günde 2: 12:30 ve 20:00)
 Seri dağılımı (haftalık): Kafa Kafaya 2, Bakım Saati 4, Arıza Alarmı 4, Parça Rehberi 4. Aynı gün iki aynı seri olmasın.
 Mevsimi ve gündemi düşün (kış lastiği, antifriz, uzun yol, bayram, yeni çıkan modeller…).
 Kafa Kafaya için Türkiye'de satılan aynı sınıf iki model seç; versiyonları (model yılı, motor, şanzıman, donanım) şimdiden belirle.
 
 ## 3. Her video için bir belge yaz
-`action: "set"`, `collection: "plan"`, `doc_id`: `YYYYAAGG-N` (N: 1 = 12:30, 2 = 20:30). Var olan belgeye yazacaksan
+`action: "set"`, `collection: "plan"`, `doc_id`: `YYYYAAGG-N` (N: 1 = 12:30, 2 = 20:00). Var olan belgeye yazacaksan
 önce `get` ile oku ve `if_version` ver; sayfa sahibinin yüklediği görsel alanlarına (`gorsel_*`) **dokunma** (`update` kullan).
 Alanlar:
 - `tarih` ("2026-11-02"), `saat` ("12:30"), `seri` (kafa/bakim/ariza/parca), `durum`: "planlandi"

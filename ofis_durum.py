@@ -10,7 +10,7 @@ import json
 import os
 
 TR = datetime.timezone(datetime.timedelta(hours=3))
-PAYLASIM_SAATLERI = [12, 20]  # 12:30 ve 20:30
+PAYLASIM_SAATLERI = ["12:30", "20:00"]
 URETIM_SAATLERI = ["10:23", "15:23"]
 
 
@@ -44,11 +44,11 @@ TEMA_ADI = {"garaj": "garaj", "showroom": "showroom", "otoyol": "otoyol", "gece_
 
 def sonraki_paylasim(simdi, sira=0):
     """sira'ncı sıradaki videonun paylaşılacağı zaman (0 = ilk boş paylaşım saati)."""
-    gun, saatler = 0, [s for s in PAYLASIM_SAATLERI if simdi.hour < s]
+    gun, saatler = 0, [s for s in PAYLASIM_SAATLERI if simdi.strftime("%H:%M") < s]
     while sira >= len(saatler):
         sira -= len(saatler)
         gun, saatler = gun + 1, list(PAYLASIM_SAATLERI)
-    return f"{['bugün', 'yarın'][gun] if gun < 2 else f'{gun} gün sonra'} {saatler[sira]:02d}:30"
+    return f"{['bugün', 'yarın'][gun] if gun < 2 else f'{gun} gün sonra'} {saatler[sira]}"
 
 
 def main():
@@ -102,7 +102,7 @@ def main():
          "zaman": "Onaydan sonra · " + " · ".join(URETIM_SAATLERI)},
         {"key": "yayinci", "ad": "Yayıncı", "gorev": "Sıradaki videoyu Instagram'a Reels olarak koyar", "ikon": "gonder", "durum": "hazir",
          "ekran": f"Sıradaki: {siradaki} ({sonraki_paylasim(simdi)})" if siradaki else "Paylaşılacak hazır video yok, yenileri üretiliyor.",
-         "zaman": "12:30 · 20:30"},
+         "zaman": " · ".join(PAYLASIM_SAATLERI)},
         {"key": "veri", "ad": "Veri toplayıcı", "gorev": "İzlenme, beğeni, kaydetme ve takipçi sayılarını toplar", "ikon": "veri", "durum": "hazir",
          "ekran": (f"Son ölçüm {hesap[-1]['tarih']}: {takipci} takipçi, toplam {izlenme or 0} izlenme." if hesap else "Instagram bağlanınca her gece ölçülür.")
                   + (f" En çok izlenen: {baslik('senaryolar/' + en_iyi['dosya'])[0]}." if en_iyi and float(en_iyi.get('views') or 0) > 0 else ""),

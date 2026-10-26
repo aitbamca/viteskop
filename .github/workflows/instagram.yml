@@ -4,8 +4,8 @@ on:
   # Otomatik paylaşım: INSTAGRAM_TOKEN eklenene kadar zamanlanmış çalışmalar sessizce atlanır.
   # Video adresinin hazırlanması 1-2 dakika sürdüğü için 3 dakika erken başlar: Reels 12:30 ve 20:30 civarında yayında.
   schedule:
-    - cron: "27 9 * * *"   # 12:27 (Türkiye saati)
-    - cron: "27 17 * * *"  # 20:27
+    - cron: "40 9 * * *"   # 12:40 (Türkiye saati; asıl tetik zamanlayıcıda 12:28, bu yedek)
+    - cron: "10 17 * * *"  # 20:10
   push:  # paylas-iste.txt'ye senaryo adı yazılıp gönderilince hemen paylaşır (elle deneme / özel istek)
     branches: [main]
     paths: ["paylas-iste.txt"]
