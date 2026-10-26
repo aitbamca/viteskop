@@ -36,16 +36,24 @@ def _istek(yontem, url, parametreler=None, govde=None, basliklar=None):
     if parametreler:
         url += "?" + urllib.parse.urlencode(parametreler)
     istek = urllib.request.Request(url, data=govde, method=yontem, headers=basliklar or {})
-    try:
-        with urllib.request.urlopen(istek, timeout=300) as yanit:
-            return json.loads(yanit.read() or b"{}")
-    except urllib.error.HTTPError as hata:
-        icerik = hata.read().decode(errors="replace")
+    for deneme in range(4):  # Instagram'ın geçici hatalarında (hız sınırı, 5xx, ağ) bekleyip yeniden dene
+        try:
+            with urllib.request.urlopen(istek, timeout=300) as yanit:
+                return json.loads(yanit.read() or b"{}")
+        except urllib.error.HTTPError as hata:
+            kod, icerik = hata.code, hata.read().decode(errors="replace")
+            if kod not in (429, 500, 502, 503, 504) or deneme == 3:
+                break
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            if deneme == 3:
+                raise
+        time.sleep(20 * (deneme + 1))
+    if True:
         try:  # token'ı asla loglara yazma
             icerik = json.dumps(json.loads(icerik).get("error", icerik), ensure_ascii=False)
         except ValueError:
             pass
-        raise RuntimeError(f"Instagram API hatası (HTTP {hata.code}): {icerik[:500]}") from None
+        raise RuntimeError(f"Instagram API hatası (HTTP {kod}): {icerik[:500]}") from None
 
 
 def hesap():
