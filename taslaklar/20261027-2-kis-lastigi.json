@@ -1,0 +1,97 @@
+{
+ "baslik": "Kış lastiği mi, dört mevsim mi?",
+ "baslik_en": "Winter or all-season tyres?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "KIŞ LASTİĞİ",
+   "Mİ, DÖRT",
+   "MEVSİM Mİ?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Hava 7 derecenin altına düşünce yaz lastiği sertleşir. Kış lastiği mi, dört mevsim mi? Karar senin yoluna ve kışına bağlı. Lastik alırken dağ ve kar tanesi (3PMSF) simgesine bak. Sen kışın hangi lastiği kullanıyorsun? Yorumlara yaz, videoyu kaydet! ❄️",
+ "aciklama_en": "Below 7 degrees, summer tyres harden. Winter or all-season? It depends on your roads and your winter. When buying, look for the mountain-and-snowflake (3PMSF) symbol. Which tyres do you use in winter? Tell us in the comments and save this video! ❄️",
+ "etiketler": [
+  "#viteskop",
+  "#kışlastiği",
+  "#dörtmevsimlastik",
+  "#lastik",
+  "#kışahazırlık",
+  "#arababakımı",
+  "#otomobil",
+  "#parçarehberi",
+  "#wintertyres",
+  "#allseasontyres"
+ ],
+ "kaynaklar": [
+  "Continental: kış lastiği hamuru 7 °C altında yumuşak kalır: https://www.continental-tires.com/au/en/tyre-knowledge/winter-tires-in-summer/",
+  "Goodyear: yaz lastiği 7 °C altında sertleşir; ılıman kışta dört mevsim daha uygun: https://goodyear.eu/en_gb/consumer/learn/winter-tyres-vs-summer-tyres.html",
+  "3PMSF (UNECE R117 Ek 7 kar testi) ve M+S farkı: https://www.blackcircles.com/news/3pmsf-explained-best-tyres-for-winter",
+  "M+S üretici beyanıdır, test gerektirmez: https://www.oponeo.co.uk/blog/winter-tyres-don-t-rely-on-the-m-s-mark",
+  "Tire Rack: 3PMSF dört mevsim lastikler her kış koşulunda kış lastiği kadar tutmaz: https://www.tirerack.com/tires/tech/techpage.jsp?techid=125"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Hava yedi derecenin altına düşünce yaz lastiği sertleşir. Peki bu kış hangisi sana uygun: kış lastiği mi, dört mevsim mi?",
+   "metin_en": "Below seven degrees, summer tyres harden. So which one suits you this winter: winter tyres or all-season?"
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.3,
+   "yazi": "+7 °C",
+   "alt": "altında kış lastiği",
+   "metin": "Kış lastiğinin hamuru soğukta yumuşak kalır. Bu yüzden yedi derecenin altında yolu daha iyi tutar.",
+   "metin_en": "A winter tyre's rubber stays soft in the cold. That's why it grips better below seven degrees."
+  },
+  {
+   "tip": "parca",
+   "parca": "lastik",
+   "yazi": "Kış lastiği",
+   "notlar": [
+    "Soğuk sabahlar",
+    "Kar ve buz",
+    "Dağ yolları"
+   ],
+   "anahtarlar": [
+    "soğuk",
+    "karlı",
+    "dağ"
+   ],
+   "metin": "Sık soğuk sabahlarda, karlı ve buzlu yollarda ya da dağ yollarında en güvenli seçim kış lastiğidir.",
+   "metin_en": "On frequent cold mornings, on snowy and icy roads or on mountain roads, winter tyres are the safest choice."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Dört mevsim kime uyar?",
+   "maddeler": [
+    "Kışı ılıman geçen",
+    "Çoğunlukla şehir içi",
+    "Karı nadiren gören"
+   ],
+   "anahtarlar": [
+    "ılıman",
+    "şehir",
+    "nadiren"
+   ],
+   "metin": "Dört mevsim lastik bir uzlaşmadır. Kışı ılıman geçen, çoğunlukla şehirde kullanan ve karı nadiren gören biri için mantıklı olabilir. Ama karlı bir yolda kış lastiği kadar tutmaz.",
+   "metin_en": "An all-season tyre is a compromise. It can make sense if your winters are mild, you mostly drive in town and rarely see snow. But on a snowy road it won't grip like a winter tyre."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Dağ ve kar tanesi simgesine bak",
+   "metin": "Alırken lastiğin yanındaki dağ ve kar tanesi simgesine bak. Bu simge, lastiğin karda test edildiğini gösterir. Sadece M artı S yazısı yeterli değildir.",
+   "metin_en": "When buying, look for the mountain and snowflake symbol on the sidewall. It shows the tyre was tested on snow. An M plus S mark alone is not enough."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen kışın hangi lastiği kullanıyorsun? Yorumlara yaz, videoyu kaydet!",
+   "metin_en": "Which tyres do you use in winter? Write it in the comments and save this video!",
+   "soru": "Kışın hangi lastik sende?"
+  }
+ ]
+}

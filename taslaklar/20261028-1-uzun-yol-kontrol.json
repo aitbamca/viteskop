@@ -1,0 +1,123 @@
+{
+ "baslik": "Uzun yoldan önce 5 kontrol",
+ "baslik_en": "5 checks before a long trip",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "UZUN YOLDAN",
+   "ÖNCE",
+   "5 KONTROL"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Bayramda yola çıkmadan önce 5 kontrol: lastikler, sıvılar, ışıklar, silecekler ve frenler. Doğru lastik basıncı kapı kenarındaki etikette ya da aracının kitapçığında yazar. Bayramda nereye gidiyorsun? Yorumlara yaz, listeyi kaydet! 🔧",
+ "aciklama_en": "5 checks before a holiday trip: tyres, fluids, lights, wipers and brakes. The correct tyre pressure is on the door-jamb label or in your owner's manual. Where are you heading for the holiday? Tell us in the comments and save this list! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#uzunyol",
+  "#bayramyolculuğu",
+  "#arababakımı",
+  "#otobakım",
+  "#lastikbasıncı",
+  "#araba",
+  "#bakımsaati",
+  "#roadtrip",
+  "#carmaintenance"
+ ],
+ "kaynaklar": [
+  "Allianz Türkiye – Uzun yola çıkmadan önce 10 hayati kontrol (yasal diş derinliği 1,6 mm; yağ, soğutma ve cam suyu; frenler, farlar): https://www.allianz.com.tr/tr_TR/seninle-guzel/uzun-yola-cikmadan-once-10-hayati-kontrol.html",
+  "NHTSA – lastik basıncı lastikler soğukken ölçülür, doğru değer kapı kenarı etiketinde ve kitapçıkta: https://www.nhtsa.gov/equipment/tires",
+  "Sıcak motorda radyatör kapağı açılmaz: https://www.posta.com.tr/yazarlar/bilal-emin-turan/aracla-uzun-yola-cikmadan-bunlara-dikkat-2327369",
+  "arabam.com – bayramda uzun yol tavsiyeleri (silecek ve cam suyu): https://www.arabam.com/blog/haberler/bayramda-uzun-yol-gideceklere-tavsiyeler/",
+  "Aracın kullanım kitapçığı: lastik basıncı ve sıvı seviyeleri"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Bayramda uzun yola mı çıkıyorsun? Yola çıkmadan önce bu beş kontrolü yap. Birkaç dakikalık kontrol, yolda kalmaktan iyidir.",
+   "metin_en": "Heading off on a long holiday trip? Do these five checks before you go. A few minutes of checks beats breaking down on the road."
+  },
+  {
+   "tip": "parca",
+   "parca": "lastik",
+   "yazi": "1. Lastikler",
+   "notlar": [
+    "Basınç: soğukken",
+    "Min. 1,6 mm",
+    "Stepne"
+   ],
+   "anahtarlar": [
+    "basıncı",
+    "diş",
+    "stepneyi"
+   ],
+   "metin": "Önce lastikler. Basıncı lastik soğukken ölç, doğru değer kapı kenarındaki etikette yazar. Diş derinliği yasal olarak en az bir virgül altı milimetre olmalı. Stepneyi de unutma.",
+   "metin_en": "Tyres first. Measure the pressure when they're cold; the right value is on the door-jamb label. Tread depth must legally be at least one point six millimetres. Don't forget the spare."
+  },
+  {
+   "tip": "liste",
+   "baslik": "2. Sıvılar",
+   "maddeler": [
+    "Motor yağı",
+    "Soğutma suyu",
+    "Cam suyu"
+   ],
+   "ikonlar": [
+    "yag",
+    "sicaklik",
+    null
+   ],
+   "anahtarlar": [
+    "motor",
+    "soğutma",
+    "cam"
+   ],
+   "metin": "Sonra motor yağı, soğutma suyu ve cam suyu seviyelerine bak. Seviyeleri düz zeminde ve motor soğukken kontrol et. Motor sıcakken radyatör kapağını asla açma.",
+   "metin_en": "Then check the engine oil, coolant and washer fluid levels. Check them on level ground with the engine cold. Never open the radiator cap while the engine is hot."
+  },
+  {
+   "tip": "araba",
+   "araba": {
+    "tip": "sedan"
+   },
+   "yazi": "3. Işıklar · 4. Silecekler",
+   "etiketler": [
+    {
+     "yazi": "Farlar",
+     "x": 0.1,
+     "y": 0.5,
+     "anahtar": "far"
+    },
+    {
+     "yazi": "Silecekler",
+     "x": 0.42,
+     "y": 0.3,
+     "anahtar": "silecek"
+    },
+    {
+     "yazi": "Stop lambaları",
+     "x": 0.92,
+     "y": 0.45,
+     "anahtar": "stop"
+    }
+   ],
+   "metin": "Farları, stop ve sinyal lambalarını tek tek dene. Silecekler camda iz bırakıyorsa yola çıkmadan değiştir.",
+   "metin_en": "Test the headlights, brake lights and indicators one by one. If the wipers leave streaks, replace them before you leave."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "5. Frende ses ya da titreme: ustaya",
+   "metin": "Son olarak frenler. Ses, titreme ya da pedalda bir farklılık varsa bunu kendin çözmeye çalışma. Yola çıkmadan aracı ustaya göster.",
+   "metin_en": "Finally, the brakes. If there's noise, vibration or the pedal feels different, don't try to fix it yourself. Have a mechanic check the car before you go."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Bayramda nereye gidiyorsun? Yorumlara yaz, listeyi kaydet!",
+   "metin_en": "Where are you heading for the holiday? Tell us in the comments and save this list!",
+   "soru": "Bayramda nereye gidiyorsun?"
+  }
+ ]
+}
