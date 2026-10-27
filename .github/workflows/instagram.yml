@@ -76,7 +76,7 @@ jobs:
           fi
           git pull -q origin main  # paylaşım başlarken yüklenen son kapak görselleri de gelsin
           plan="$(echo "$ad" | cut -d- -f1-2)"
-          if ls kapaklar/"$plan".jpg kapaklar/"$plan"-arka.jpg >/dev/null 2>&1; then
+          if [ -f "kapaklar/$plan.jpg" ] || [ -f "kapaklar/$plan-arka.jpg" ]; then
             echo "::notice title=Kapak::Sayfa sahibinin kapak görseli kullanılıyor ($plan)"
           else
             echo "::warning title=Kapak::$plan için yüklenmiş kapak görseli yok, yazılı kapak kullanılıyor"
