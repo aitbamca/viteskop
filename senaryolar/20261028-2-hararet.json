@@ -84,5 +84,16 @@
    "metin_en": "Has your car ever overheated? Comment and save it for later!",
    "soru": "Araban hiç hararet yaptı mı?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-27",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Klimayı kapat, güvenli yerde dur ve motoru kapat, sıcakken kapağı açma, en az 30 dk soğumayı bekle, soğuyunca seviyeye bak, tekrarlarsa servise adımları birden fazla kaynakla doğrulandı; panik dili yok. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.caradvice.com.au/caradvice/what-to-do-when-your-car-overheats/",
+   "https://privatefleet.com.au/blog/driving/what-to-do-if-your-car-overheats/",
+   "https://carma.com.au/street-smarts/content/what-to-do-when-your-car-overheats",
+   "https://knowhow.napaonline.com/what-to-do-if-your-car-is-overheating/"
+  ]
+ }
 }

@@ -101,5 +101,16 @@
    "metin_en": "When did you last change your wipers? Write it in the comments and save this video!",
    "soru": "Sileceğini en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-27",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Değişim işaretleri (iz, gıcırdama, zıplama, yırtık) ve 'birçok üretici yaklaşık yılda bir' çerçevesi doğrulandı; kitapçığa yönlendiriyor. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://jalopnik.com/2054774/how-often-replace-wiper-blades/",
+   "https://blog.halfords.com/4-clear-signs-its-time-to-replace-your-wiper-blades/",
+   "https://www.acg.aaa.com/connect/blogs/5c/auto/how-to-change-your-wiper-blades",
+   "https://pmmonline.co.uk/technical/wiper-blades-signs-of-wear/"
+  ]
+ }
 }
