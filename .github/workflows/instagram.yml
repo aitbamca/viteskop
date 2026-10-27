@@ -64,6 +64,13 @@ jobs:
           if [ "${{ github.event_name }}" = "push" ]; then  # satır: "siradaki" ya da senaryo dosyası adı, ardından not
             ad="$(head -1 paylas-iste.txt | awk '{print $1}')"; [ "$ad" = "siradaki" ] && ad=""
           fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then  # GitHub saatlerce gecikebilir: geç kalan yedek, saat dışında paylaşmasın
+            set -- ${{ github.event.schedule }}
+            gecikme=$(( ( $(date -u +%s) - $(date -u -d "$(printf '%02d:%02d' "$2" "$1")" +%s) ) / 60 ))
+            if [ "$gecikme" -gt 40 ] || [ "$gecikme" -lt 0 ]; then
+              echo "::notice title=Instagram::Yedek zamanlama $gecikme dk gecikti; saat dışında paylaşım yapılmadı."; exit 0
+            fi
+          fi
           if [ "${{ github.event_name }}" = "schedule" ] && python son_paylasim.py 3; then
             echo "::notice title=Instagram::Son 3 saatte paylaşım yapılmış (zamanlayıcı rutin); yedek zamanlama atlandı."; exit 0
           fi
