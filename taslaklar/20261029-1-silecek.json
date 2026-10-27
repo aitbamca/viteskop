@@ -1,0 +1,105 @@
+{
+ "baslik": "Silecek ne zaman değişir?",
+ "baslik_en": "When should you replace wipers?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "SİLECEK",
+   "NE ZAMAN",
+   "DEĞİŞİR?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Silecek camda iz bırakıyor, gıcırdıyor ya da zıplıyorsa değiştirme zamanı gelmiş olabilir. Birçok üretici yaklaşık yılda bir değişim önerir; kesin bilgi aracının kitapçığında. Sen sileceğini en son ne zaman değiştirdin? Yorumlara yaz, videoyu kaydet! 🌧️",
+ "aciklama_en": "If your wipers streak, squeak or skip, it may be time to replace them. Many manufacturers suggest roughly once a year; check your owner's manual. When did you last change your wipers? Tell us in the comments and save this video! 🌧️",
+ "etiketler": [
+  "#viteskop",
+  "#silecek",
+  "#sileceklastiği",
+  "#kışahazırlık",
+  "#arababakımı",
+  "#parçarehberi",
+  "#otomobil",
+  "#araba",
+  "#wiperblades",
+  "#cartips"
+ ],
+ "kaynaklar": [
+  "Renault kullanım kılavuzu: silecek lastikleri verim düşünce, yaklaşık yılda bir değişir; donda sileceğin buza yapışmadığından emin ol: https://www.user-manual.renault.com/ar/node/6707",
+  "Halfords – silecek aşınma işaretleri (iz, gıcırdama, yırtık): https://www.halfords.com/motoring/advice/how-to-take-care-of-your-wiper-blades.html",
+  "PMM – silecek aşınma belirtileri, önce temizle sonra değiştir: https://pmmonline.co.uk/technical/wiper-blades-signs-of-wear/",
+  "Jalopnik – üreticiler genelde en az 12 ayda bir değişim önerir: https://jalopnik.com/2054774/how-often-replace-wiper-blades/",
+  "Aracın kullanım kitapçığı: silecek lastiği değişimi"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Yağmurda silecek camda iz mi bırakıyor? Sorun büyük ihtimalle silecek lastiğinde. Kış gelmeden kontrol etmenin tam zamanı.",
+   "metin_en": "Do your wipers leave streaks in the rain? The problem is most likely the rubber blade. Now is the time to check, before winter."
+  },
+  {
+   "tip": "parca",
+   "parca": "silecek",
+   "yazi": "Silecek lastiği",
+   "notlar": [
+    "Güneş ve sıcak",
+    "Ayaz",
+    "Toz ve kum"
+   ],
+   "anahtarlar": [
+    "güneşte",
+    "ayazda",
+    "tozda"
+   ],
+   "metin": "Silecek lastiği zamanla güneşte, ayazda ve tozda sertleşir. Sertleşen lastik camı tam silemez.",
+   "metin_en": "Over time the wiper rubber hardens in sun, frost and dust. Hardened rubber can't clear the glass properly."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Değişim işaretleri",
+   "maddeler": [
+    "Camda çizgi ve iz",
+    "Gıcırdama, zıplama",
+    "Silinmeyen alanlar",
+    "Yırtık ya da çatlak"
+   ],
+   "anahtarlar": [
+    "çizgi",
+    "gıcır",
+    "silinmeyen",
+    "yırtık"
+   ],
+   "metin": "Camda çizgi ya da iz kalıyorsa, silecek gıcırdıyor ya da zıplıyorsa, silinmeyen alanlar varsa ya da lastikte yırtık görüyorsan değiştirme zamanı gelmiştir.",
+   "metin_en": "If it leaves lines or streaks, squeaks or skips, misses patches, or you can see a tear in the rubber, it's time to replace it."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.6,
+   "yazi": "Yılda bir",
+   "alt": "ya da iz bırakınca",
+   "metin": "Birçok üretici yaklaşık yılda bir değişim önerir. Kesin bilgi aracının kitapçığında yazar.",
+   "metin_en": "Many manufacturers suggest replacing them about once a year. The exact advice is in your owner's manual."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Önce camı ve lastiği temizle",
+   "metin": "Değiştirmeden önce camı ve silecek lastiğini cam suyuyla temizle. İz hâlâ kalıyorsa silecek değişmeli.",
+   "metin_en": "Before replacing, clean the glass and the wiper rubber with washer fluid. If the streaks remain, the wiper needs changing."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Buzluysa önce çöz",
+   "metin": "Ayazda silecek cama yapıştıysa çalıştırma, önce buzu çöz. Yoksa lastik yırtılabilir ve silecek motoru zorlanır.",
+   "metin_en": "If the wiper is frozen to the glass, don't switch it on; melt the ice first. Otherwise the rubber can tear and the wiper motor gets strained."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen sileceğini en son ne zaman değiştirdin? Yorumlara yaz, videoyu kaydet!",
+   "metin_en": "When did you last change your wipers? Write it in the comments and save this video!",
+   "soru": "Sileceğini en son ne zaman değiştirdin?"
+  }
+ ]
+}

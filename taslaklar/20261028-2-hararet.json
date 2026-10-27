@@ -1,0 +1,88 @@
+{
+ "baslik": "Hararet yükseldi, ne yapmalı?",
+ "baslik_en": "Engine overheating: what to do?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "HARARET",
+   "YÜKSELDİ,",
+   "NE YAPMALI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Hararet ibresi kırmızıya çıktıysa ya da sıcaklık lambası yandıysa: klimayı kapat, güvenli yerde dur, motoru kapat ve sıcakken radyatör kapağını asla açma. Tekrar ediyorsa servise götür. Senin araban hiç hararet yaptı mı? Yorumlara yaz, kaydet, lazım olur! ⚠️",
+ "aciklama_en": "If the temperature needle hits red or the warning light comes on: turn off the A/C, stop somewhere safe, switch off the engine and never open the radiator cap while it's hot. If it happens again, see a mechanic. Has your car ever overheated? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#hararet",
+  "#motorısınması",
+  "#arızaalarmı",
+  "#soğutmasuyu",
+  "#antifriz",
+  "#arababakımı",
+  "#otomobil",
+  "#engineoverheating",
+  "#cartips"
+ ],
+ "kaynaklar": [
+  "RAC – araç hararet yaparsa (dur, soğut, en az 30 dk bekle, kapağı sıcakken açma, suyu tamsa mekanik arıza): https://www.rac.co.uk/drive/advice/car-maintenance/car-overheating",
+  "RACQ – ilk belirtide dur, devam etmek hasarı artırır: https://www.racq.com.au/articles/drive/2023/1/what-to-do-if-youre-engine-overheats",
+  "NAPA – klimayı kapat, güvenli yerde dur, motoru kapat: https://knowhow.napaonline.com/what-to-do-if-your-car-is-overheating/",
+  "Aracın kullanım kitapçığı: motor sıcaklık ikazı ve soğutma sıvısı bölümü"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Hararet ibresi kırmızıya mı yaklaşıyor? Panik yapma, ama sürmeye devam etme.",
+   "metin_en": "Is the temperature needle heading for red? Don't panic, but don't keep driving."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "sicaklik",
+   "renk": "kirmizi",
+   "yazi": "Motor fazla ısınıyor",
+   "metin": "Sıcaklık lambası yanarsa ya da ibre kırmızıya çıkarsa motor fazla ısınıyor demektir. Böyle devam etmek motora ciddi zarar verebilir.",
+   "metin_en": "If the temperature light comes on or the needle hits red, the engine is overheating. Driving on like this can seriously damage it."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.92,
+   "yazi": "Kırmızı bölge",
+   "alt": "güvenle dur",
+   "metin": "Önce klimayı kapat, çünkü klima motora ek yük bindirir. Sonra güvenli bir yerde dur ve motoru kapat.",
+   "metin_en": "First turn off the A/C, because it puts extra load on the engine. Then stop somewhere safe and switch the engine off."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Sıcakken kapağı açma!",
+   "metin": "Radyatör ya da genleşme deposu kapağını motor sıcakken asla açma. İçerideki sıvı basınçlı ve kaynardır, ciddi yanığa yol açar.",
+   "metin_en": "Never open the radiator or expansion tank cap while the engine is hot. The coolant inside is pressurised and boiling, and can cause serious burns."
+  },
+  {
+   "tip": "liste",
+   "maddeler": [
+    "En az 30 dakika bekle",
+    "Soğuyunca suya bak",
+    "Eksikse antifrizle tamamla",
+    "Tekrarlıyorsa servise"
+   ],
+   "anahtarlar": [
+    "otuz",
+    "soğuyunca",
+    "eksikse",
+    "tekrar"
+   ],
+   "metin": "Motorun soğuması için en az otuz dakika bekle. Soğuyunca soğutma suyu seviyesine bak. Eksikse antifrizli suyla tamamla. Su tamken hararet yapıyorsa ya da tekrar ederse aracı servise götür.",
+   "metin_en": "Wait at least thirty minutes for the engine to cool. Once it's cool, check the coolant level. If it's low, top it up with coolant mix. If it overheats with a full tank or it happens again, take the car to a workshop."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Senin araban hiç hararet yaptı mı? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Has your car ever overheated? Comment and save it for later!",
+   "soru": "Araban hiç hararet yaptı mı?"
+  }
+ ]
+}
