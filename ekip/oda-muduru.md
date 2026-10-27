@@ -11,7 +11,14 @@ Veritabanlarını `ArtifactData` ile okur/yazarsın (yüklü değilse ToolSearch
 Var olan bir belgeye yazmadan önce `get` ile `version`'ını oku ve `if_version` olarak ver.
 
 ## Her çalışmada (08:16, 12:16, 17:16, 21:16)
-1. Depoyu güncelle: `git pull origin main`. Sonra `python ofis_durum.py > /tmp/durum.json`.
+1. Depoyu güncelle: `git pull origin main`.
+   **Taze Instagram rakamları** (sayfa sahibinin onayıyla, 27 Ekim): istatistik toplamayı başlat:
+   `gh api -X POST repos/aitbamca/viteskop/actions/workflows/istatistik.yml/dispatches -f ref=main`
+   Sonra `gh api "repos/aitbamca/viteskop/actions/workflows/istatistik.yml/runs?per_page=1" -q '.workflow_runs[0].status'`
+   `completed` olana kadar ~15 sn arayla bekle (en çok 5 dakika), ardından yeniden `git pull origin main`.
+   Başlatılamaz ya da zamanında bitmezse mevcut verilerle devam et, akşam raporunda ölçümün eski olduğunu yaz.
+   (İş akışını başlatmak serbest; kaydı o kendi commit'iyle yapar, sen commit/push yapmazsın.)
+   Sonra `python ofis_durum.py > /tmp/durum.json`.
 2. `/tmp/durum.json`'u **Viteskop Paneli**'nin `durum/ozet` belgesine yaz (`set`, `file_path`).
 3. Kampüs'teki `odalar/oto` belgesini `update` ile güncelle: `satirlar` (en fazla 4 kısa haber: sıradaki video,
    hazır video sayısı, bugünkü taslaklar, varsa sorun), `aktif: true`.
