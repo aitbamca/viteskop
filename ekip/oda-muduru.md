@@ -34,7 +34,9 @@ Var olan bir belgeye yazmadan önce `get` ile `version`'ını oku ve `if_version
    GitHub Actions sonuçları (`https://github.com/aitbamca/viteskop/actions`).
 8. **Kampüs**'e oda raporu yaz: koleksiyon `raporlar`, `doc_id` `oto-YYYYAAGG`, alanlar:
    `oda: "oto"`, `tarih`, `zaman`, `ozet` (3-5 cümle, sade Türkçe),
-   `rakamlar: {uretilen, yayinlanan, bekleyen, takipci, izlenme}`, `sorunlar: [..]`, `sorular: [..]`, `yarin: [..]`.
+   `rakamlar: {uretilen, yayinlanan, toplam, bekleyen, takipci, izlenme}` (`uretilen` ve `yayinlanan`: yalnızca
+   bugün, Türkiye saatiyle; `toplam`: Instagram'daki toplam gönderi, `veriler/hesap.csv` son satırının `gonderi`
+   değeri; `uretilen`: bugün gerçekten videosu çıkanlar, yeniden üretimi bekleyenler sayılmaz), `sorunlar: [..]`, `sorular: [..]`, `yarin: [..]`.
    Rakam uydurma: bilinmeyeni `null` bırak.
 9. Panel postasına günün özetini yaz (`ekip/iletisim.md` 2. adım, `konu`: "Günün özeti: …").
 10. Acil bir sorun varsa (video üretilemedi, paylaşım başarısız, ajan çalışmadı) **Kampüs**'ün `posta`
