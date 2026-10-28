@@ -5,3 +5,5 @@
 20261028-1-uzun-yol-kontrol.json
 20261028-2-hararet.json
 20261029-1-silecek.json
+20261029-2-yag-lambasi.json
+20261030-1-antifriz.json
