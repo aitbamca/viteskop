@@ -89,5 +89,15 @@
    "metin_en": "Have you ever seen this light? Comment and save it for later!",
    "soru": "Bu lambayı hiç gördün mü?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-28",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Kırmızı yağ basıncı lambasında güvenle dur/motoru kapat (VW), sarı lambanın yağ seviyesi uyarısı olması ve basınç lambasının seviye göstergesi olmadığı doğrulandı. 'Hemen dur' burada gerçek acil durum için yerinde. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://volkswagen.co.uk/en/owners-and-services/my-car/warning-light/engine-oil-pressure.html",
+   "https://www.vw.com/en/owners-and-services/about-my-vehicle/warning-and-indicator-lights.html",
+   "https://www.blackcircles.com/news/vw-dashboard-warning-lights"
+  ]
+ }
 }

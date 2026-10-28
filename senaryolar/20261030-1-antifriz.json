@@ -90,5 +90,15 @@
    "metin_en": "Have you had your coolant checked this winter? Write it in the comments and save this video!",
    "soru": "Antifrizini kontrol ettirdin mi?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-10-28",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Hyundai kılavuz tablosunda %50 antifriz = -35 °C doğrulandı; seviye motor soğukken MIN-MAX arası, sıcakken kapak açılmaz, oran için kitapçığa yönlendirme var. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://ownersmanual.hyundai.com/full_webhelp/MEa/2026/en_US/topic_wtn_bvd_qcc.html",
+   "https://www.manualslib.com/manual/1570391/Hyundai-H-100.html?page=161",
+   "https://ownersmanual.hyundai.com/full_webhelp/NX4/2025/en_US/idcb22c2a0002.html"
+  ]
+ }
 }
