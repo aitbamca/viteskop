@@ -1,0 +1,29 @@
+name: YouTube paketi
+
+on:
+  workflow_dispatch:  # elle: yayınlanan videoları YouTube'a yüklemek için tek pakette topla
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  paket:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Videoları topla
+        run: echo "::notice title=YouTube paketi::$(python youtube_paket.py | tail -1)"
+
+      - name: Paket sayfasına koy
+        run: |
+          gh release view youtube-paket > /dev/null 2>&1 || gh release create youtube-paket --title "YouTube paketi" \
+            --notes "Instagram'da yayınlanmış videolar ve youtube-metinler.txt. YouTube Studio'ya sürükle-bırak ile yükle."
+          gh release upload youtube-paket youtube-paket/* --clobber
