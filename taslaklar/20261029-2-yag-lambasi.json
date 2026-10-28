@@ -1,0 +1,93 @@
+{
+ "baslik": "Yağ lambası yandıysa dur!",
+ "baslik_en": "Oil light on? Stop!",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "YAĞ LAMBASI",
+   "YANDIYSA",
+   "DUR!"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Kırmızı yağ basıncı lambası yandıysa güvenli bir yerde dur ve motoru kapat. Bazı araçlarda bir de sarı yağ seviyesi uyarısı vardır; hangisinin ne anlama geldiği aracının kitapçığında yazar. Bu lambayı hiç gördün mü? Yorumlara yaz, kaydet, lazım olur! ⚠️",
+ "aciklama_en": "If the red oil pressure light comes on, stop somewhere safe and switch off the engine. Some cars also have a yellow oil level warning; your owner's manual explains which is which. Have you ever seen this light? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#yağlambası",
+  "#yağbasıncı",
+  "#motoryağı",
+  "#arızaalarmı",
+  "#ikazlambası",
+  "#arababakımı",
+  "#otomobil",
+  "#oilpressure",
+  "#warninglights"
+ ],
+ "kaynaklar": [
+  "Volkswagen UK – motor yağ basıncı uyarısı (kırmızı: güvenle dur, motoru kapat): https://www.volkswagen.co.uk/en/owners-and-services/my-car/warning-light/engine-oil-pressure.html",
+  "RepairPal – yağ uyarı lambaları ve nedenleri: https://repairpal.com/low-oil-level-warning-light",
+  "Mazda 3 kullanım kılavuzu – yağ basıncı uyarısı: https://www.manualslib.com/manual/1277051/Mazda-3.html?page=592",
+  "Aracın kullanım kitapçığı: gösterge paneli ikaz lambaları ve motor yağı bölümü"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Bu kırmızı yağ lambası yandıysa hemen dur! Panelde görebileceğin en ciddi uyarılardan biridir.",
+   "metin_en": "If this red oil light comes on, stop right away! It's one of the most serious warnings on your dashboard."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "yag",
+   "renk": "kirmizi",
+   "yazi": "Yağ basıncı düştü",
+   "metin": "Kırmızı yağ lambası, motorda yağ basıncının düştüğünü gösterir. Basınç yoksa parçalar korumasız kalır ve motor kısa sürede ağır hasar görebilir.",
+   "metin_en": "The red oil light means oil pressure in the engine has dropped. Without pressure the parts are unprotected and the engine can be badly damaged quickly."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Güvenle dur, motoru kapat",
+   "metin": "Güvenli bir yere çek ve motoru hemen kapat. Lamba yanarken sürmeye devam etme.",
+   "metin_en": "Pull over somewhere safe and switch off the engine at once. Don't keep driving while the light is on."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Sık nedenler",
+   "maddeler": [
+    "Eksik motor yağı",
+    "Yağ pompası arızası",
+    "Tıkalı filtre",
+    "Sensör arızası"
+   ],
+   "ikonlar": [
+    "yag",
+    null,
+    "filtre",
+    null
+   ],
+   "anahtarlar": [
+    "eksik",
+    "pompası",
+    "tıkalı",
+    "sensör"
+   ],
+   "metin": "En sık neden eksik motor yağıdır. Yağ pompası arızası, tıkalı filtre ya da sensör arızası da bu lambayı yakabilir. Bazı araçlarda ayrıca sarı bir yağ seviyesi uyarısı da vardır.",
+   "metin_en": "The most common cause is low engine oil. A failing oil pump, a clogged filter or a faulty sensor can also turn it on. Some cars also have a separate yellow oil level warning."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Sönmüyorsa çalıştırma",
+   "metin": "Motor birkaç dakika durduktan sonra yağ çubuğuyla seviyeye bak. Eksikse kitapçıktaki yağla tamamla. Lamba yine sönmüyorsa aracı çalıştırma, servise çektir.",
+   "metin_en": "After the engine has stood for a few minutes, check the level with the dipstick. If it's low, top up with the oil in your manual. If the light still stays on, don't start the car; have it towed to a workshop."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Bu lambayı hiç gördün mü? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you ever seen this light? Comment and save it for later!",
+   "soru": "Bu lambayı hiç gördün mü?"
+  }
+ ]
+}

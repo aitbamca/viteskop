@@ -1,0 +1,94 @@
+{
+ "baslik": "Antifriz kışa hazır mı?",
+ "baslik_en": "Is your coolant ready for winter?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "ANTİFRİZ",
+   "KIŞA",
+   "HAZIR MI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Kış gelmeden antifrizi kontrol et: seviye motor soğukken MIN ile MAX arasında olmalı, donma koruması ölçtürülmeli. Kesin oran ve antifriz tipi aracının kitapçığında yazar. Sen antifrizini kontrol ettirdin mi? Yorumlara yaz, videoyu kaydet! ❄️",
+ "aciklama_en": "Check your coolant before winter: with the engine cold the level should be between MIN and MAX, and the freeze protection should be tested. The exact ratio and coolant type are in your owner's manual. Have you had yours checked? Tell us in the comments and save this video! ❄️",
+ "etiketler": [
+  "#viteskop",
+  "#antifriz",
+  "#soğutmasuyu",
+  "#kışahazırlık",
+  "#arababakımı",
+  "#bakımsaati",
+  "#otobakım",
+  "#otomobil",
+  "#coolant",
+  "#winterprep"
+ ],
+ "kaynaklar": [
+  "Hyundai kullanım kılavuzu – antifriz koruması ve seviyeyi her yıl kıştan önce kontrol et; %50 karışım yaklaşık -35 °C'ye kadar: https://ownersmanual.hyundai.com/full_webhelp/MEa/2026/en_US/topic_wtn_bvd_qcc.html",
+  "Kia kullanım kılavuzu – seviye motor soğukken genleşme deposundan kontrol edilir: https://ownersmanual.kia.com/full_webhelp/SK3/2022/en_US/topics/chapter7_7.html",
+  "Eni – su/antifriz oranı: https://oilproducts.eni.com/sv_SE/Nyheter-och-evenemang/what-is-the-right-water-to-antifreeze-ratio-for-my-car",
+  "O'Reilly – antifrizin donma noktası test cihazıyla ölçülür: https://www.oreillyauto.com/how-to-hub/test-antifreeze-for-winter",
+  "Aracın kullanım kitapçığı: soğutma sıvısı tipi ve oranı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Geceler sıfırın altına inmeden antifrizini kontrol ettin mi? Donan soğutma suyu motora ve radyatöre zarar verebilir.",
+   "metin_en": "Have you checked your coolant before nights drop below zero? Frozen coolant can damage the engine and radiator."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.5,
+   "yazi": "%50 antifriz",
+   "alt": "yaklaşık -35 °C",
+   "metin": "Çoğu araçta yarı yarıya antifriz ve su karışımı önerilir. Bu oran yaklaşık eksi otuz beş dereceye kadar korur. Kesin oran aracının kitapçığında yazar.",
+   "metin_en": "Most cars call for a half-and-half mix of coolant and water. That protects down to about minus thirty-five degrees. The exact ratio is in your owner's manual."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Seviye kontrolü",
+   "maddeler": [
+    "Motor soğukken bak",
+    "Genleşme deposu",
+    "MIN ile MAX arası",
+    "Eksikse uygun antifriz"
+   ],
+   "ikonlar": [
+    null,
+    "sicaklik",
+    null,
+    null
+   ],
+   "anahtarlar": [
+    "soğukken",
+    "genleşme",
+    "min",
+    "eksikse"
+   ],
+   "metin": "Seviyeye motor soğukken bak. Genleşme deposundaki sıvı min ile max arasında olmalı. Eksikse aracına uygun antifriz karışımıyla tamamla.",
+   "metin_en": "Check the level with the engine cold. The fluid in the expansion tank should be between min and max. If it's low, top up with the right coolant mix for your car."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Sıcakken kapağı açma",
+   "metin": "Motor sıcakken depo kapağını açma. Basınçlı sıcak sıvı ciddi yanığa yol açabilir.",
+   "metin_en": "Don't open the tank cap while the engine is hot. Pressurised hot coolant can cause serious burns."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Donma noktasını ölçtür",
+   "metin": "Sıvının kaç dereceye kadar koruduğu basit bir ölçüm aletiyle anlaşılır. Servis bunu birkaç dakikada ölçer. Sıvı bulanık ya da paslı görünüyorsa değişimi için servise danış.",
+   "metin_en": "A simple tester shows how low a temperature your coolant protects against. A workshop can measure it in a few minutes. If it looks cloudy or rusty, ask a workshop about replacing it."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen antifrizini bu kış kontrol ettirdin mi? Yorumlara yaz, videoyu kaydet!",
+   "metin_en": "Have you had your coolant checked this winter? Write it in the comments and save this video!",
+   "soru": "Antifrizini kontrol ettirdin mi?"
+  }
+ ]
+}
