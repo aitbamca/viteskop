@@ -1,0 +1,89 @@
+{
+ "baslik": "Lastik lambası neden yandı?",
+ "baslik_en": "Why is the tyre light on?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "LASTİK",
+   "LAMBASI",
+   "NEDEN YANDI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Soğuk sabahlarda lastik basıncı uyarı lambası sık yanar: hava soğudukça lastikteki basınç düşer. Dört lastiği de ölç, kapı kenarındaki etiketteki değere getir; çivi, kesik ya da şişlik varsa lastikçiye git. Sen basıncı en son ne zaman ölçtün? Yorumlara yaz, kaydet, lazım olur! ⚠️",
+ "aciklama_en": "The tyre pressure warning light often comes on on cold mornings: as it gets colder, tyre pressure drops. Check all four tyres and set them to the value on the door-jamb label; if you see a nail, cut or bulge, go to a tyre shop. When did you last check your tyre pressure? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#lastikbasıncı",
+  "#ikazlambası",
+  "#arızaalarmı",
+  "#lastik",
+  "#kışahazırlık",
+  "#arababakımı",
+  "#otomobil",
+  "#tpms",
+  "#tirepressure"
+ ],
+ "kaynaklar": [
+  "Farmers' Almanac – soğukta lastik basıncı lambası; GM lastik mühendisi: her 10 °F'lik düşüşte yaklaşık 1 psi (her 10 °C'de ≈ 0,12 bar): https://www.farmersalmanac.com/tire-pressure-light-cold-weather",
+  "Tire Review – kışın TPMS sensörleri ve uyarılar: https://www.tirereview.com/tpms-sensors-cold-weather/",
+  "NHTSA – lastik basıncı soğukken ölçülür, doğru değer kapı etiketinde; TPMS uyarısı ve sistem arızası göstergesi: https://www.nhtsa.gov/equipment/tires",
+  "Aracın kullanım kitapçığı: lastik basıncı izleme sistemi ve sıfırlama"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Soğuk bir sabah panelde bu sarı lamba mı yandı? Lastiklerinde hava eksilmiş olabilir.",
+   "metin_en": "Did this yellow light come on one cold morning? Your tyres may be low on air."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "lastik_basinci",
+   "renk": "sari",
+   "yazi": "Lastik basıncı düşük",
+   "metin": "Bu, lastik basıncı uyarı lambasıdır. Bir ya da birkaç lastikte basıncın önerilen değerin belirgin şekilde altına düştüğünü gösterir.",
+   "metin_en": "This is the tyre pressure warning light. It shows that one or more tyres have dropped well below the recommended pressure."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.35,
+   "yazi": "10 °C soğuma",
+   "alt": "yaklaşık 0,1 bar düşüş",
+   "metin": "Hava soğudukça lastikteki hava da büzülür. Kabaca her on derecelik soğumada basınç yaklaşık sıfır virgül bir bar düşer. Bu yüzden lamba kışın ilk soğuk sabahlarında sık yanar.",
+   "metin_en": "As the air gets colder, the air in your tyres contracts. Roughly every ten degrees of cooling drops the pressure by about zero point one bar. That's why the light often comes on during the first cold mornings of winter."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "Yavaşla, lastiklere bak",
+    "Dördünü de ölç",
+    "Kapı etiketindeki değer",
+    "Çivi, kesik, şişlik?"
+   ],
+   "anahtarlar": [
+    "yavaşla",
+    "dört",
+    "etikette",
+    "çivi"
+   ],
+   "metin": "Yavaşla ve güvenli bir yerde lastiklere bak. Dört lastiğin basıncını da ölç ve kapı kenarındaki etikette yazan değere getir. Lastikte çivi, kesik ya da şişlik varsa lastikçiye git.",
+   "metin_en": "Slow down and look at the tyres somewhere safe. Check the pressure in all four and set it to the value on the door-jamb label. If you see a nail, a cut or a bulge, go to a tyre shop."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Yanıp sönüyorsa sisteme baktır",
+   "metin": "Bazı araçlarda basıncı ayarladıktan sonra sistemi kitapçıktaki gibi sıfırlaman gerekir. Lamba çalıştırınca bir süre yanıp sönüp sonra sabit kalıyorsa sorun uyarı sisteminde olabilir, servise kontrol ettir.",
+   "metin_en": "In some cars you need to reset the system as the manual describes after adjusting the pressure. If the light flashes for a while at start-up and then stays on, the warning system itself may be faulty; have it checked."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen lastik basıncını en son ne zaman ölçtün? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last check your tyre pressure? Comment and save it for later!",
+   "soru": "Basıncı en son ne zaman ölçtün?"
+  }
+ ]
+}

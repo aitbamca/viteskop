@@ -1,0 +1,104 @@
+{
+ "baslik": "Balata bitti mi, nasıl anlarsın?",
+ "baslik_en": "Are your brake pads worn out?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "BALATA",
+   "BİTTİ Mİ?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Fren yaparken cızırtı, metal sürtme sesi, balata ikazı ya da uzayan fren mesafesi: balata bitiyor olabilir. Fren, aracın en önemli güvenlik sistemi; kontrol ve değişimi ustaya bırak. Sen balatanı en son ne zaman değiştirdin? Yorumlara yaz, kaydet, lazım olur! 🔧",
+ "aciklama_en": "Squealing when braking, a metal grinding sound, a pad warning light or longer stopping distances: your brake pads may be wearing out. Brakes are your car's most important safety system; leave checks and replacement to a mechanic. When did you last change your pads? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#balata",
+  "#frenbalatası",
+  "#fren",
+  "#parçarehberi",
+  "#arababakımı",
+  "#otomobil",
+  "#araba",
+  "#brakepads",
+  "#carsafety"
+ ],
+ "kaynaklar": [
+  "Mitsubishi Motors Canada – yeni balata gerektiğinin işaretleri (cızırtı, sürtme, ikaz, pedal): https://www.mitsubishi-motors.ca/en/milife/signs-you-need-new-brake-pads",
+  "RepairPal – balata aşınma belirtileri: https://repairpal.com/brake-pads",
+  "Blackcircles – balatanın aşındığı nasıl anlaşılır: https://www.blackcircles.com/news/how-to-tell-if-your-brake-pads-are-worn",
+  "GEICO – yeni balata gerektiğinin 5 işareti: https://www.geico.com/more/driving/auto/auto-care/instant-expert-5-signs-you-need-new-brake-pads/",
+  "Aracın kullanım kitapçığı: fren sistemi ve ikaz lambaları"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Fren yaparken ince bir cızırtı mı duyuyorsun? Balatan sana bir şey söylüyor olabilir.",
+   "metin_en": "Do you hear a thin squeal when you brake? Your brake pads may be trying to tell you something."
+  },
+  {
+   "tip": "parca",
+   "parca": "fren_diski",
+   "yazi": "Fren balatası",
+   "notlar": [
+    "Diske sürtünür",
+    "Aşınır",
+    "Değişir"
+   ],
+   "anahtarlar": [
+    "diske",
+    "aşınır",
+    "değişmesi"
+   ],
+   "metin": "Balata, diske sürtünerek aracı durdurur. Her frende biraz aşınır ve zamanla değişmesi gerekir.",
+   "metin_en": "The pad stops the car by pressing against the disc. It wears a little every time you brake and needs replacing over time."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Uyarı işaretleri",
+   "maddeler": [
+    "İnce cızırtı",
+    "Metal sürtme sesi",
+    "Balata ikaz lambası",
+    "Uzayan fren mesafesi"
+   ],
+   "ikonlar": [
+    null,
+    null,
+    "fren",
+    null
+   ],
+   "anahtarlar": [
+    "cızırtı",
+    "metal",
+    "lambası",
+    "mesafesi"
+   ],
+   "metin": "Çoğu balatada, bitmeye yakın cızırtı çıkaran küçük bir uyarı parçası vardır. Metal metale sürtme sesi, balatanın tamamen bittiğini gösterebilir. Bazı araçlarda panelde balata ikaz lambası yanar. Fren mesafesi uzadıysa ya da pedal farklıysa da dikkat et.",
+   "metin_en": "Most pads have a small tab that squeals when they're nearly worn. A metal-on-metal grinding sound can mean the pad is completely gone. Some cars show a pad warning light on the dashboard. Also pay attention if stopping distances grow or the pedal feels different."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "fren",
+   "renk": "sari",
+   "yazi": "Fren ikazı",
+   "metin": "Fren ikaz lambası yalnızca balatayla ilgili değildir. Fren hidroliği eksikliği gibi başka nedenlerle de yanabilir.",
+   "metin_en": "The brake warning light isn't only about the pads. It can also come on for other reasons, such as low brake fluid."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Fren işi ustanın işi",
+   "metin": "Fren, aracın en önemli güvenlik sistemidir. Balatayı kendin değiştirmeye çalışma. Bu işaretlerden birini görürsen aracı ustaya kontrol ettir.",
+   "metin_en": "Brakes are your car's most important safety system. Don't try to replace the pads yourself. If you notice any of these signs, have a mechanic check the car."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen balatanı en son ne zaman değiştirdin? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last change your brake pads? Comment and save it for later!",
+   "soru": "Balatanı en son ne zaman değiştirdin?"
+  }
+ ]
+}
