@@ -77,13 +77,13 @@
     "lambası",
     "mesafesi"
    ],
-   "metin": "Çoğu balatada, bitmeye yakın cızırtı çıkaran küçük bir uyarı parçası vardır. Metal metale sürtme sesi, balatanın tamamen bittiğini gösterebilir. Bazı araçlarda panelde balata ikaz lambası yanar. Fren mesafesi uzadıysa ya da pedal farklıysa da dikkat et.",
-   "metin_en": "Most pads have a small tab that squeals when they're nearly worn. A metal-on-metal grinding sound can mean the pad is completely gone. Some cars show a pad warning light on the dashboard. Also pay attention if stopping distances grow or the pedal feels different."
+   "metin": "Birçok balatada, bitmeye yakın cızırtı çıkaran küçük bir uyarı parçası vardır. Metal metale sürtme sesi, balatanın tamamen bittiğini gösterebilir. Bazı araçlarda panelde balata ikaz lambası yanar. Fren mesafesi uzadıysa ya da pedal farklıysa da dikkat et.",
+   "metin_en": "Many pads have a small tab that squeals when they're nearly worn. A metal-on-metal grinding sound can mean the pad is completely gone. Some cars show a pad warning light on the dashboard. Also pay attention if stopping distances grow or the pedal feels different."
   },
   {
    "tip": "ikaz",
    "ikon": "fren",
-   "renk": "sari",
+   "renk": "kirmizi",
    "yazi": "Fren ikazı",
    "metin": "Fren ikaz lambası yalnızca balatayla ilgili değildir. Fren hidroliği eksikliği gibi başka nedenlerle de yanabilir.",
    "metin_en": "The brake warning light isn't only about the pads. It can also come on for other reasons, such as low brake fluid."
@@ -100,5 +100,16 @@
    "metin_en": "When did you last change your brake pads? Comment and save it for later!",
    "soru": "Balatanı en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-01",
+  "durum": "onaylandi",
+  "notlar": "İkaz sahnesinin rengi sarıdan kırmızıya çevrildi: metin fren hidroliği eksikliğinden bahsediyor, bu kırmızı fren sistemi uyarısıdır. 'Çoğu balatada' → 'Birçok balatada' (aşınma uyarı parçası her balatada yok). Fren işi ustaya yönlendiriliyor. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://hella.com/techworld/us/ti/brake-pad-wear-indicator",
+   "https://www.oreillyauto.com/how-to-hub/brake-failure-symptoms",
+   "https://www.seat.co.uk/car-terms/b/brake-wear-indicator",
+   "https://www.mitsubishi-motors.ca/en/milife/signs-you-need-new-brake-pads"
+  ]
+ }
 }

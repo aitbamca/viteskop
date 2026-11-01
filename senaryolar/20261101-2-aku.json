@@ -93,5 +93,14 @@
    "metin_en": "When did you last replace your battery? Write it in the comments and save this video!",
    "soru": "Akünü en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-01",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. 0 °C'de yaklaşık %20 kapasite kaybı (Midtronics; kaynaklar %20-35 veriyor, 'yaklaşık' çerçevesi uygun), 3-5 yıl ömür ve kıştan önce test önerisi doğrulandı; takviye için kitapçığa yönlendiriyor. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.midtronics.com/blog/what-happened-to-a-car-battery-in-cold-weather/",
+   "https://www.batterytender.com/blogs/battery-tender-blog/winter-car-battery-maintenance-complete-guide-to-cold-weather-battery-care"
+  ]
+ }
 }

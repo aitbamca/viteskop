@@ -91,5 +91,15 @@
    "metin_en": "Which do you prefer? Write it in the comments and save this video!",
    "soru": "Sen hangisini tercih ediyorsun?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-01",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Eşdeğer parçada TSE belgelendirmesi (Hazine 2015/2 genelgesi, 1 Haziran 2015'ten beri) doğrulandı; güvenlik parçalarında çıkma kullanılmaması ve ustaya yönlendirme var, marka/reklam yok. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.alomaliye.com/2017/02/07/kalitesiz-urun-kullaniminin-onune-gecilecek/",
+   "https://mam.tubitak.gov.tr/en/great-cooperation-in-equivalent-part-certification/",
+   "https://www.sigortam.net/esdeger-parca-uygulamasi-nedir"
+  ]
+ }
 }

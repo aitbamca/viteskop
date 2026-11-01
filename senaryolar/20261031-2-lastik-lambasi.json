@@ -85,5 +85,15 @@
    "metin_en": "When did you last check your tyre pressure? Comment and save it for later!",
    "soru": "Basıncı en son ne zaman ölçtün?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-01",
+  "durum": "onaylandi",
+  "notlar": "Düzeltme gerekmedi. Her 10 °C soğumada ≈0,1 bar düşüş (≈1 psi/10 °F) ve TPMS arıza göstergesinin yaklaşık bir dakika yanıp sönüp sabit kalması (Honda/BMW kılavuzları, FMVSS 138) doğrulandı. Kareler temiz.",
+  "dogrulanan_kaynaklar": [
+   "https://www.farmersalmanac.com/tire-pressure-light-cold-weather",
+   "https://www.manualslib.com/manual/513506/Honda-Rdx.html?page=492",
+   "https://www.nhtsa.gov/equipment/tires"
+  ]
+ }
 }
