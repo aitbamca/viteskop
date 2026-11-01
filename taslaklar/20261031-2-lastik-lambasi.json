@@ -51,7 +51,7 @@
    "tip": "gosterge",
    "deger": 0.35,
    "yazi": "10 °C soğuma",
-   "alt": "yaklaşık 0,1 bar düşüş",
+   "alt": "0,1 bar düşüş",
    "metin": "Hava soğudukça lastikteki hava da büzülür. Kabaca her on derecelik soğumada basınç yaklaşık sıfır virgül bir bar düşer. Bu yüzden lamba kışın ilk soğuk sabahlarında sık yanar.",
    "metin_en": "As the air gets colder, the air in your tyres contracts. Roughly every ten degrees of cooling drops the pressure by about zero point one bar. That's why the light often comes on during the first cold mornings of winter."
   },

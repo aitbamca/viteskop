@@ -1,0 +1,97 @@
+{
+ "baslik": "Akün kışa dayanır mı?",
+ "baslik_en": "Will your battery survive winter?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "AKÜN",
+   "KIŞA",
+   "DAYANIR MI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Soğukta akünün gücü düşer, motoru çalıştırmak ise zorlaşır. Akün üç yaşını geçtiyse kış gelmeden test ettir. Sabahları marş zor basıyorsa uyarı olabilir. Sen akünü en son ne zaman değiştirdin? Yorumlara yaz, videoyu kaydet! 🔋",
+ "aciklama_en": "In the cold, your battery loses power while the engine gets harder to start. If your battery is over three years old, have it tested before winter. Slow cranking on cold mornings can be a warning sign. When did you last replace your battery? Tell us in the comments and save this video! 🔋",
+ "etiketler": [
+  "#viteskop",
+  "#akü",
+  "#akübakımı",
+  "#kışahazırlık",
+  "#bakımsaati",
+  "#arababakımı",
+  "#otobakım",
+  "#otomobil",
+  "#carbattery",
+  "#winterprep"
+ ],
+ "kaynaklar": [
+  "Midtronics – soğukta akü: 0 °C civarında kapasite yaklaşık %20 düşer, motoru çevirmek zorlaşır: https://www.midtronics.com/blog/what-happened-to-a-car-battery-in-cold-weather/",
+  "Century Batteries – aküler neden kışın daha sık arızalanır: https://www.centurybatteries.com.au/battery-hub/expert-advice/why-car-batteries-fail-more-often-in-winter",
+  "Battery Tender – kışın akü bakımı: https://www.batterytender.com/blogs/battery-tender-blog/winter-car-battery-maintenance-complete-guide-to-cold-weather-battery-care",
+  "Autoblog – akü dondurucu soğuğa hazır mı (3-5 yıl ömür, kıştan önce test): https://ts.autoblog.com/features/is-your-battery-ready-for-freezing-temperatures-how-to-tell-before-it-strands-you",
+  "Aracın kullanım kitapçığı: akü ve takviye ile çalıştırma bölümü"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Soğuk bir sabah araba çalışmadı mı? Suçlu büyük ihtimalle akü. Kışa girmeden bir bakalım.",
+   "metin_en": "Car won't start on a cold morning? The battery is most likely to blame. Let's check it before winter."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.25,
+   "yazi": "0 °C'de",
+   "alt": "%20 güç kaybı",
+   "metin": "Soğukta akünün kimyası yavaşlar. Sıfır derece civarında kapasite yaklaşık yüzde yirmi düşer. Aynı anda koyulaşan yağ yüzünden motoru çevirmek de zorlaşır.",
+   "metin_en": "In the cold, the battery's chemistry slows down. At around zero degrees its capacity drops by about twenty percent. At the same time, thicker oil makes the engine harder to turn over."
+  },
+  {
+   "tip": "parca",
+   "parca": "aku",
+   "yazi": "Akü",
+   "notlar": [
+    "3-5 yıl ömür",
+    "Zor marş",
+    "Soluk farlar"
+   ],
+   "anahtarlar": [
+    "ömrü",
+    "marş",
+    "farlar"
+   ],
+   "metin": "Akünün ömrü genelde üç ile beş yıldır. Sabahları marş zor basıyorsa ya da çalıştırırken farlar soluyorsa akü zayıflıyor olabilir.",
+   "metin_en": "A battery usually lasts three to five years. If the engine cranks slowly in the morning or the lights dim while starting, the battery may be getting weak."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Kış öncesi",
+   "maddeler": [
+    "3 yaşını geçtiyse test ettir",
+    "Kutup başlarına bak",
+    "Kısa yolda şarj zorlanır"
+   ],
+   "anahtarlar": [
+    "test",
+    "kutup",
+    "kısa"
+   ],
+   "metin": "Akün üç yaşını geçtiyse kış gelmeden servise test ettir. Kutup başlarında beyaz pas varsa temizlettir. Sadece kısa yol yapıyorsan akü tam dolmayabilir.",
+   "metin_en": "If your battery is over three years old, have it tested before winter. If there's white corrosion on the terminals, have it cleaned. If you only do short trips, the battery may never fully charge."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Takviyede kitapçığa uy",
+   "metin": "Takviye ile çalıştırman gerekirse kabloları kitapçıktaki sırayla bağla. Yanlış bağlantı elektronik sistemlere zarar verebilir.",
+   "metin_en": "If you need a jump start, connect the cables in the order shown in your manual. A wrong connection can damage the electronics."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen akünü en son ne zaman değiştirdin? Yorumlara yaz, videoyu kaydet!",
+   "metin_en": "When did you last replace your battery? Write it in the comments and save this video!",
+   "soru": "Akünü en son ne zaman değiştirdin?"
+  }
+ ]
+}

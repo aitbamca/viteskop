@@ -1,0 +1,95 @@
+{
+ "baslik": "Orijinal mi, muadil mi, çıkma mı?",
+ "baslik_en": "OEM, equivalent or used parts?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "ORİJİNAL Mİ,",
+   "MUADİL Mİ,",
+   "ÇIKMA MI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Orijinal, muadil (eşdeğer) ve çıkma parça arasındaki fark ne, hangisi ne zaman mantıklı? Fren, direksiyon ve hava yastığı gibi güvenlik parçalarında çıkma kullanma, ustaya danış. Garanti şartları aracının kitapçığında yazar. Sen hangisini tercih ediyorsun? Yorumlara yaz, videoyu kaydet! ⚙️",
+ "aciklama_en": "What's the difference between original, equivalent and used parts, and when does each make sense? Don't use second-hand parts for safety items like brakes, steering or airbags; ask a mechanic. Warranty terms are in your owner's manual. Which do you prefer? Tell us in the comments and save this video! ⚙️",
+ "etiketler": [
+  "#viteskop",
+  "#yedekparça",
+  "#orijinalparça",
+  "#eşdeğerparça",
+  "#çıkmaparça",
+  "#parçarehberi",
+  "#arababakımı",
+  "#otomobil",
+  "#carparts",
+  "#cartips"
+ ],
+ "kaynaklar": [
+  "TÜBİTAK MAM – TSE ile eşdeğer parça sertifikasyonu: https://mam.tubitak.gov.tr/en/great-cooperation-in-equivalent-part-certification/",
+  "Sigortam.net – eşdeğer parça uygulaması nedir: https://www.sigortam.net/esdeger-parca-uygulamasi-nedir",
+  "SBM dergisi – 2015/2 genelgesi: eşdeğer parça tanımı (kütle, boyut, malzeme, işlev): https://www.sbm.org.tr/dergi/6/files/assets/basic-html/page-58.html",
+  "Araclo – orijinal mi yan sanayi mi, hangi parçada hangisi: https://www.araclo.com/blog/orijinal-mi-yan-sanayi-parca-mi-hangi-parcada-hangisi-mantikli",
+  "Aracın garanti belgesi ve kullanım kitapçığı: bakım ve parça şartları"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Ustan sordu: orijinal mi, muadil mi, çıkma mı? Aralarındaki fark sadece fiyat değil.",
+   "metin_en": "Your mechanic asks: original, equivalent or used? The difference isn't just the price."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Üç seçenek",
+   "maddeler": [
+    "Orijinal: üretici onaylı",
+    "Muadil: eşdeğer, sertifikalı",
+    "Çıkma: başka araçtan sökülmüş"
+   ],
+   "anahtarlar": [
+    "orijinal",
+    "muadil",
+    "çıkma"
+   ],
+   "metin": "Orijinal parça, aracın üreticisinin onayladığı parçadır. Muadil ya da eşdeğer parça, başka bir firmanın aynı işi görmesi için ürettiği parçadır. Çıkma ise başka bir araçtan sökülmüş, kullanılmış parçadır.",
+   "metin_en": "An original part is one approved by the car's manufacturer. An equivalent part is made by another company to do the same job. A used part has been taken off another car."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Eşdeğerde sertifikaya bak",
+   "metin": "Türkiye'de eşdeğer parçalar için TSE sertifikası uygulaması var. Muadil alacaksan sertifikalı ve güvenilir bir kaynaktan al.",
+   "metin_en": "In Türkiye there is a TSE certification scheme for equivalent parts. If you buy an equivalent part, choose a certified one from a reliable source."
+  },
+  {
+   "tip": "parca",
+   "parca": "anahtar",
+   "yazi": "Çıkma ne zaman?",
+   "notlar": [
+    "Kaporta",
+    "Ayna",
+    "Döşeme"
+   ],
+   "anahtarlar": [
+    "kaporta",
+    "ayna",
+    "döşeme"
+   ],
+   "metin": "Çıkma parça, kaporta, ayna ya da döşeme gibi güvenlikle ilgisi olmayan parçalarda bütçeyi rahatlatabilir.",
+   "metin_en": "A used part can save money on items unrelated to safety, such as body panels, mirrors or trim."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Güvenlik parçasında çıkma yok",
+   "metin": "Fren, direksiyon ve hava yastığı gibi güvenlik parçalarında çıkma kullanma. Bu parçaları ustana danışarak orijinal ya da onaylı muadille değiştir. Garanti süresindeysen şartlarını kitapçıktan kontrol et.",
+   "metin_en": "Don't use second-hand parts for safety items like brakes, steering or airbags. Replace them with original or approved equivalent parts, with your mechanic's advice. If your car is under warranty, check its terms in the manual."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen hangisini tercih ediyorsun? Yorumlara yaz, videoyu kaydet!",
+   "metin_en": "Which do you prefer? Write it in the comments and save this video!",
+   "soru": "Sen hangisini tercih ediyorsun?"
+  }
+ ]
+}
