@@ -1,0 +1,89 @@
+name: Yayın (merkez, Aşama 1)
+
+# GÜVENLİK: yalnızca workflow_dispatch. `schedule:` YOKTUR; yalnız merkez dispatcher'ı veya sahip tetikler.
+# Varsayılan dry_run=true: Instagram/Pages anahtarları o işe HİÇ verilmez (ayrı iş, ortam yok).
+# Canlı iş iki koşulla çalışır: dry_run=false VE canli_onay=EVET-CANLI.
+on:
+  workflow_dispatch:
+    inputs:
+      marka:
+        description: "Marka (markalar/<marka>.json)"
+        required: true
+        default: viteskop
+      slot_id:
+        description: "Slot kimliği YYYYAAGG-N (dispatcher üretir)"
+        required: true
+      mod:
+        type: choice
+        options: [yayin, kapanis]
+        default: yayin
+      dry_run:
+        type: choice
+        options: ["true", "false"]
+        default: "true"
+      canli_onay:
+        description: "Canlı yayın için EVET-CANLI yazın (dry_run=false ise gerekli)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+# Marka+slot bazında; farklı slotlar birbirinin bekleyen işini iptal etmez. Aynı hesapta eşzamanlı
+# oluşturmayı kilit katmanındaki hesap muteksi önler (concurrency tek başına yetmez).
+concurrency:
+  group: yayin-${{ inputs.marka }}-${{ inputs.slot_id }}
+  cancel-in-progress: false
+
+jobs:
+  kuru:
+    if: ${{ inputs.dry_run == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write   # test kilitleri (refs/test/*) ve kayitlar/<marka>/test/ — üretim ref'lerine dokunmaz
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kuru çalıştırma (ağ/Instagram yok)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          MARKA: ${{ inputs.marka }}      # girdiler ortam değişkeni olarak geçer (komut enjeksiyonu önlemi)
+          SLOT_ID: ${{ inputs.slot_id }}
+          MOD: ${{ inputs.mod }}
+        run: python -m merkez.yayin_cli --marka "$MARKA" --slot-id "$SLOT_ID" --mod "$MOD" --kuru
+
+  canli:
+    if: ${{ inputs.dry_run == 'false' && inputs.canli_onay == 'EVET-CANLI' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: uretim   # INSTAGRAM_TOKEN ve MEDYA_TOKEN yalnız bu Environment'ta
+    permissions:
+      contents: write
+      issues: write
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
+      INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+      MEDYA_TOKEN: ${{ secrets.MEDYA_TOKEN }}
+      MARKA: ${{ inputs.marka }}
+      SLOT_ID: ${{ inputs.slot_id }}
+      MOD: ${{ inputs.mod }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Canlı yayın
+        run: python -m merkez.yayin_cli --marka "$MARKA" --slot-id "$SLOT_ID" --mod "$MOD" --canli
+      - name: Defteri işle (yayinlananlar.txt)
+        if: ${{ always() }}
+        run: |
+          if ! git diff --quiet -- yayinlananlar.txt; then
+            git config user.name "viteskop-bot"; git config user.email "viteskop-bot@users.noreply.github.com"
+            git add yayinlananlar.txt && git commit -m "Yayın defteri: $MARKA $SLOT_ID"
+            git pull --rebase -q origin main && git push
+          fi

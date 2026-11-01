@@ -1,0 +1,26 @@
+{
+  "sema": 1,
+  "marka": "viteskop",
+  "aktif": false,
+  "saat_dilimi": "Europe/Istanbul",
+  "slotlar": [
+    "12:30",
+    "20:00"
+  ],
+  "tolerans_dk": 20,
+  "kilit_ttl_dk": 15,
+  "hesap_kilit_ttl_dk": 10,
+  "hesap_bekleme_dk": 10,
+  "azami_deneme": 2,
+  "kayit_deposu": "aitbamca/viteskop",
+  "instagram": {
+    "environment": "uretim"
+  },
+  "kayit_dali": "kayitlar",
+  "yayin_workflow": "yayin.yml",
+  "token_kontrol_workflow": "token-kontrol.yml",
+  "dispatch_token_env": "MERKEZ_DISPATCH_TOKEN",
+  "okuma_token_env": "KAYIT_OKUMA_TOKEN",
+  "aktif_baslangic": null,
+  "kapak_uretici": "kapak.py"
+}

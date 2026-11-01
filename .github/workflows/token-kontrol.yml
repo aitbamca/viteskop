@@ -1,0 +1,43 @@
+name: Instagram token süre kontrolü
+
+# GÜVENLİK: yalnızca workflow_dispatch (merkez dispatcher günde bir çağırır). Otomatik yenileme YOKTUR; yalnız uyarı.
+# Token DEĞERİNE ihtiyaç duymaz: bitiş tarihi kayitlar/<marka>/token.json içinde sahip tarafından tutulur.
+on:
+  workflow_dispatch:
+    inputs:
+      marka:
+        required: true
+        default: viteskop
+      dry_run:
+        type: choice
+        options: ["true", "false"]
+        default: "true"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: token-kontrol-${{ inputs.marka }}
+  cancel-in-progress: false
+
+jobs:
+  kontrol:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write   # kayitlar dalındaki token.json içinde son_uyari güncellemesi
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Kontrol
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          MARKA: ${{ inputs.marka }}
+          KURU: ${{ inputs.dry_run }}
+        run: |
+          if [ "$KURU" = "false" ]; then python -m merkez.token_kontrol_cli --marka "$MARKA" --canli
+          else python -m merkez.token_kontrol_cli --marka "$MARKA"; fi
