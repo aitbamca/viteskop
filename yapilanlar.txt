@@ -8,3 +8,5 @@
 20261029-2-yag-lambasi.json
 20261030-1-antifriz.json
 20261030-2-balata.json
+20261031-2-lastik-lambasi.json
+20261101-1-orijinal-muadil-cikma.json
