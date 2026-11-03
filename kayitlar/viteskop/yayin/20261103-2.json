@@ -1,12 +1,18 @@
 {
   "deneme": 0,
-  "durum": "PLANLANDI",
+  "durum": "ATLANDI",
   "gecmis": [
     {
       "durum": "PLANLANDI",
       "not": "",
       "run_id": "run41711428863-a1",
       "zaman": "2026-11-03T20:19:09.633997+00:00"
+    },
+    {
+      "durum": "ATLANDI",
+      "not": "PENCERE_GECTI",
+      "run_id": "run41711428863-a1",
+      "zaman": "2026-11-03T20:19:10.650054+00:00"
     }
   ],
   "hata": {
