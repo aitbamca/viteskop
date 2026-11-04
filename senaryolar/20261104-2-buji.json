@@ -92,5 +92,15 @@
    "metin_en": "When did you last change your spark plugs? Comment and save it for later!",
    "soru": "Bujiyi en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-04",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi.",
+  "dogrulanan_kaynaklar": [
+   "KBB buji rehberi",
+   "Bakır/platin/iridyum ömür karşılaştırmaları",
+   "Yanıp sönen motor lambası = ciddi tekleme, durup servise başvur"
+  ]
+ }
 }

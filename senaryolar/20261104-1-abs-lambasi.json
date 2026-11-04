@@ -44,8 +44,8 @@
    "ikon": "abs",
    "renk": "sari",
    "yazi": "ABS sistemi uyarısı",
-   "metin": "Bu sarı lamba, kilitlenme önleyici sistemde bir sorun olduğunu söyler. Normal frenler çalışmaya devam eder, ama sert frende tekerlekler kilitlenebilir. Lamba çalıştırınca kısa süre yanıp sönmesi normaldir.",
-   "metin_en": "This yellow light says there is a problem in the anti-lock system. The normal brakes keep working, but the wheels can lock under hard braking. It is normal for the light to come on briefly at start-up."
+   "metin": "Bu sarı lamba, kilitlenme önleyici sistemde bir sorun olduğunu söyler. Normal frenler çalışmaya devam eder, ama sert frende tekerlekler kilitlenebilir. Kontak açılınca lambanın kısa süre yanması normaldir.",
+   "metin_en": "This yellow light says there is a problem in the anti-lock system. The normal brakes keep working, but the wheels can lock under hard braking. It is normal for the light to come on briefly when the ignition is switched on."
   },
   {
    "tip": "liste",
@@ -74,8 +74,8 @@
   {
    "tip": "bilgi",
    "yazi": "Fren sistemine kendin müdahale etme",
-   "metin": "Fren işlerini ustaya bırak. Anlamı marka ve modele göre değişebilir, aracının kitapçığına da bak. Lambanın sönmeyeceğini düşünüp ertelemek de iyi bir fikir değil.",
-   "metin_en": "Leave brake work to a technician. Meanings vary by make and model, so check your manual too. Putting it off on the assumption it will go away is not a good idea either."
+   "metin": "Fren işlerini ustaya bırak. Anlamı marka ve modele göre değişebilir, aracının kitapçığına da bak. Lambanın kendiliğinden geçeceğini düşünüp ertelemek de iyi bir fikir değil.",
+   "metin_en": "Leave brake work to a technician. Meanings vary by make and model, so check your manual too. Putting it off in the hope that it will go away is not a good idea either."
   },
   {
    "tip": "kapanis",
@@ -83,5 +83,14 @@
    "metin_en": "Have you ever seen your ABS light? Comment and save it for later!",
    "soru": "ABS lambasını hiç gördün mü?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-04",
+  "durum": "onaylandi",
+  "notlar": "Açılışta lambanın 'yanıp sönmesi' yerine 'kısa süre yanması' yapıldı (kontak açılınca self-test); belirsiz cümle düzeltildi; TR/EN eşitlendi.",
+  "dogrulanan_kaynaklar": [
+   "Buick/Mazda/Saab/Dodge kullanım kitapçıkları (ABS lambası tek başına: normal fren çalışır; kırmızı fren lambası da varsa fren sistemi sorunu)",
+   "Ram kullanım kitapçığı"
+  ]
+ }
 }
