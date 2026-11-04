@@ -48,6 +48,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Kapak için gerekenler (Pillow, numpy)
+        run: pip install -q pillow numpy
       - name: Kuru çalıştırma (ağ/Instagram yok)
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -77,6 +79,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Kapak için gerekenler (Pillow, numpy)
+        run: pip install -q pillow numpy
       - name: Canlı yayın
         run: python -m merkez.yayin_cli --marka "$MARKA" --slot-id "$SLOT_ID" --mod "$MOD" --canli
       - name: Defteri işle (yayinlananlar.txt)
