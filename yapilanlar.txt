@@ -11,3 +11,5 @@
 20261031-2-lastik-lambasi.json
 20261101-1-orijinal-muadil-cikma.json
 20261101-2-aku.json
+20261104-1-abs-lambasi.json
+20261104-2-buji.json
