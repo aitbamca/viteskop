@@ -1,0 +1,50 @@
+{
+  "deneme": 0,
+  "durum": "PLANLANDI",
+  "gecmis": [
+    {
+      "durum": "PLANLANDI",
+      "not": "",
+      "run_id": "run41808125594-a1",
+      "zaman": "2026-11-04T09:31:03.013686+00:00"
+    }
+  ],
+  "hata": {
+    "kod": null,
+    "ozet": null,
+    "sinif": null
+  },
+  "icerik": {
+    "senaryo_id": null,
+    "surum": null,
+    "video_sha256": null,
+    "video_yolu": null
+  },
+  "id": "20261104-1",
+  "instagram": {
+    "container_id": null,
+    "dogrulama": null,
+    "media_id": null,
+    "publish_istendi": null
+  },
+  "kilit": {
+    "alindi": null,
+    "ref": "refs/kilit/viteskop/20261104-1",
+    "sahip": null,
+    "ttl_bitis": null
+  },
+  "marka": "viteskop",
+  "olcum": {
+    "claude_cagri": 0,
+    "claude_token": 0,
+    "dry_run": false,
+    "sure_sn": null
+  },
+  "sahip_karari": null,
+  "sema": 1,
+  "slot": {
+    "pencere_bitis": "2026-11-04T12:50:00+03:00",
+    "planlanan": "2026-11-04T12:30:00+03:00",
+    "sira": 1
+  }
+}
