@@ -1,0 +1,96 @@
+{
+ "baslik": "Buji ne zaman değişir?",
+ "baslik_en": "When to change spark plugs?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "BUJİ",
+   "NE ZAMAN",
+   "DEĞİŞİR?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Buji benzinli motorda karışımı ateşler. Rölanti titremesi, ilk çalıştırmada zorlanma, tekleme ve artan tüketim eskidiğinin işareti olabilir. Aralık için aracının kitapçığına bak. Sen bujiyi en son ne zaman değiştirdin? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "The spark plug ignites the mixture in a petrol engine. Rough idle, hard starting, misfires and higher consumption can mean it is worn. Check your manual for the interval. When did you last change yours? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#buji",
+  "#parçarehberi",
+  "#motor",
+  "#arababakımı",
+  "#otomobil",
+  "#benzinli",
+  "#sparkplug",
+  "#carmaintenance",
+  "#bakım"
+ ],
+ "kaynaklar": [
+  "Auto Training Centre – buji belirtileri ve aralıkları: https://www.autotrainingcentre.com/blog/spark-plugs-symptoms-testing-basics-new-technicians/",
+  "YourMechanic – bozuk buji belirtileri: https://www.yourmechanic.com/article/symptoms-of-bad-or-failing-spark-plugs",
+  "KBB – buji ne zaman değişir: https://www.kbb.com/car-advice/how-do-i-know-if-my-spark-plugs-need-replacing",
+  "Aracın kullanım kitapçığı: buji değişim aralığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Motor rölantide titriyor ve ilk marşta zorlanıyor mu? Suçlu buji olabilir.",
+   "metin_en": "Is the engine shaking at idle and struggling to start? The spark plug could be the culprit."
+  },
+  {
+   "tip": "parca",
+   "parca": "buji",
+   "yazi": "Buji",
+   "notlar": [
+    "Benzinli motorlarda var",
+    "Karışımı ateşler",
+    "Elektrot zamanla aşınır"
+   ],
+   "anahtarlar": [
+    "benzinli",
+    "ateş",
+    "aşın"
+   ],
+   "metin": "Buji, benzinli motorda yakıt ve hava karışımını ateşleyen parçadır. Dizel motorlarda yoktur. Elektrotları zamanla aşınır.",
+   "metin_en": "The spark plug ignites the fuel and air mixture in a petrol engine. Diesel engines don't have one. Its electrodes wear over time."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Eskidiğinin işaretleri",
+   "maddeler": [
+    "Rölanti titremesi",
+    "Marşta zorlanma",
+    "Tekleme, çekiş kaybı",
+    "Tüketim artışı"
+   ],
+   "anahtarlar": [
+    "rölanti",
+    "marş",
+    "tekleme",
+    "tüketim"
+   ],
+   "metin": "Rölanti titremesi, marşta zorlanma, tekleme ve yakıt tüketiminde artış bujilerin eskidiğini gösterebilir. Başka arızalar da benzer belirti verebilir.",
+   "metin_en": "Rough idle, hard starting, misfires and rising fuel consumption can show that the plugs are worn. Other faults can show similar signs."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Aralık: kitapçığa bak",
+   "metin": "Bakır bujiler genelde daha erken, platin ve iridyum bujiler daha geç değişir. Ama kesin aralık motora göre değişir, o yüzden aracının kitapçığına bak. Kullanım koşulları da süreyi etkileyebilir.",
+   "metin_en": "Copper plugs generally need changing sooner, platinum and iridium later. The exact interval depends on the engine, so check your manual. Driving conditions can also affect the interval."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Tekleme sürerse servise git",
+   "metin": "Tekleme sürüyorsa yola devam etme. Motor arıza lambası yanıp sönüyorsa dur ve servise başvur. Bu yüzden belirtileri ihmal etme.",
+   "metin_en": "If misfiring continues, don't keep driving. If the engine light flashes, stop and contact a service. So don't ignore the symptoms."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen bujiyi en son ne zaman değiştirdin? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last change your spark plugs? Comment and save it for later!",
+   "soru": "Bujiyi en son ne zaman değiştirdin?"
+  }
+ ]
+}

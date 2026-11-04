@@ -1,0 +1,87 @@
+{
+ "baslik": "ABS lambası yandı, ne olur?",
+ "baslik_en": "ABS light on: what now?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "ABS LAMBASI",
+   "YANDIYSA",
+   "NE OLUR?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Sadece ABS lambası yandıysa normal fren çalışmaya devam eder ama kilitlenmeyi önleyen sistem devre dışıdır. Kırmızı fren lambası da yanıyorsa güvenli yerde dur. Sen ABS lambasını hiç gördün mü? Yorumlara yaz, kaydet, lazım olur! ⚠️",
+ "aciklama_en": "If only the ABS light is on, normal braking still works but anti-lock is off. If the red brake light is also on, stop somewhere safe. Have you ever seen your ABS light? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#abs",
+  "#ikazlambası",
+  "#arızaalarmı",
+  "#fren",
+  "#arababakımı",
+  "#otomobil",
+  "#sürüşgüvenliği",
+  "#absfren",
+  "#warninglight"
+ ],
+ "kaynaklar": [
+  "Ram 2500/3500 kullanım kitapçığı – ABS uyarı lambası: https://vehicleinfo.mopar.com/assets/publications/en-us/Ram/2022/2500_3500/om_html/GUID-0BE667CC-D5AD-4411-8EA7-7DB5C94952AE.html",
+  "Europcar uyarı lambaları rehberi: https://aa-assistance.europcar.co.uk/warning/Brakes.html",
+  "YourMechanic – fren uyarı lambası: https://www.yourmechanic.com/article/how-to-respond-when-your-brake-warning-light-is-on-by-jason-unrau",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Panelde ABS lambası yandı, fren tutmaz mı? Aslında çoğu zaman tutar.",
+   "metin_en": "The ABS light came on; will the brakes fail? Usually they still work."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "abs",
+   "renk": "sari",
+   "yazi": "ABS sistemi uyarısı",
+   "metin": "Bu sarı lamba, kilitlenme önleyici sistemde bir sorun olduğunu söyler. Normal frenler çalışmaya devam eder, ama sert frende tekerlekler kilitlenebilir. Lamba çalıştırınca kısa süre yanıp sönmesi normaldir.",
+   "metin_en": "This yellow light says there is a problem in the anti-lock system. The normal brakes keep working, but the wheels can lock under hard braking. It is normal for the light to come on briefly at start-up."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "Yumuşak fren yap",
+    "Takip mesafesini aç",
+    "Kırmızı lamba var mı?",
+    "Servise baktır"
+   ],
+   "anahtarlar": [
+    "yumuşak",
+    "mesafe",
+    "kırmızı",
+    "servis"
+   ],
+   "metin_en": "Brake more gently and leave extra following distance. Check whether the red brake light is also on. Then take the car to a service soon.",
+   "metin": "Daha yumuşak fren yap ve takip mesafesini aç. Kırmızı fren lambasının da yanıp yanmadığına bak. Sonra aracı yakında servise götür."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Kırmızı lamba da yanıyorsa dur",
+   "metin": "Kırmızı fren lambası da yanıyorsa normal fren sisteminde sorun olabilir. Güvenli bir yerde dur ve aracı çekiciyle servise götür.",
+   "metin_en": "If the red brake light is also on, the normal brake system may have a problem. Stop somewhere safe and have the car towed to a service."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Fren sistemine kendin müdahale etme",
+   "metin": "Fren işlerini ustaya bırak. Anlamı marka ve modele göre değişebilir, aracının kitapçığına da bak. Lambanın sönmeyeceğini düşünüp ertelemek de iyi bir fikir değil.",
+   "metin_en": "Leave brake work to a technician. Meanings vary by make and model, so check your manual too. Putting it off on the assumption it will go away is not a good idea either."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen ABS lambasını hiç gördün mü? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you ever seen your ABS light? Comment and save it for later!",
+   "soru": "ABS lambasını hiç gördün mü?"
+  }
+ ]
+}
