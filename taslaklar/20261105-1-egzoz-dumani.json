@@ -1,0 +1,93 @@
+{
+ "baslik": "Egzozdan beyaz duman çıkıyor",
+ "baslik_en": "White smoke from the exhaust?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "EGZOZDAN",
+   "DUMAN",
+   "ÇIKIYORSA?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Soğuk sabahta egzozdan ince beyaz buğu çıkması çoğu zaman yoğuşmadır ve ısınınca kaybolur. Kalın duman ısındıktan sonra da sürüyorsa, tatlımsı koku ya da soğutma suyunda azalma varsa servise git. Sen egzozdan hiç duman gördün mü? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "Thin white vapour from the exhaust on a cold morning is usually condensation and fades as the engine warms. If thick smoke continues after warm-up, or you notice a sweet smell or falling coolant, go to a service. Have you ever seen exhaust smoke? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#egzoz",
+  "#egzozdumanı",
+  "#arızaalarmı",
+  "#motor",
+  "#arababakımı",
+  "#otomobil",
+  "#kışbakımı",
+  "#exhaustsmoke",
+  "#carmaintenance"
+ ],
+ "kaynaklar": [
+  "Firestone Complete Auto Care – egzoz rengi: https://firestonecompleteautocare.com/blog/maintenance/what-is-my-exhaust-color-telling-me",
+  "Auto Express – egzoz dumanı renkleri: https://autoexpress.co.uk/car-news/102502/car-exhaust-smoke-what-do-the-different-kinds-and-colours-of-smoke-mean",
+  "Kwik Fit – egzoz dumanı renkleri: https://iis01.kwik-fit.com/blog/what-do-different-exhaust-smoke-colours-mean",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Soğuk sabah egzozdan beyaz duman mı çıktı? Her zaman arıza demek değildir.",
+   "metin_en": "Did white smoke come from the exhaust on a cold morning? It doesn't always mean a fault."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "İnce buğu: genelde su buharı",
+   "metin": "İnce, kokusuz ve kısa sürede kaybolan beyaz buğu çoğu zaman yoğuşmuş su buharıdır. Motor ısındıkça geçer. Soğuk havada bu duman daha belirgin görünür.",
+   "metin_en": "Thin, odourless white vapour that fades quickly is usually condensed water vapour. It passes as the engine warms up. In cold weather this vapour looks more noticeable."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Dikkat et",
+   "maddeler": [
+    "Kalın, sürekli duman",
+    "Tatlımsı koku",
+    "Soğutma suyu azalıyor",
+    "Yağ sütlü görünüyor"
+   ],
+   "anahtarlar": [
+    "kalın",
+    "tatlımsı",
+    "soğutma",
+    "yağ"
+   ],
+   "metin": "Duman kalınsa ve ısındıktan sonra da sürüyorsa dikkat et. Tatlımsı koku, azalan soğutma suyu ya da sütlü görünen yağ da servis işaretidir. Emin değilsen aracını bir ustaya göster.",
+   "metin_en": "Be careful if the smoke is thick and continues after warm-up. A sweet smell, falling coolant or milky-looking oil are also signs to see a service. If you're unsure, show your car to a technician."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Diğer renkler",
+   "maddeler": [
+    "Mavi: yağ yanıyor olabilir",
+    "Siyah: karışım zengin olabilir"
+   ],
+   "anahtarlar": [
+    "mavi",
+    "siyah"
+   ],
+   "metin": "Mavi duman motor yağının yandığını, siyah duman ise karışımın fazla zengin olduğunu gösterebilir. Bu renkler de servis kontrolü ister.",
+   "metin_en": "Blue smoke can show that engine oil is burning, and black smoke that the mixture is running too rich. These colours also call for a service check."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Sıcaklık yükselirse dur",
+   "metin": "Kalın duman varken motor hararet yapıyorsa aracı durdur. Servise çekiciyle git. Güvenli bir yerde dur ve motoru kapat.",
+   "metin_en": "If the engine overheats while there is thick smoke, stop the car. Go to a service by tow. Stop somewhere safe and switch the engine off."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen egzozdan hiç duman gördün mü? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you ever seen smoke from your exhaust? Comment and save it for later!",
+   "soru": "Egzozdan hiç duman gördün mü?"
+  }
+ ]
+}

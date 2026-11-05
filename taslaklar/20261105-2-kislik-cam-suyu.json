@@ -1,0 +1,87 @@
+{
+ "baslik": "Kışlık cam suyu neden şart?",
+ "baslik_en": "Why winter washer fluid?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "KIŞLIK",
+   "CAM SUYU",
+   "ŞART MI?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Düz su sıfır derecede donar. Kışlık cam suyu içindeki alkolle donma noktasını düşürür. Şişenin üzerindeki donma değerine bak, bölgenin en soğuk gecesine uygun olanı al. Sen kışlık cam suyu kullanıyor musun? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "Plain water freezes at zero degrees. Winter washer fluid lowers the freezing point with alcohol. Check the freezing value on the bottle and pick one suited to the coldest night in your area. Do you use winter washer fluid? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#camsuyu",
+  "#kışbakımı",
+  "#bakımsaati",
+  "#arababakımı",
+  "#otomobil",
+  "#kışahazırlık",
+  "#washerfluid",
+  "#wintercar",
+  "#carcare"
+ ],
+ "kaynaklar": [
+  "Biltema – kışın cam suyu: https://www.biltema.se/en-se/guides/car-care/windscreen-washer-fluid-in-winter--what-to-consider/",
+  "SlashGear – cam suyu donar mı: https://www.slashgear.com/1774259/does-windshield-wiper-fluid-freeze/",
+  "YourMechanic – cam suyu donması: https://www.yourmechanic.com:443/question/does-windshield-washer-fluid-freeze-by-kylie-parsons_36296",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Cam suyu deposunda hâlâ yazlık su mu var? İlk dondurucu gecede donabilir. Hem de en kötü zamanda.",
+   "metin_en": "Is there still summer washer fluid in the reservoir? It can freeze on the first freezing night. And at the worst possible time."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.25,
+   "yazi": "Su donma noktası",
+   "alt": "0 °C",
+   "metin": "Düz su sıfır derecede donar. Donan cam suyu camı yıkayamaz, üstelik sistemi de zorlayabilir.",
+   "metin_en": "Plain water freezes at zero degrees. Frozen fluid can't clean the glass, and it can strain the system too."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Etikette donma derecesine bak",
+   "metin": "Kışlık cam suyunda donma noktasını düşüren alkol bulunur. Şişenin üzerindeki donma değerine bak ve bölgenin en soğuk gecesine uygun olanı seç. Böylece cam buğulu ya da kirli olduğunda temizleyebilirsin.",
+   "metin_en": "Winter washer fluid contains alcohol that lowers the freezing point. Check the freezing value on the bottle and choose one suited to the coldest night in your area. That way you can clean the glass when it is misty or dirty."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Doğru kullanım",
+   "maddeler": [
+    "Depoyu bitirip doldur",
+    "Yazlık suyla karıştırma",
+    "Soğutma suyu koyma",
+    "Sileceği de kontrol et"
+   ],
+   "anahtarlar": [
+    "bitir",
+    "yazlık",
+    "soğutma",
+    "silecek"
+   ],
+   "metin": "Yazlık suyla karışırsa koruma düşer, o yüzden depodakini bitirip doldur. Motor soğutma suyunu cam suyu yerine kullanma. Sileceğin lastiğine de bak. Bunlar basit ama işe yarar alışkanlıklardır.",
+   "metin_en": "Mixing with summer fluid weakens the protection, so use up what's in the tank before refilling. Don't use engine coolant instead of washer fluid. Check the wiper blades too. These are simple but useful habits."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Kitapçık ve etiket esas",
+   "metin": "Depo ve ürün konusunda aracının kitapçığına ve şişenin etiketine bak. Kış boyunca depoyu da arada kontrol et.",
+   "metin_en": "Follow your manual and the bottle label for the reservoir and the product. Check the tank now and then through winter."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen kışlık cam suyunu ne zaman koyuyorsun? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When do you put in winter washer fluid? Comment and save it for later!",
+   "soru": "Kışlık cam suyunu ne zaman koyuyorsun?"
+  }
+ ]
+}
