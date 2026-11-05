@@ -13,3 +13,5 @@
 20261101-2-aku.json
 20261104-1-abs-lambasi.json
 20261104-2-buji.json
+20261105-1-egzoz-dumani.json
+20261105-2-kislik-cam-suyu.json
