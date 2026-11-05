@@ -89,5 +89,14 @@
    "metin_en": "Have you ever seen smoke from your exhaust? Comment and save it for later!",
    "soru": "Egzozdan hiç duman gördün mü?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-05",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi.",
+  "dogrulanan_kaynaklar": [
+   "Kwik Fit / Auto Express / Firestone egzoz rengi rehberleri",
+   "Repsol beyaz duman rehberi (yoğuşma, tatlımsı koku, soğutma suyu kaybı, sütlü yağ)"
+  ]
+ }
 }

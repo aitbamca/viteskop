@@ -42,7 +42,7 @@
   {
    "tip": "gosterge",
    "deger": 0.25,
-   "yazi": "Su donma noktası",
+   "yazi": "Donma noktası",
    "alt": "0 °C",
    "metin": "Düz su sıfır derecede donar. Donan cam suyu camı yıkayamaz, üstelik sistemi de zorlayabilir.",
    "metin_en": "Plain water freezes at zero degrees. Frozen fluid can't clean the glass, and it can strain the system too."
@@ -83,5 +83,15 @@
    "metin_en": "When do you put in winter washer fluid? Comment and save it for later!",
    "soru": "Kışlık cam suyunu ne zaman koyuyorsun?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-05",
+  "durum": "onaylandi",
+  "notlar": "Gösterge etiketi 'Su donma noktası' kadran çizgisine taşıyordu, 'Donma noktası' yapıldı.",
+  "dogrulanan_kaynaklar": [
+   "Biltema kışlık cam suyu rehberi",
+   "Hyundai ve Kia kullanım kitapçıkları (cam suyuna soğutma suyu/antifriz konmaz)",
+   "SlashGear / YourMechanic (cam suyu donması)"
+  ]
+ }
 }
