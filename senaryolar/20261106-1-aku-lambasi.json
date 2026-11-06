@@ -96,5 +96,13 @@
    "metin_en": "Have you ever seen your battery light? Comment and save it for later!",
    "soru": "Akü lambasını hiç gördün mü?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-06",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi.",
+  "dogrulanan_kaynaklar": [
+   "Stoneacre, RepairPal, YourMechanic (akü lambası = şarj sistemi: alternatör, kayış, bağlantılar, akü)"
+  ]
+ }
 }

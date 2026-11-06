@@ -78,8 +78,8 @@
   {
    "tip": "bilgi",
    "yazi": "Aralık: kitapçığa bak",
-   "metin": "Yaygın öneri yılda bir ya da kabaca on iki ile on beş bin kilometredir. Tozlu ve kirli havada daha erken değiştir. Kesin aralık için aracının kitapçığına bak.",
-   "metin_en": "A common guideline is once a year, or roughly twelve to fifteen thousand kilometres. Change it sooner in dusty or polluted air. Check your manual for the exact interval."
+   "metin": "Yaygın öneri yılda bir ya da kabaca on iki ile on beş bin mildir, yani yaklaşık on dokuz ile yirmi dört bin kilometre. Tozlu ve kirli havada daha erken değiştir. Kesin aralık için aracının kitapçığına bak.",
+   "metin_en": "A common guideline is once a year, or roughly twelve to fifteen thousand miles, about nineteen to twenty-four thousand kilometres. Change it sooner in dusty or polluted air. Check your manual for the exact interval."
   },
   {
    "tip": "bilgi",
@@ -93,5 +93,14 @@
    "metin_en": "When did you last change your cabin filter? Comment and save it for later!",
    "soru": "Polen filtreni en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-06",
+  "durum": "onaylandi",
+  "notlar": "Aralık '12–15 bin km' olarak yazılmıştı; kaynaklar (AAA) 12–15 bin MİL (yaklaşık 19–24 bin km) diyor, düzeltildi (TR ve EN).",
+  "dogrulanan_kaynaklar": [
+   "AAA kabin hava filtresi rehberi (yılda bir ya da 12–15 bin mil)",
+   "Cars.com, Motrio, RepairPal"
+  ]
+ }
 }
