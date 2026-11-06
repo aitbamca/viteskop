@@ -1,0 +1,97 @@
+{
+ "baslik": "Polen filtresi ne zaman değişir?",
+ "baslik_en": "When to change cabin filter?",
+ "seri": "parca",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "POLEN",
+   "FİLTRESİ",
+   "NE ZAMAN?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Polen filtresi kabine giren havayı temizler. Zayıf hava akışı, küf kokusu ve geç açılan camlar tıkandığının işareti olabilir. Aralık için aracının kitapçığına bak. Sen polen filtreni en son ne zaman değiştirdin? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "The cabin air filter cleans the air entering the cabin. Weak airflow, a musty smell and slow-clearing windows can mean it is clogged. Check your manual for the interval. When did you last change yours? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#polenfiltresi",
+  "#parçarehberi",
+  "#klima",
+  "#arababakımı",
+  "#otomobil",
+  "#kışbakımı",
+  "#cabinairfilter",
+  "#carmaintenance",
+  "#bakım"
+ ],
+ "kaynaklar": [
+  "AAA – kabin hava filtresi: https://www.aaa.com/autorepair/articles/changing-the-cabin-air-filter-in-your-car",
+  "Motrio – kabin filtresi ne zaman değişir: https://www.motrio.co.uk/articles/cabin-air-filter-when-to-change-it-and-why-it-matters",
+  "RepairPal – bozuk kabin filtresi belirtileri: https://repairpal.com/cabin-air-filter",
+  "Jalopnik – kabin filtresi aralığı: https://jalopnik.com/2019974/how-often-to-change-cabin-air-filter-when-its-time/",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Camlar geç açılıyor, kabinde küf kokusu mu var? Polen filtresine bak.",
+   "metin_en": "Are the windows slow to clear, and is there a musty smell in the cabin? Check the cabin filter."
+  },
+  {
+   "tip": "parca",
+   "parca": "filtre",
+   "yazi": "Polen filtresi",
+   "notlar": [
+    "Kabine giren havayı temizler",
+    "Toz ve polen tutar",
+    "Zamanla tıkanır"
+   ],
+   "anahtarlar": [
+    "kabine",
+    "toz",
+    "tıkan"
+   ],
+   "metin": "Polen filtresi, klima ve havalandırmayla kabine giren havadaki toz ve polenin bir kısmını tutar. Zamanla dolar ve tıkanır.",
+   "metin_en": "The cabin filter traps some of the dust and pollen in the air entering the cabin through the climate and ventilation system. Over time it fills up and clogs."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Tıkandığının işaretleri",
+   "maddeler": [
+    "Zayıf hava akışı",
+    "Küf kokusu",
+    "Camlar geç açılıyor",
+    "Fan çok çalışıyor"
+   ],
+   "anahtarlar": [
+    "zayıf",
+    "küf",
+    "camlar",
+    "fan"
+   ],
+   "metin": "Zayıf hava akışı, küf kokusu ve geç açılan camlar tıkanmış filtrenin işareti olabilir. Fan çok çalışıp az hava çıkabilir.",
+   "metin_en": "Weak airflow, a musty smell and slow-clearing windows can be signs of a clogged filter. The fan may work hard while little air comes out."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Aralık: kitapçığa bak",
+   "metin": "Yaygın öneri yılda bir ya da kabaca on iki ile on beş bin kilometredir. Tozlu ve kirli havada daha erken değiştir. Kesin aralık için aracının kitapçığına bak.",
+   "metin_en": "A common guideline is once a year, or roughly twelve to fifteen thousand kilometres. Change it sooner in dusty or polluted air. Check your manual for the exact interval."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Koku geçmezse klima kontrolü",
+   "metin": "Yeni filtreye rağmen koku sürüyorsa sorun klima sisteminde olabilir. O zaman servise baktır.",
+   "metin_en": "If the smell continues even with a new filter, the problem may be in the air conditioning system. Then have it checked."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen polen filtreni en son ne zaman değiştirdin? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last change your cabin filter? Comment and save it for later!",
+   "soru": "Polen filtreni en son ne zaman değiştirdin?"
+  }
+ ]
+}

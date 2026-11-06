@@ -1,0 +1,100 @@
+{
+ "baslik": "Akü lambası yandı, dur mu?",
+ "baslik_en": "Battery light on: stop?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "AKÜ LAMBASI",
+   "YANDIYSA",
+   "NE YAPMALI?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Akü lambası çoğu zaman akünün değil, şarj sisteminin sorununu gösterir: araç yalnızca akünün gücüyle gidiyor olabilir. Gereksiz elektrik yüklerini kapat, güvenli yerde dur, uzun yola devam etme. Sen akü lambasını hiç gördün mü? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "The battery light usually points to the charging system, not just the battery: the car may be running only on battery power. Switch off non-essential electrical loads, stop somewhere safe and don't continue on a long drive. Have you ever seen the battery light? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#akülambası",
+  "#şarjsistemi",
+  "#arızaalarmı",
+  "#akü",
+  "#arababakımı",
+  "#otomobil",
+  "#alternatör",
+  "#batterylight",
+  "#carmaintenance"
+ ],
+ "kaynaklar": [
+  "Stoneacre – akü uyarı lambası: https://www.stoneacre.co.uk/blog/battery-warning-light-are-you-losing-charge",
+  "YourMechanic – akü ve alternatör lambası: https://www.yourmechanic.com/article/what-does-the-alternator-warning-light-battery-warning-light-warning-light-mean-by-spencer-cates",
+  "Cars.com – akü lambası neden yanar: https://www.cars.com/articles/2014/02/why-is-the-battery-light-on",
+  "ClickMechanic – akü lambası: https://www.clickmechanic.com/help/articles/189/battery-battery-warning-light-is-on",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Sürüşte akü lambası mı yandı? Sorun her zaman akü olmayabilir.",
+   "metin_en": "Did the battery light come on while driving? The problem isn't always the battery."
+  },
+  {
+   "tip": "ikaz",
+   "ikon": "aku",
+   "renk": "kirmizi",
+   "yazi": "Şarj sistemi uyarısı",
+   "metin": "Bu lamba şarj sisteminde bir sorun olduğunu gösterir. Araç yalnızca akünün gücüyle gidiyor olabilir. Lamba çoğu araçta kırmızı yanar.",
+   "metin_en": "This light shows a problem in the charging system. The car may be running only on battery power. In most cars the light is red."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "Gereksiz yükleri kapat",
+    "Güvenli yerde dur",
+    "Motoru gereksiz kapatma",
+    "Servise haber ver"
+   ],
+   "anahtarlar": [
+    "gereksiz",
+    "güvenli",
+    "motoru",
+    "servis"
+   ],
+   "metin": "Radyo, ısıtma ve şarj cihazı gibi gereksiz yükleri kapat. Güvenli bir yerde dur. Servise haber ver ya da yakınsa doğrudan git. Motoru gereksiz yere durdurma, tekrar çalışmayabilir.",
+   "metin_en": "Switch off non-essential loads such as the radio, heating and chargers. Stop somewhere safe. Call a service, or go straight there if it is close. Don't switch the engine off needlessly, as it may not restart."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Uzun yola devam etme",
+   "metin": "Akü boşalınca araç gücünü kaybedebilir ve yolda kalabilirsin. Bu yüzden uzun yola devam etme. Farlar da zayıflıyorsa durumu hemen ciddiye al.",
+   "metin_en": "When the battery runs flat, the car can lose power and leave you stranded. So don't continue on a long drive. If the headlights also dim, take it seriously right away."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Olası nedenler",
+   "maddeler": [
+    "Alternatör arızası",
+    "Gevşek ya da kopuk kayış",
+    "Kablo ya da kutup başı",
+    "Yaşlanmış akü"
+   ],
+   "anahtarlar": [
+    "alternatör",
+    "kayış",
+    "kablo",
+    "akü"
+   ],
+   "metin": "Neden alternatör, kayış, kablo bağlantısı ya da yaşlanmış akü olabilir. Teşhisi usta koysun. Yanıp sönüyorsa bile kontrol ettir.",
+   "metin_en": "The cause can be the alternator, the belt, a cable connection or an ageing battery. Let a technician diagnose it. Even if it only flashes, have it checked."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen akü lambasını hiç gördün mü? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you ever seen your battery light? Comment and save it for later!",
+   "soru": "Akü lambasını hiç gördün mü?"
+  }
+ ]
+}
