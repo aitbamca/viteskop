@@ -15,10 +15,10 @@
     "sinif": null
   },
   "icerik": {
-    "senaryo_id": null,
-    "surum": null,
-    "video_sha256": null,
-    "video_yolu": null
+    "senaryo_id": "20261104-1-abs-lambasi.json",
+    "surum": 1,
+    "video_sha256": "20261104-1-abs-lambasi",
+    "video_yolu": "./senaryolar/20261104-1-abs-lambasi.json"
   },
   "id": "20261106-1",
   "instagram": {
@@ -28,9 +28,9 @@
     "publish_istendi": null
   },
   "kilit": {
-    "alindi": null,
+    "alindi": "2026-11-06T09:31:07.979829+00:00",
     "ref": "refs/kilit/viteskop/20261106-1",
-    "sahip": null,
+    "sahip": "run42195628183-a1",
     "ttl_bitis": null
   },
   "marka": "viteskop",
