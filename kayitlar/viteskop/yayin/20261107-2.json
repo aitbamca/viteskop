@@ -15,10 +15,10 @@
     "sinif": null
   },
   "icerik": {
-    "senaryo_id": null,
-    "surum": null,
-    "video_sha256": null,
-    "video_yolu": null
+    "senaryo_id": "20261105-2-kislik-cam-suyu.json",
+    "surum": 1,
+    "video_sha256": "20261105-2-kislik-cam-suyu",
+    "video_yolu": "./senaryolar/20261105-2-kislik-cam-suyu.json"
   },
   "id": "20261107-2",
   "instagram": {
@@ -28,9 +28,9 @@
     "publish_istendi": null
   },
   "kilit": {
-    "alindi": null,
+    "alindi": "2026-11-07T17:01:17.846364+00:00",
     "ref": "refs/kilit/viteskop/20261107-2",
-    "sahip": null,
+    "sahip": "run42394178286-a1",
     "ttl_bitis": null
   },
   "marka": "viteskop",
