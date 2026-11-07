@@ -43,7 +43,7 @@
   {
    "tip": "gosterge",
    "deger": 0.1,
-   "yazi": "Depoda az yakıt",
+   "yazi": "Az yakıt",
    "alt": "araca göre",
    "metin": "Lambanın yandığı anda depoda kalan yakıt araca göre değişir. Sürüş tarzı ve yol da menzili etkiler. Kesin rakam için kitapçığa bak.",
    "metin_en": "The fuel left when the light comes on varies by car. Driving style and the road also affect the range. Check the manual for an exact figure."
@@ -84,5 +84,14 @@
    "metin_en": "How far have you driven with the light on? Comment and save it for later!",
    "soru": "Lambayla en çok kaç km gittin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-07",
+  "durum": "onaylandi",
+  "notlar": "Gösterge etiketi 'Depoda az yakıt' kadran yayına taşıyordu, 'Az yakıt' yapıldı. Pompa soğutma iddiası zaten ihtiyatlı ('pek çok', 'yorabilir', 'tartışmalı') anlatılmış.",
+  "dogrulanan_kaynaklar": [
+   "Firestone, YourMechanic, AutoTrader NZ, Kwik Fit",
+   "NAPA / oto yayınları (pompa yakıtla soğur, rezerv araca göre değişir; tartışmalı)"
+  ]
+ }
 }

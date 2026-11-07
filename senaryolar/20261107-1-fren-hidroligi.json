@@ -83,5 +83,13 @@
    "metin_en": "When did you last change your brake fluid? Comment and save it for later!",
    "soru": "Fren hidroliğini en son ne zaman değiştirdin?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-07",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi.",
+  "dogrulanan_kaynaklar": [
+   "AMSOIL, Apec/Techmate (fren hidroliği nem çeker, kaynama noktası düşer, buhar kabarcığı; yaygın aralık ~2 yıl, üreticiye göre değişir)"
+  ]
+ }
 }
