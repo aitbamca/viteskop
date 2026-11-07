@@ -1,0 +1,87 @@
+{
+ "baslik": "Fren hidroliği değişir mi?",
+ "baslik_en": "Does brake fluid expire?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "FREN",
+   "HİDROLİĞİ",
+   "ESKİR Mİ?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Fren hidroliği havadaki nemi çeker; su biriktikçe kaynama noktası düşer ve ağır frende buhar kabarcığı riski artar. Sık önerilen aralık iki yıl civarıdır ama aracının kitapçığına bak. Fren işini ustaya bırak. Sen fren hidroliğini en son ne zaman değiştirdin? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "Brake fluid absorbs moisture from the air; as water builds up its boiling point drops and the risk of vapour bubbles under heavy braking rises. A commonly advised interval is around two years, but check your manual. Leave brake work to a technician. When did you last change yours? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#frenhidroliği",
+  "#bakımsaati",
+  "#fren",
+  "#arababakımı",
+  "#otomobil",
+  "#sürüşgüvenliği",
+  "#brakefluid",
+  "#carmaintenance",
+  "#bakım"
+ ],
+ "kaynaklar": [
+  "Machinery Lubrication – Brake Fluid, A Practical Guide: https://www.machinerylubrication.com/Articles/Print/30614",
+  "AMSOIL Blog – brake fluid ömrü (üretici blogu): https://blog.amsoil.com/does-brake-fluid-go-bad",
+  "Jalopnik – açık fren hidroliği ömrü: https://jalopnik.com/1978821/how-long-does-brake-fluid-last-once-opened/",
+  "Aracın kullanım kitapçığı: fren hidroliği değişim aralığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Fren hidroliğini hiç değiştirdin mi? Zamanla eskiyen bir sıvıdır. Üstelik fren, güvenliğin en önemli parçasıdır.",
+   "metin_en": "Have you ever changed your brake fluid? It is a fluid that ages over time. And brakes are the most important part of safety."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.4,
+   "yazi": "Sıvıdaki nem",
+   "alt": "kaynama ↓",
+   "metin": "Fren hidroliği havadaki nemi zamanla çeker. Su biriktikçe kaynama noktası düşer. Bu değişim gözle fark edilmez.",
+   "metin_en": "Brake fluid slowly absorbs moisture from the air. As water builds up, its boiling point drops. This change isn't visible to the eye."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Ağır frende buhar riski",
+   "metin": "Ağır ve uzun frenlerde ısınan sıvıda buhar kabarcıkları oluşabilir. Kabarcıklar sıkışır ve fren gücü azalır. Nem aynı zamanda iç parçalarda paslanmaya yol açabilir.",
+   "metin_en": "Under heavy, long braking the heated fluid can form vapour bubbles. Bubbles compress and braking force drops. Moisture can also cause corrosion inside the system."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne zaman?",
+   "maddeler": [
+    "Sık öneri: yaklaşık 2 yıl",
+    "Önce kitapçığa bak",
+    "Değişimi servis yapsın",
+    "Pedal yumuşadıysa dur"
+   ],
+   "anahtarlar": [
+    "sık",
+    "kitapçığa",
+    "servis",
+    "pedal"
+   ],
+   "metin": "Sık önerilen aralık iki yıl civarıdır, ama kesin süre için aracının kitapçığına bak. Değişimi serviste yaptır. Pedal yumuşadıysa aracı kullanma. Kullanım koşulları da süreyi etkileyebilir.",
+   "metin_en": "A commonly advised interval is around two years, but check your manual for the exact one. Have it done at a service. If the pedal feels soft, don't drive the car. Driving conditions can also affect the interval."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Fren işini kendin yapma",
+   "metin": "Fren sistemine hava girmesi ciddi risktir. Hidrolik değişimini ve havasını ustaya bırak. Bu işi atölyeye bırakmak en güvenlisidir.",
+   "metin_en": "Air in the brake system is a serious risk. Leave the fluid change and bleeding to a technician. Leaving this job to a workshop is the safest."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen fren hidroliğini en son ne zaman değiştirdin? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last change your brake fluid? Comment and save it for later!",
+   "soru": "Fren hidroliğini en son ne zaman değiştirdin?"
+  }
+ ]
+}

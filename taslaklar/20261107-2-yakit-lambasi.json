@@ -1,0 +1,88 @@
+{
+ "baslik": "Yakıt lambası yandı, ne kadar?",
+ "baslik_en": "Fuel light on: how far?",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "YAKIT",
+   "LAMBASI",
+   "YANDI!"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Yakıt lambası yandığında kaç kilometre gidebileceğin araca, depoya ve sürüşe göre değişir; kesin bir rakam yok. Sık sık depoyu boşaltmak yakıt pompasını yorabilir. En kısa sürede yakıt al. Sen lambayı en çok kaç km yanık gezdirdin? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "How far you can go once the fuel light comes on depends on the car, the tank and your driving; there is no exact figure. Often running very low can strain the fuel pump. Refuel as soon as you can. How far have you driven with the light on? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#yakıtlambası",
+  "#arızaalarmı",
+  "#yakıtpompası",
+  "#arababakımı",
+  "#otomobil",
+  "#benzin",
+  "#fuellight",
+  "#carmaintenance",
+  "#ikazlambası"
+ ],
+ "kaynaklar": [
+  "Firestone Complete Auto Care – yakıt lambası: https://firestonecompleteautocare.com/blog/maintenance/gas-light-on",
+  "YourMechanic – boş depoyla ne kadar gidilir: https://www.yourmechanic.com/article/how-far-can-you-drive-your-vehicle-on-empty-by-brady-klopfer",
+  "AutoTrader NZ – yakıt lambası ve pompa: https://autotrader.co.nz/advice/how-long-can-you-drive-with-the-fuel-light-on-%E2%9B%BD",
+  "Kwik Fit – yakıt azaldığında risk: https://www.kwik-fit.com/blog/how-low-can-you-go-drivers-increasingly-risk-running-out-of-fuel",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Yakıt lambası yandı, kaç kilometre gidersin? Kesin bir cevap yok. Yine de en kısa sürede yakıt almak en doğrusu.",
+   "metin_en": "The fuel light is on; how many kilometres can you go? There is no exact answer. Still, refuelling as soon as possible is best."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.1,
+   "yazi": "Depoda az yakıt",
+   "alt": "araca göre",
+   "metin": "Lambanın yandığı anda depoda kalan yakıt araca göre değişir. Sürüş tarzı ve yol da menzili etkiler. Kesin rakam için kitapçığa bak.",
+   "metin_en": "The fuel left when the light comes on varies by car. Driving style and the road also affect the range. Check the manual for an exact figure."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "En yakın istasyona git",
+    "Ani gaz ve hızdan kaçın",
+    "Göstergeye güvenme",
+    "Boşalmayı bekleme"
+   ],
+   "anahtarlar": [
+    "istasyon",
+    "gaz",
+    "gösterge",
+    "boş"
+   ],
+   "metin": "En yakın istasyona git ve ani gaz ve yüksek hızdan kaçın. Kalan menzil göstergesi tahmindir. Yakıtın bitmesini bekleme.",
+   "metin_en": "Head to the nearest station and avoid hard acceleration and high speed. The remaining-range display is an estimate. Don't wait for the fuel to run out."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Pompa yakıtla soğur",
+   "metin": "Pek çok elektrikli yakıt pompası yakıtla soğur. Sık sık depoyu çok düşürmek pompayı yorabilir. Bu yüzden depoyu çok boşaltma. Bazı kaynaklar tortu riskinden de söz eder, ama bu tartışmalıdır.",
+   "metin_en": "Many electric fuel pumps are cooled by the fuel. Often letting the tank get very low can strain the pump. So don't run the tank too low. Some sources also mention a sediment risk, but that is disputed."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Yolda yakıt bitmesin",
+   "metin": "Trafikte yakıtsız kalmak tehlikelidir. Yakıt bittiyse güvenli yerde dur ve yardım çağır. Bunu yaşamamak için lambayı ciddiye al.",
+   "metin_en": "Running out of fuel in traffic is dangerous. If the fuel has run out, stop somewhere safe and call for help. Take the light seriously to avoid it."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen lambayı en çok kaç kilometre yanık gezdirdin? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "How far have you driven with the light on? Comment and save it for later!",
+   "soru": "Lambayla en çok kaç km gittin?"
+  }
+ ]
+}
