@@ -51,8 +51,8 @@
   {
    "tip": "bilgi",
    "yazi": "Yasal sınır güvenli sınır değil",
-   "metin": "Tutuş ıslak zeminde yasal sınırın çok üstünde düşmeye başlar. Bu yüzden lastiği son dakikaya kadar kullanmak akıllıca değildir. Bu yüzden lastiğe erken bak.",
-   "metin_en": "Wet grip starts to fall well above the legal limit. So running a tyre to the last minute isn't wise. So look at the tyre early."
+   "metin": "Tutuş ıslak zeminde yasal sınırın çok üstünde düşmeye başlar. Bu yüzden lastiği son dakikaya kadar kullanmak akıllıca değildir. Lastiğe erken bak.",
+   "metin_en": "Wet grip starts to fall well above the legal limit. So running a tyre to the last minute isn't wise. Check your tyres early."
   },
   {
    "tip": "liste",
@@ -84,5 +84,14 @@
    "metin_en": "When did you last measure your tread? Comment and save it for later!",
    "soru": "Lastik dişini en son ne zaman ölçtün?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-08",
+  "durum": "onaylandi",
+  "notlar": "Bilgi sahnesinde tekrarlanan 'Bu yüzden' cümlesi sadeleştirildi (TR ve EN). Türkiye'de binek için yasal sınır 1,6 mm; 4 mm tavsiye/ağır ticari kuralı — metin zaten ihtiyatlı.",
+  "dogrulanan_kaynaklar": [
+   "Goodyear, The AA (1,6 mm, aşınma göstergesi)",
+   "Continental TR / Araclo / Türkiye Gazetesi (Türkiye: binek 1,6 mm; 4 mm kış lastiği ağır ticari araçlar için zorunlu, binek için güvenli eşik tavsiyesi)"
+  ]
+ }
 }

@@ -94,5 +94,13 @@
    "metin_en": "Have you felt shaking when braking? Comment and save it for later!",
    "soru": "Frende titreme hissettin mi?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-08",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi.",
+  "dogrulanan_kaynaklar": [
+   "Firestone, Mavis, YourMechanic, Kia, SlashGear (yalnız frende titreme: ön diskler; frenden önce de: lastik/balans; rulman ve süspansiyon da neden olabilir)"
+  ]
+ }
 }
