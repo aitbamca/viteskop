@@ -15,10 +15,10 @@
     "sinif": null
   },
   "icerik": {
-    "senaryo_id": null,
-    "surum": null,
-    "video_sha256": null,
-    "video_yolu": null
+    "senaryo_id": "20261106-2-polen-filtresi.json",
+    "surum": 1,
+    "video_sha256": "20261106-2-polen-filtresi",
+    "video_yolu": "./senaryolar/20261106-2-polen-filtresi.json"
   },
   "id": "20261108-2",
   "instagram": {
@@ -28,9 +28,9 @@
     "publish_istendi": null
   },
   "kilit": {
-    "alindi": null,
+    "alindi": "2026-11-08T17:01:18.732090+00:00",
     "ref": "refs/kilit/viteskop/20261108-2",
-    "sahip": null,
+    "sahip": "run42502802325-a1",
     "ttl_bitis": null
   },
   "marka": "viteskop",
