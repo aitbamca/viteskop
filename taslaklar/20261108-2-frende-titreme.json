@@ -1,0 +1,98 @@
+{
+ "baslik": "Frende direksiyon titriyor",
+ "baslik_en": "Wheel shakes when braking",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "FRENDE",
+   "DİREKSİYON",
+   "TİTRİYOR!"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Frene basınca direksiyon titriyorsa en sık neden ön disklerin eğrilmesi gibi fren kaynaklı sorunlardır. Titreme frenden önce de varsa lastik balansı ya da ayar da olabilir. Fren sorunlarını ustaya göster. Sen frende titreme hissettin mi? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "If the steering wheel shakes when you brake, a common cause is brake-related, such as warped front discs. If it also shakes before braking, wheel balance or alignment may be involved. Have brake problems checked by a technician. Have you felt shaking when braking? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#frentetitreme",
+  "#fren",
+  "#arızaalarmı",
+  "#disk",
+  "#arababakımı",
+  "#otomobil",
+  "#sürüşgüvenliği",
+  "#brakevibration",
+  "#carmaintenance"
+ ],
+ "kaynaklar": [
+  "Firestone – frende direksiyon titremesi: https://www.firestonecompleteautocare.com/blog/brakes/steering-wheel-shakes-when-braking/",
+  "Mavis – fren yaparken titreme: https://mavis.com/learning-center/why-does-my-car-shake-when-pressing-brakes/",
+  "YourMechanic – frende direksiyon titremesi: https://www.yourmechanic.com:443/question/steering-wheel-vibrating-during-braking",
+  "YouCanic – frende titreme: https://www.youcanic.com/steering-wheel-shakes-when-braking/",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Frene bastığında direksiyon titriyor mu? Bu belirtiyi hafife alma. Frenler güvenliğin temelidir.",
+   "metin_en": "Does the steering wheel shake when you brake? Don't take this sign lightly. Brakes are the foundation of safety."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "En sık neden: fren diskleri",
+   "metin": "Frende titremenin en sık nedeni ön fren disklerinin eğrilmesi ya da düzensiz aşınmasıdır. Genellikle yüksek hızdan frenlerken belirginleşir. Frenleme yükü öne bindirdiği için sorun daha belirgin hissedilir.",
+   "metin_en": "The most common cause of shaking under braking is warped or unevenly worn front brake discs. It is usually most noticeable when braking from high speed. Braking shifts weight forward, so the problem is felt more clearly."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ayırt etmek için",
+   "maddeler": [
+    "Sadece frende: fren",
+    "Frenden önce de: lastik",
+    "Balans ya da ayar",
+    "Rulman, süspansiyon"
+   ],
+   "anahtarlar": [
+    "frende",
+    "önce",
+    "balans",
+    "rulman"
+   ],
+   "metin": "Titreme yalnızca frende oluyorsa fren, frenden önce de varsa lastik balansı ya da ayar akla gelir. Rulman ve süspansiyon da neden olabilir.",
+   "metin_en": "If it shakes only when braking, think of the brakes; if it also shakes before braking, wheel balance or alignment come to mind. Bearings and suspension can also be the cause."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "Yumuşak ve erken fren",
+    "Takip mesafesini aç",
+    "Servise göster",
+    "Geçmesini bekleme"
+   ],
+   "anahtarlar": [
+    "yumuşak",
+    "mesafe",
+    "servis",
+    "bekleme"
+   ],
+   "metin": "Daha erken ve yumuşak fren yap, takip mesafesini aç. Aracı servise göster. Kendiliğinden geçmesini bekleme. Titreme sürüyorsa gecikmeden ilgilen.",
+   "metin_en": "Brake earlier and more gently, and leave extra following distance. Show the car to a service. Don't wait for it to pass by itself. If the shaking continues, deal with it without delay."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Fren onarımı ustaya",
+   "metin": "Fren ve direksiyon sistemine kendin müdahale etme. Pedal yumuşadıysa ya da ses geliyorsa araç kullanma. Güvenliğini şansa bırakma.",
+   "metin_en": "Don't work on the brake and steering systems yourself. If the pedal feels soft or you hear noises, don't drive. Don't leave your safety to chance."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen frende titreme hissettin mi? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you felt shaking when braking? Comment and save it for later!",
+   "soru": "Frende titreme hissettin mi?"
+  }
+ ]
+}

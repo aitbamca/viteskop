@@ -1,0 +1,88 @@
+{
+ "baslik": "Lastik diş derinliği kaç olmalı?",
+ "baslik_en": "How deep should tread be?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "LASTİK DİŞİ",
+   "NE ZAMAN",
+   "BİTER?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Birçok ülkede yasal alt sınır 1,6 mm'dir; ama ıslak zeminde tutuş bunun çok üstünde düşmeye başlar. Kış lastiği için sık verilen tavsiye yaklaşık 4 mm'de değiştirmektir. Lastikteki aşınma göstergesine ya da diş derinliği ölçere bak. Sen lastik dişini en son ne zaman ölçtün? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "In many countries the legal minimum tread is 1.6 mm, but wet grip starts to drop well above that. A common recommendation for winter tyres is to replace them at around 4 mm. Check the wear indicator or use a tread gauge. When did you last measure your tread? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#lastik",
+  "#dişderinliği",
+  "#bakımsaati",
+  "#kışlastiği",
+  "#arababakımı",
+  "#otomobil",
+  "#kışahazırlık",
+  "#treaddepth",
+  "#tyres"
+ ],
+ "kaynaklar": [
+  "Goodyear – lastik dişi kontrolü: https://www.goodyear.eu/en_gb/consumer/learn/checking-your-tire-treads.html",
+  "The AA – lastik dişi ve aşınma göstergesi: https://www.theaa.com/driving-advice/safety/car-tyres",
+  "Avusturya Hükümeti – kış lastiğinde asgari 4 mm (ülke kuralı): https://www.oesterreich.gv.at/en/themen/mobilitaet/kfz/10/Seite.063320",
+  "Moto-Tyres SSS – kışlıkta ~4 mm tavsiyesi: https://www.moto-tyres.co.uk/faqs/1103000412",
+  "Türkiye'deki yasal sınır için ülke mevzuatına/aracın kitapçığına bak"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Lastik dişin ne kadar kaldı? Çoğu kişi hiç ölçmedi. Oysa kontrolü bir dakikanı alır.",
+   "metin_en": "How much tread is left on your tyres? Most people have never measured. Yet checking takes a minute."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.3,
+   "yazi": "Diş derinliği",
+   "alt": "1,6 mm sınır",
+   "metin": "Birçok ülkede yasal alt sınır bir virgül altı milimetredir. Türkiye için kendi mevzuatına bakmakta fayda var.",
+   "metin_en": "In many countries the legal minimum is one point six millimetres. For Turkey it is worth checking the local regulation."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Yasal sınır güvenli sınır değil",
+   "metin": "Tutuş ıslak zeminde yasal sınırın çok üstünde düşmeye başlar. Bu yüzden lastiği son dakikaya kadar kullanmak akıllıca değildir. Bu yüzden lastiğe erken bak.",
+   "metin_en": "Wet grip starts to fall well above the legal limit. So running a tyre to the last minute isn't wise. So look at the tyre early."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Nasıl kontrol edilir?",
+   "maddeler": [
+    "Aşınma göstergesine bak",
+    "Diş ölçer kullan",
+    "Dört lastiği de kontrol et",
+    "Kışlıkta ~4 mm'de değiştir"
+   ],
+   "anahtarlar": [
+    "gösterge",
+    "ölçer",
+    "dört",
+    "kış"
+   ],
+   "metin": "Lastikteki aşınma göstergesine bak, daha doğru sonuç için diş ölçer kullan. Dört lastiği de ölç. Kış lastiğinde yaklaşık dört milimetrede değiştirmek sık verilen bir tavsiyedir.",
+   "metin_en": "Look at the wear indicator on the tyre, and use a tread gauge for a more accurate result. Measure all four tyres. Replacing winter tyres at around four millimetres is a commonly given recommendation."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Düzensiz aşınma varsa baktır",
+   "metin": "Lastik bir kenardan ya da ortadan aşınıyorsa lastikçiye ya da servise göster. Basınç ve ayar sorunu olabilir. Erken davranmak en iyisi.",
+   "metin_en": "If a tyre wears on one edge or in the middle, show it to a tyre shop or service. It could be a pressure or alignment problem. Acting early is best."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen lastik dişini en son ne zaman ölçtün? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "When did you last measure your tread? Comment and save it for later!",
+   "soru": "Lastik dişini en son ne zaman ölçtün?"
+  }
+ ]
+}
