@@ -13,8 +13,8 @@
    1
   ]
  },
- "aciklama": "Anahtarı çevirince sadece tık tık sesi geliyorsa çoğu zaman akü zayıftır ya da kutup başları paslıdır. Tek bir tık ise marş motoru ya da selenoidi düşündürür. Güvenli takviye ya da yol yardımı seç. Sen hiç marşta tık sesi duydun mu? Yorumlara yaz, kaydet! ⚠️",
- "aciklama_en": "If turning the key gives only a clicking sound, the battery is often weak or the terminals corroded. A single click points more to the starter or solenoid. Choose a safe jump start or roadside help. Have you ever heard clicking on start? Tell us in the comments and save this! ⚠️",
+ "aciklama": "Anahtarı çevirince sadece tık tık sesi geliyorsa çoğu zaman akü zayıftır ya da kutup başları paslıdır. Tek bir tık ise marş motoru ya da selenoidi düşündürebilir; bunlar genel ipuçlarıdır. Güvenli takviye ya da yol yardımı seç. Sen hiç marşta tık sesi duydun mu? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "If turning the key gives only a clicking sound, the battery is often weak or the terminals corroded. A single click may point more to the starter or solenoid; these are general hints. Choose a safe jump start or roadside help. Have you ever heard clicking on start? Tell us in the comments and save this! ⚠️",
  "etiketler": [
   "#viteskop",
   "#marş",
@@ -61,8 +61,8 @@
     "soğuk",
     "alternatör"
    ],
-   "metin": "Hızlı tık akü ya da kutup başına, tek tık ise marş motoru ya da selenoide işaret eder. Soğuk hava zayıf bir aküyü ortaya çıkarır. Alternatör bozuksa akü zamanla boşalabilir.",
-   "metin_en": "Rapid clicking points to the battery or terminals, a single click to the starter or solenoid. Cold weather exposes a weak battery. If the alternator is faulty, the battery can drain over time."
+   "metin": "Hızlı tık çoğu zaman akü ya da kutup başına, tek tık ise sıklıkla marş motoru ya da selenoide işaret eder. Bu yalnızca genel bir ipucudur. Soğuk hava zayıf bir aküyü ortaya çıkarır. Alternatör bozuksa akü zamanla boşalabilir.",
+   "metin_en": "Rapid clicking often points to the battery or terminals, a single click often to the starter or solenoid. This is only a general hint. Cold weather exposes a weak battery. If the alternator is faulty, the battery can drain over time."
   },
   {
    "tip": "liste",
@@ -94,5 +94,13 @@
    "metin_en": "Have you ever heard clicking when starting? Comment and save it for later!",
    "soru": "Marşta hiç tık sesi duydun mu?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-09",
+  "durum": "onaylandi",
+  "notlar": "Hızlı/tek tık ayrımı kaynaklarda kesin kural değil, genel ipucu; ifade yumuşatıldı ('çoğu zaman', 'sıklıkla', 'genel ipucu'). Takviye kitapçığa bağlı, asit uyarısı ve 'emin değilsen yardım iste' var.",
+  "dogrulanan_kaynaklar": [
+   "Les Schwab, Firestone, Autobarn (zayıf akü/paslı kutup başı en sık neden; tek tık marş/selenoid ipucu)"
+  ]
+ }
 }

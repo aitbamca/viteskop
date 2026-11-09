@@ -13,8 +13,8 @@
    1
   ]
  },
- "aciklama": "Modern benzinli motorların uzun süre rölantide ısıtılmasına genelde gerek yoktur; kaynaklar yaklaşık 30 saniye bekleyip sakin sürmeyi öneriyor. Dizelde kısa bir bekleme işe yarayabilir, ağır gaz yine de yok. Aracının kitapçığına bak. Sen motoru ısıtır mısın? Yorumlara yaz, kaydet! 🔧",
- "aciklama_en": "Modern petrol engines generally don't need long idling to warm up; sources suggest waiting around 30 seconds and then driving gently. A short wait may help diesels, but no hard throttle either way. Check your manual. Do you warm up your engine? Tell us in the comments and save this! 🔧",
+ "aciklama": "Modern enjeksiyonlu benzinli motorların uzun süre rölantide ısıtılmasına genelde gerek yoktur; kaynaklar yaklaşık 30 saniye bekleyip sakin sürmeyi öneriyor. Dizel ve eski araçlar biraz daha bekleme isteyebilir, ağır gaz yine de yok. Aracının kitapçığına bak. Sen motoru ısıtır mısın? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "Modern petrol engines generally don't need long idling to warm up; sources suggest waiting around 30 seconds and then driving gently. Diesels and older cars may need a little longer, but no hard throttle either way. Check your manual. Do you warm up your engine? Tell us in the comments and save this! 🔧",
  "etiketler": [
   "#viteskop",
   "#motorısıtma",
@@ -75,8 +75,8 @@
   {
    "tip": "bilgi",
    "yazi": "Dizelde ve eski araçta kitapçık",
-   "metin": "Dizel motorlarda kısa bir bekleme yağ basıncına yardımcı olabilir. Aracın kitapçığındaki önerilere uy. Bu rakam genel bir tavsiyedir.",
-   "metin_en": "In diesel engines a short wait may help oil pressure. Follow the recommendations in your manual. This figure is a general guideline."
+   "metin": "Dizel ve eski araçlar biraz daha uzun bekleme isteyebilir. Aracın kitapçığındaki önerilere uy. Otuz saniye, enjeksiyonlu benzinli araçlar için genel bir tavsiyedir.",
+   "metin_en": "Diesel and older cars may need a little longer. Follow the recommendations in your manual. Thirty seconds is a general guideline for fuel-injected petrol cars."
   },
   {
    "tip": "kapanis",
@@ -84,5 +84,14 @@
    "metin_en": "Do you warm up your engine in winter? Comment and save it for later!",
    "soru": "Kışın motoru ısıtır mısın?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-09",
+  "durum": "onaylandi",
+  "notlar": "Dizelde 'yağ basıncına yardımcı olur' iddiası kaynaksız olduğu için kaldırıldı; dizel/eski araçlar 'biraz daha uzun bekleme isteyebilir' olarak düzeltildi, 30 sn'nin enjeksiyonlu benzinliler için genel tavsiye olduğu netleştirildi (TR ve EN).",
+  "dogrulanan_kaynaklar": [
+   "AAA Northeast, Brokerlink, NAPA (enjeksiyonlu araç ~30 sn, sonra sakin sürerek ısıtma)",
+   "Dizel/eski araç için daha uzun bekleme: Fox Weather, offroadingpro"
+  ]
+ }
 }
