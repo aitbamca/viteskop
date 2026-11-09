@@ -1,0 +1,88 @@
+{
+ "baslik": "Kışın motoru ısıtmak şart mı?",
+ "baslik_en": "Warm up engine in winter?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "MOTORU",
+   "ISITMAK",
+   "ŞART MI?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Modern benzinli motorların uzun süre rölantide ısıtılmasına genelde gerek yoktur; kaynaklar yaklaşık 30 saniye bekleyip sakin sürmeyi öneriyor. Dizelde kısa bir bekleme işe yarayabilir, ağır gaz yine de yok. Aracının kitapçığına bak. Sen motoru ısıtır mısın? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "Modern petrol engines generally don't need long idling to warm up; sources suggest waiting around 30 seconds and then driving gently. A short wait may help diesels, but no hard throttle either way. Check your manual. Do you warm up your engine? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#motorısıtma",
+  "#kışbakımı",
+  "#bakımsaati",
+  "#rölanti",
+  "#arababakımı",
+  "#otomobil",
+  "#kışahazırlık",
+  "#warmup",
+  "#wintercar"
+ ],
+ "kaynaklar": [
+  "Vehicle Service Pros – soğukta rölanti: https://www.vehicleservicepros.com/training-and-resources/tech-tips/article/20986911/tech-tip-cold-weather-idling-can-harm-modern-engines",
+  "Motor1 – modern araçlar ısınmaya ihtiyaç duymaz: https://www.motor1.com/news/814216/why-modern-cars-dont-need-to-warm-up-before-driving/",
+  "RepairPal – ne kadar ısıtmalı: https://repairpal.com/blog/how-long-car-idle",
+  "Jerry – soğuk gerçek: https://getjerry.com/advice/how-long-should-you-let-your-car-warm-up",
+  "Aracın kullanım kitapçığı (not: 30 sn rakamı EPA/AAA'ya atfen aktarılıyor; orijinal belge doğrulanmadı)"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Kışın motoru uzun uzun ısıtıyor musun? Modern araçlarda buna genelde gerek yok.",
+   "metin_en": "Do you warm up your engine for ages in winter? Modern cars generally don't need it."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.2,
+   "yazi": "Rölanti süresi",
+   "alt": "~30 sn",
+   "metin": "Kaynaklar benzinli araçlarda yaklaşık otuz saniye beklemeyi, çok soğukta biraz fazlasını öneriyor. Kemerini bağlayacak kadar bekleyip yola çıkabilirsin.",
+   "metin_en": "Sources suggest waiting about thirty seconds in petrol cars, a little more when it's very cold. Wait about as long as it takes to buckle up, then set off."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Sürerek ısınmak daha hızlı",
+   "metin": "Modern motorlar sakin sürüşte beklemekten daha hızlı ısınır. Uzun rölanti yakıt da harcar. Bu yüzden yola çıkıp sakin gitmek daha mantıklıdır.",
+   "metin_en": "Modern engines warm up faster when driven gently than when left idling. Long idling also burns fuel. So setting off and driving gently makes more sense."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Doğru alışkanlık",
+   "maddeler": [
+    "Yaklaşık 30 sn bekle",
+    "İlk dakikalar sakin sür",
+    "Yüksek devirden kaçın",
+    "Camlar buğuluysa temizle"
+   ],
+   "anahtarlar": [
+    "otuz",
+    "sakin",
+    "devir",
+    "cam"
+   ],
+   "metin": "Yaklaşık otuz saniye bekle ve ilk dakikalar sakin sür. Yüksek devir ve ani gazdan kaçın. Camlar buğulu ya da buzluysa görüşü temizlemek için biraz daha bekle.",
+   "metin_en": "Wait about thirty seconds and drive gently for the first few minutes. Avoid high revs and hard acceleration. If the windows are misted or iced, wait a little longer to clear your view."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Dizelde ve eski araçta kitapçık",
+   "metin": "Dizel motorlarda kısa bir bekleme yağ basıncına yardımcı olabilir. Aracın kitapçığındaki önerilere uy. Bu rakam genel bir tavsiyedir.",
+   "metin_en": "In diesel engines a short wait may help oil pressure. Follow the recommendations in your manual. This figure is a general guideline."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen kışın motoru ısıtır mısın? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Do you warm up your engine in winter? Comment and save it for later!",
+   "soru": "Kışın motoru ısıtır mısın?"
+  }
+ ]
+}
