@@ -21,3 +21,5 @@
 20261107-2-yakit-lambasi.json
 20261108-1-lastik-disi.json
 20261108-2-frende-titreme.json
+20261109-1-motor-isitma.json
+20261109-2-marsta-tik.json
