@@ -23,3 +23,5 @@
 20261108-2-frende-titreme.json
 20261109-1-motor-isitma.json
 20261109-2-marsta-tik.json
+20261110-1-lastik-rotasyonu.json
+20261110-2-direksiyon-sesi.json
