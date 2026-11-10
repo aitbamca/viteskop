@@ -84,5 +84,14 @@
    "metin_en": "Have you ever rotated your tyres? Comment and save it for later!",
    "soru": "Lastiklerini hiç çaprazladın mı?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-10",
+  "durum": "onaylandi",
+  "notlar": "Değişiklik gerekmedi. Aralık 5–8 bin mil ≈ 8–12 bin km (yaklaşık); kitapçık ve garantiye yönlendiriyor; yönlü/farklı ebat lastikte çaprazlama yapılamaz bilgisi doğru.",
+  "dogrulanan_kaynaklar": [
+   "Tire Rack, Pirelli, Bridgestone, AAA (rotasyon, yönlü lastik yalnız aynı taraf ön-arka)",
+   "SlashGear, YourMechanic (aralık)"
+  ]
+ }
 }

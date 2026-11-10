@@ -61,8 +61,8 @@
     "kaçak",
     "servis"
    ],
-   "metin": "Soğukken yağ seviyesine ve köpük olup olmadığına bak. Yağ azalıyorsa genelde kaçak vardır, yağ eklemek geçici çözümdür. Servise göster.",
-   "metin_en": "Check the fluid level and for foam when the engine is cold. If the fluid keeps dropping there is usually a leak, and topping up is only temporary. Show it to a service."
+   "metin": "Kitapçıktaki yönteme göre yağ seviyesine ve köpük olup olmadığına bak. Yağ azalıyorsa genelde kaçak vardır. Bu durumu ustaya göster.",
+   "metin_en": "Check the fluid level and for foam as your manual describes. If the fluid keeps dropping there is usually a leak. Show this to a technician."
   },
   {
    "tip": "bilgi",
@@ -82,5 +82,14 @@
    "metin_en": "Have you heard a noise like this from your steering? Comment and save it for later!",
    "soru": "Direksiyonda ses duydun mu?"
   }
- ]
+ ],
+ "editor": {
+  "tarih": "2026-11-10",
+  "durum": "onaylandi",
+  "notlar": "Direksiyon güvenlik konusu: 'soğukken bak, yağ eklemek geçici çözüm' ifadesi kaldırıldı; seviye/köpük kontrolü kitapçığa bağlandı, yağ azalması ustaya yönlendirildi (TR ve EN). Hidrolik/elektrikli ayrımı doğru.",
+  "dogrulanan_kaynaklar": [
+   "Vehicle Service Pros, YourMechanic, Detroit Axle, RepairPal (hidrolik: yağ azlığı, hava/köpük, kayış; yağ azalması kaçak)",
+   "Stoneacre, Mazda ABD kitapçığı (elektrikli direksiyon: yağ yok, elektriksel arıza lambası)"
+  ]
+ }
 }
