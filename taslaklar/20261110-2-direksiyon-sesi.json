@@ -1,0 +1,86 @@
+{
+ "baslik": "Direksiyon çevirirken ses geliyor",
+ "baslik_en": "Noise when turning the wheel",
+ "seri": "ariza",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "DİREKSİYONDA",
+   "SES VARSA",
+   "NE OLUR?"
+  ],
+  "vurgu": [
+   1
+  ]
+ },
+ "aciklama": "Hidrolik direksiyonlu araçta inleme ya da uğultu çoğu zaman hidrolik yağ azlığına, hava ya da kayışa işaret eder; yağ azalıyorsa genelde kaçak vardır. Elektrikli direksiyonda yağ yoktur, uyarı lambası elektriksel sorun gösterir. Direksiyon ağırlaşırsa güvenli yerde dur. Sen böyle bir ses duydun mu? Yorumlara yaz, kaydet! ⚠️",
+ "aciklama_en": "In cars with hydraulic power steering, a whine or groan often points to low fluid, air or a belt; falling fluid usually means a leak. Electric steering has no fluid, and a warning light points to an electrical issue. If the steering gets heavy, stop somewhere safe. Have you heard a noise like this? Tell us in the comments and save this! ⚠️",
+ "etiketler": [
+  "#viteskop",
+  "#direksiyon",
+  "#hidrolikdireksiyon",
+  "#arızaalarmı",
+  "#ses",
+  "#arababakımı",
+  "#otomobil",
+  "#powersteering",
+  "#carmaintenance",
+  "#sürüşgüvenliği"
+ ],
+ "kaynaklar": [
+  "YourMechanic – bozuk direksiyon pompası belirtileri: https://www.yourmechanic.com/article/symptoms-of-a-bad-or-failing-power-steering-pump",
+  "RepairPal – direksiyon pompası: https://repairpal.com/power-steering-pump",
+  "Stoneacre – direksiyon uyarı lambası: https://www.stoneacre.co.uk/blog/power-steering-warning-light-what-causes-it",
+  "Mazda ABD kullanım kitapçığı – elektrikli direksiyon uyarısı: https://www.mazdausa.com/static/manuals/2026/cx-50/contents/68141000.html",
+  "Aracın kullanım kitapçığı"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Direksiyonu çevirirken inleme ya da uğultu mu geliyor? Önce direksiyonun türüne bak. Sebep sistemden sisteme değişir.",
+   "metin_en": "Do you hear a groan or whine when turning the wheel? First check what type of steering you have. The cause varies from system to system."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Hidrolik: yağ azlığı, hava, kayış",
+   "metin": "Hidrolik direksiyonda inleme çoğu zaman yağın azaldığına işaret eder. Pompa hava çekerse ses çıkar. Aşınmış ya da kayan kayış da cırtlama yapabilir.",
+   "metin_en": "In hydraulic steering a groan often points to low fluid. If the pump draws in air it makes noise. A worn or slipping belt can also squeal."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Ne yapmalı?",
+   "maddeler": [
+    "Yağ seviyesine bak",
+    "Köpük var mı?",
+    "Kaçak izi ara",
+    "Servise göster"
+   ],
+   "anahtarlar": [
+    "yağ",
+    "köpük",
+    "kaçak",
+    "servis"
+   ],
+   "metin": "Soğukken yağ seviyesine ve köpük olup olmadığına bak. Yağ azalıyorsa genelde kaçak vardır, yağ eklemek geçici çözümdür. Servise göster.",
+   "metin_en": "Check the fluid level and for foam when the engine is cold. If the fluid keeps dropping there is usually a leak, and topping up is only temporary. Show it to a service."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Elektrikli: yağ yok",
+   "metin": "Elektrikli direksiyonda yağ yoktur. Uyarı lambası yanarsa sorun elektriksel olabilir, örneğin sensör, motor ya da zayıf akü. Direksiyon ağırlaşabilir.",
+   "metin_en": "Electric steering has no fluid. If the warning light comes on the problem may be electrical, such as a sensor, motor or weak battery. The steering can feel heavy."
+  },
+  {
+   "tip": "uyari",
+   "yazi": "Direksiyon ağırlaştıysa dur",
+   "metin": "Direksiyon belirgin ağırlaştıysa güvenli yerde dur. Direksiyona kendin müdahale etme, ustaya göster. Ses ya da lamba varsa geciktirme.",
+   "metin_en": "If the steering has got noticeably heavy, stop somewhere safe. Don't work on the steering yourself; show it to a technician. If there is a noise or a light, don't delay."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen direksiyonda böyle bir ses duydun mu? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you heard a noise like this from your steering? Comment and save it for later!",
+   "soru": "Direksiyonda ses duydun mu?"
+  }
+ ]
+}

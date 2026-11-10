@@ -1,0 +1,88 @@
+{
+ "baslik": "Lastik yer değişimi ne zaman?",
+ "baslik_en": "When to rotate tyres?",
+ "seri": "bakim",
+ "stil": "ciddi",
+ "kapak": {
+  "satirlar": [
+   "LASTİK YERİ",
+   "NE ZAMAN",
+   "DEĞİŞİR?"
+  ],
+  "vurgu": [
+   2
+  ]
+ },
+ "aciklama": "Lastikler konumuna göre farklı aşınır; yer değiştirmek aşınmayı dengelemeye yardım eder. Sık verilen aralık yaklaşık 8–12 bin km'dir ama aracının kitapçığına ve lastik garantisine bak. Düzensiz aşınma görürsen daha erken baktır. Sen lastiklerini hiç çaprazladın mı? Yorumlara yaz, kaydet! 🔧",
+ "aciklama_en": "Tyres wear differently by position; rotating them helps even out wear. A commonly given interval is roughly 8,000–12,000 km, but check your manual and tyre warranty. If you see uneven wear, have it checked sooner. Have you ever rotated your tyres? Tell us in the comments and save this! 🔧",
+ "etiketler": [
+  "#viteskop",
+  "#lastik",
+  "#lastikrotasyonu",
+  "#bakımsaati",
+  "#arababakımı",
+  "#otomobil",
+  "#lastikbakımı",
+  "#tirerotation",
+  "#carmaintenance",
+  "#bakım"
+ ],
+ "kaynaklar": [
+  "SlashGear – lastik rotasyonu aralığı: https://www.slashgear.com/1406860/how-often-rotate-car-tires/",
+  "RepairPal – lastik rotasyonu neden önemli: https://repairpal.com/tire-rotation",
+  "YourMechanic – ne sıklıkla: https://www.yourmechanic.com/article/how-often-do-i-need-to-rotate-my-tires",
+  "Michelin – lastik rotasyonu: https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/tire-rotation",
+  "Aracın kullanım kitapçığı ve lastik garantisi (not: kaynaklar 5.000–8.000 mil veriyor, yaklaşık 8–12 bin km)"
+ ],
+ "sahneler": [
+  {
+   "tip": "giris",
+   "metin": "Dört lastiğin aynı hızda mı aşınıyor? Genelde hayır. Oysa fark etmek kolaydır.",
+   "metin_en": "Are all four tyres wearing at the same rate? Usually not. Yet it is easy to notice."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Konuma göre farklı aşınır",
+   "metin": "Ön lastikler genelde daha yük taşır ve direksiyon, fren, ivme de bazı lastikleri daha çok zorlar. Bu yüzden lastikler eşit aşınmaz. Rotasyon bu farkı dengelemeye yardım eder.",
+   "metin_en": "The front tyres usually carry more load, and steering, braking and acceleration stress some tyres more. That is why tyres don't wear evenly. Rotation helps even out this difference."
+  },
+  {
+   "tip": "gosterge",
+   "deger": 0.5,
+   "yazi": "Aralık",
+   "alt": "~8–12 bin km",
+   "metin": "Sık verilen aralık yaklaşık sekiz ile on iki bin kilometredir. Şehir içi kullanımda daha sık, uzun yolda daha seyrek olabilir.",
+   "metin_en": "A commonly given interval is roughly eight to twelve thousand kilometres. It can be more often for city driving and less often for long-distance driving."
+  },
+  {
+   "tip": "liste",
+   "baslik": "Dikkat et",
+   "maddeler": [
+    "Önce kitapçığa bak",
+    "Lastik garantisini oku",
+    "Düzensiz aşınmayı baktır",
+    "Aracın bir yöne çekmesi"
+   ],
+   "anahtarlar": [
+    "kitapçığa",
+    "garanti",
+    "düzensiz",
+    "çek"
+   ],
+   "metin": "Önce aracının kitapçığına ve lastik garantisine bak, çünkü bazı garantiler düzenli yer değişimi ister. Düzensiz aşınma ya da aracın bir yöne çekmesi varsa daha erken baktır.",
+   "metin_en": "Check your manual and tyre warranty first, because some warranties require regular rotation. If you see uneven wear or the car pulls to one side, have it checked sooner."
+  },
+  {
+   "tip": "bilgi",
+   "yazi": "Yönlü ve farklı ebat lastikler",
+   "metin": "Yönlü lastik ya da önde arkada farklı ebat varsa çaprazlama yapılamayabilir. Lastikçiye sor. Doğru yöntemi o söyler.",
+   "metin_en": "With directional tyres or different sizes front and rear, a cross rotation may not be possible. Ask a tyre shop. They can tell you the right method."
+  },
+  {
+   "tip": "kapanis",
+   "metin": "Sen lastiklerini hiç çaprazladın mı? Yorumlara yaz, kaydet, lazım olur!",
+   "metin_en": "Have you ever rotated your tyres? Comment and save it for later!",
+   "soru": "Lastiklerini hiç çaprazladın mı?"
+  }
+ ]
+}
