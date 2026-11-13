@@ -16,9 +16,9 @@
     }
   ],
   "hata": {
-    "kod": null,
-    "ozet": null,
-    "sinif": null
+    "kod": "HTTP_400",
+    "ozet": "api_kod=190 alt=0 tur=OAuthException Error validating access token: You cannot access the app till you log in to www.instagram.com and follow the instruction",
+    "sinif": "kesin"
   },
   "icerik": {
     "senaryo_id": "20261108-2-frende-titreme.json",
