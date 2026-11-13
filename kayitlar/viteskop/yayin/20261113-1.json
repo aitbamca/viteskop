@@ -1,6 +1,6 @@
 {
-  "deneme": 1,
-  "durum": "BASARISIZ",
+  "deneme": 2,
+  "durum": "YAYINLANIYOR",
   "gecmis": [
     {
       "durum": "PLANLANDI",
@@ -19,6 +19,12 @@
       "not": "HTTP_400",
       "run_id": "run43401933603-a1",
       "zaman": "2026-11-13T09:31:57.884828+00:00"
+    },
+    {
+      "durum": "YAYINLANIYOR",
+      "not": "",
+      "run_id": "run43401933603-a1",
+      "zaman": "2026-11-13T09:32:28.775249+00:00"
     }
   ],
   "hata": {
